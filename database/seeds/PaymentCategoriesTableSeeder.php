@@ -11,7 +11,7 @@ class PaymentCategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        $date = [
+        $data = [
             [
                 'title' => 'Offering',
                 'church_id' => 1,
@@ -61,7 +61,10 @@ class PaymentCategoriesTableSeeder extends Seeder
             ],
 
         ];
-        
-        PaymentCategory::create();
+
+        foreach ($data as $categories) {
+            PaymentCategory::create();
+
+        }
     }
 }
