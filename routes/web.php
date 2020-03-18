@@ -33,9 +33,9 @@ Route::middleware(['auth'])->group(function(){
     Route::get('views', function(){
         $service = Service::latest()->first();
 
-        $service = views($service)->count();
+        // $service = views::with()->get();
 
-        return $service;
+        return $service->views;
     });
 
 });
