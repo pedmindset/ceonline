@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,14 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/home', 'HomeController@index')->name('home');
 
     Route::post('/attendance_count', 'AttendanceController@store');
+
+    Route::get('views', function(){
+        $service = Service::latest()->first();
+
+        $service = views($service)->count();
+
+        return $service;
+    });
 
 });
 
