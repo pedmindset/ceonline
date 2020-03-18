@@ -20,9 +20,36 @@
                 
               </video>
             </div>
-            <div class="p-2 lg:p-0 xl:p-0">
-                <p class="pt-4 pb-1 text-lg text-gray-700">Sunday Service with Pastor Earnest</p>
-                <p class="pb-4 pt-1 text text-gray-500">Feb 3, 2020</p>
+            <div class="flex flex-col w-full">
+                <div class="flex justify-between">
+                    <span>
+                        <p class="pt-4 pb-1 text-lg text-gray-700">Mid-Week Service with Pastor Earnest</p>
+                         <p class="pb-4 pt-1 text text-gray-500">18th March, 2020</p>
+                    </span>
+                    <div x-data="{ open: false }" class="mt-4">
+                        MTN Mobile Money <span class="p-2 px-6 rounded-full bg-indigo-500 shadow text-white">
+                            <i class="las la-phone-alt"></i> 054 944 9772
+                        </span>
+                        {{-- <button  x-on:click="open = true" x-on:click.away="open = false"  type="button" class="inline-flex items-center shadow-md px-8 py-2 my-4 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
+                            Give Online
+                          </button>   --}}
+                    </div>
+                </div>
+                
+                <div class="sm:col-span-6">
+                    {{-- <label for="about" class="block text-sm font-medium leading-5 text-gray-700">
+                      comment
+                    </label>
+                    <div class="mt-1">
+                      <textarea id="about" rows="3" class="form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5 md:w-full lg:w-12/12"></textarea>
+                      <span class="inline-flex rounded-md">
+                        <button type="button" class="inline-flex items-center shadow-md px-8 py-2 my-4 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
+                          Submit
+                        </button>
+                      </span>                  
+                    </div>
+                    <p class="mt-2 text-sm text-gray-500">post your thoughts here.</p> --}}
+                </div>
             </div>
         </div>
 

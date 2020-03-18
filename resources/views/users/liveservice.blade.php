@@ -41,9 +41,7 @@
                 <div x-data="{ open: false }" class="">
                     <button  x-on:click="open = true" x-on:click.away="open = false"  type="button" class="inline-flex items-center shadow-md px-8 py-2 my-4 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
                         Give Online
-                      </button>
-                     
-                     
+                      </button>  
                 </div>
                
             </div>
