@@ -83,7 +83,7 @@ class HomeController extends Controller
                 //Optional attributes for embed container
                 $attributes = [
                 'type' => null,
-                'class' => 'w-full h-screen',
+                'class' => 'w-full h-video',
                 'data-html5-parameter' => true
                 ];
 

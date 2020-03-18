@@ -34,6 +34,10 @@ module.exports = {
           '96': '24rem',
         },
 
+        height: {
+          video: '36rem',
+        },
+
       /*
       |-----------------------------------------------------------------------------
       | Minimum width                        https://tailwindcss.com/docs/min-width
