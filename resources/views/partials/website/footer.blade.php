@@ -40,7 +40,7 @@
             </span>
             <p class="ml-3 font-medium text-white truncate">
               <span class="md:hidden">
-                Platform Under Construction
+                Refresh page if the stream is not showing
               </span>
               <span class="hidden md:inline">
                 Notice! Please, refresh page if the stream is not showing
