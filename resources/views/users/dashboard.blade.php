@@ -22,11 +22,11 @@
             </div>
             <div class="flex flex-col w-full">
                 <div class="flex flex-wrap justify-between">
-                    <span>
+                    <span class="px-4">
                         <p class="pt-4 pb-1 text-lg text-gray-700">Mid-Week Service with Pastor Earnest</p>
                          <p class="pb-4 pt-1 text text-gray-500">18th March, 2020</p>
                     </span>
-                    <div x-data="{ open: false }" class="mt-4">
+                    <div x-data="{ open: false }" class="mt-4 px-4">
                         MTN Mobile Money <span class="p-2 px-6 rounded-full bg-indigo-500 shadow text-white">
                             <i class="las la-phone-alt"></i> 054 944 9772
                         </span>
