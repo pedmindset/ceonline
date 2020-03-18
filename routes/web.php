@@ -22,6 +22,6 @@ Route::get('/videos', function () {
 })->middleware('auth');
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
