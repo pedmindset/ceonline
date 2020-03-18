@@ -26,14 +26,14 @@
             </div>
         </div>
         <div class="col-span-1 row-span-2 m-1 lg:m-0 xl:m-0 flex md:flex-col">
-            <div class="w-56 h-auto my-3 py-5 bg-indigo-500 rounded-lg shadow-2xl flex flex-col text-white items-center mx-2">
+            <div class="w-full h-auto my-3 py-5 bg-indigo-500 rounded-lg shadow-2xl flex flex-col text-white items-center mx-2">
                 <span class="rounded-full bg-white">
                     <i class=" text-indigo-400 las la-church text-3xl p-3"></i>
                 </span>
                 <p class="text-3xl mt-2 font-bold">5</p>
                 <p class="mt-1 text-center">Monthly <br>Attendence</p>
             </div>
-            <div class="w-56 h-auto my-3 py-5 bg-indigo-500 rounded-lg shadow-2xl flex flex-col text-white items-center mx-2">
+            <div class="w-full h-auto my-3 py-5 bg-indigo-500 rounded-lg shadow-2xl flex flex-col text-white items-center mx-2">
                 <span class="rounded-full bg-white">
                     <i class=" text-indigo-400 las la-wallet text-3xl p-3"></i>
                 </span>
