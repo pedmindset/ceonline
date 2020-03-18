@@ -33,4 +33,9 @@ public function venue()
 {
 return $this->belongsTo('App\Models\Venue', 'venue_id', 'id');
 }
+
+public function videos()
+{
+return $this->hasMany('App\Models\Video');
+}
 }

@@ -2,12 +2,13 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\BelongsTo;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\BelongsTo;
 
 
 class Service extends Resource
@@ -112,6 +113,8 @@ Select::make( __('Type'),  'type')
                                                                 DateTime::make( __('End Date'),  'end_date')
 ->sortable()
 ,
+
+HasMany::make('Videos'),
                                                                                             ];
     }
 

@@ -7,6 +7,7 @@ use App\Models\Attendance;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
+use Merujan99\LaravelVideoEmbed\Facades\LaravelVideoEmbed;
 
 class HomeController extends Controller
 {
@@ -44,6 +45,7 @@ class HomeController extends Controller
         //     }
         // }
 
+        $video_iframe = false;
       
         if($service){
             $check_attendance = Attendance::where('user_id', $user->id)
@@ -65,10 +67,40 @@ class HomeController extends Controller
                 $attendance->count = $count;
                 $attendance->save();
             }
-        }
 
+            if($service->platform != 'imm'){
+                 //URL to be used for embed generation
+                $url = $service->link;
 
+                //Optional array of website names, if present any websites not in the array will result in false being returned by the parser
+                $whitelist = ['YouTube', 'Vimeo', 'Facebook', 'Local Content'];
 
-        return view('users.dashboard', compact('service', 'user',));
+                //Optional parameters to be appended to embed
+                $params = [
+                    'autoplay' => 1,
+                ];
+
+                //Optional attributes for embed container
+                $attributes = [
+                'type' => null,
+                'class' => 'w-full h-screen',
+                'data-html5-parameter' => true
+                ];
+
+             
+
+                $video_iframe =  LaravelVideoEmbed::parse($url, $whitelist, $params, $attributes);
+
+                // dd($video_iframe);
+                //<iframe src="https://www.youtube.com/embed/8eK-5ivYb3o?wmode=transparent&amp;autoplay=1&amp;loop=1" type="" width="480" height="295" frameborder="0" allowfullscreen class="iframe-class" data-html5-parameter></iframe>
+
+                // return LaravelVideoEmbed::getYoutubeThumbnail($url)
+                // //https://<youtube image thumbnail with max resolution>. usage: <img src="{{ LaravelVideoEmbed::getYoutubeThumbnail($url) }}"> 
+
+             }
+            
+            }
+
+        return view('users.dashboard', compact('service', 'user','video_iframe'));
     }
 }

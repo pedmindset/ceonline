@@ -16,10 +16,14 @@
     <div class="grid grid-rows-2 md:grid-cols-4 gap-2">
         <div class="col-span-4 row-span-2">
             <div class=" h-auto w-full bg-black flex justify-center items-center">
+            @if($video_iframe == false)
               <video class="video-js vjs-big-play-centered vjs-16-9" data-setup='{"controls": true, "autoplay": true, "preload": "auto"}'>
-                <source src="https://immout.netromedia.com/Superscreen/nungua/playlist.m3u8" type="video/mp4">
+                <source src="{{ $service->link }}" type="video/mp4">
                 
               </video>
+            @else
+              {!! $video_iframe !!}
+            @endif
             </div>
             <div class="flex flex-col w-full">
                 <div class="flex flex-wrap justify-between">
