@@ -17,7 +17,7 @@
         <div class="col-span-4 row-span-2">
             <div class=" h-auto w-full bg-black flex justify-center items-center">
               <video class="video-js vjs-big-play-centered vjs-16-9" data-setup='{"controls": true, "autoplay": true, "preload": "auto"}'>
-                <source src="{https://immout.netromedia.com/Superscreen/nungua/playlist.m3u8}" type="video/mp4">
+                <source src="https://immout.netromedia.com/Superscreen/nungua/playlist.m3u8" type="video/mp4">
                 
               </video>
             </div>
