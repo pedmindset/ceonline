@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\PaymentCategory;
 use Illuminate\Database\Seeder;
 
 class PaymentCategoriesTableSeeder extends Seeder

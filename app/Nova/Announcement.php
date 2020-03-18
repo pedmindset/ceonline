@@ -70,7 +70,7 @@ class Announcement extends Resource
 ->rules('required')
 ->sortable()
 ,
-                                                                BelongsTo::make('AnnouncementCategory')
+                                                                BelongsTo::make('Category', 'Announcement_Category', 'App\Nova\AnnouncementCategory')
 
 ->rules('required')
 ->searchable()

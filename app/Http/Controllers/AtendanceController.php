@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Attendance;
 use Illuminate\Http\Request;
 
 class AtendanceController extends Controller
@@ -22,9 +23,34 @@ class AtendanceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $count = 1)
     {
-        //
+
+        $user = $request->user();
+        
+        $check_attendance = Attendence::where('user_id', $user->id)
+                                      ->where('service_id', $request->service)
+                                      ->whereBetween('created_at', [
+                                            now()->copy()->startOfToday()->toDateTimeString(),
+                                            now()->copy()->endOfToday()->toDateTimeString(),
+                                      ])->first();
+        if($check_attendance){
+           if(!$check_attendance->count == $count){
+               $check_attendance->count = $count;
+           }
+        }else{
+            $attendance = new Attendance;
+            $attendance->user_id = $user->id;
+            $attendance->service_id = $request->service;
+            $attendance->count = $count;
+            $attendance->save();
+        }
+
+        return response()->json([
+            'message' => 'success',
+            'code' => 100
+        ]);
+        
     }
 
     /**
