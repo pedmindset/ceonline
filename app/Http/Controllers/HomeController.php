@@ -56,12 +56,12 @@ class HomeController extends Controller
             if($check_attendance){
                 if($check_attendance->count == $count){
                     $check_attendance->count = $count;
-                    // $check_attendance->count = $count;
+                    $check_attendance->service_id = $service->id;
                 }
             }else{
                 $attendance = new Attendance;
                 $attendance->user_id = $user->id;
-                $attendance->service_id = $request->service;
+                $attendance->service_id = $service->id;
                 $attendance->count = $count;
                 $attendance->save();
             }
