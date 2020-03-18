@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Route::get('/videos', function () {
     return view('users.liveservice');
-});
+})->middleware('auth');
 
 
 Auth::routes();

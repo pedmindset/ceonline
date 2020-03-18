@@ -62,8 +62,8 @@ class PaymentCategoriesTableSeeder extends Seeder
 
         ];
 
-        foreach ($data as $categories) {
-            PaymentCategory::create();
+        foreach ($data as $category) {
+            PaymentCategory::create($category);
 
         }
     }
