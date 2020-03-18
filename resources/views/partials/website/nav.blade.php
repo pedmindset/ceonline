@@ -2,8 +2,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center">
-          <div class="flex-shrink-0">
-            <img class="h-8 w-8" src="/img/logos/workflow-mark-on-brand.svg" alt="" />
+          <div class="flex-shrink-0 text-white">
+            {{-- <img class="h-8 w-8" src="/img/logos/workflow-mark-on-brand.svg" alt="" /> --}}
+            CE Online
           </div>
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline">

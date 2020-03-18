@@ -11,6 +11,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <title>@yield('title') {{ config('app.name', 'Field Service') }}</title>
     @include('partials.styles')
+    
 </head>
 <body>
 <div class="h-screen flex overflow-hidden bg-gray-100" x-data="{ sidebarOpen: false }" @keydown.window.escape="sidebarOpen = false">
