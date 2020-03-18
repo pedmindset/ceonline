@@ -13,8 +13,8 @@
 @push('page-content')
 <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">   
     <div class="grid grid-rows-2 md:grid-cols-4 gap-2">
-        <div class="col-span-3 row-span-2">
-            <div class=" h-auto md:w-full lg:w-11/12 bg-black flex justify-center items-center">
+        <div class="col-span-4 row-span-2">
+            <div class=" h-auto w-full bg-black flex justify-center items-center">
               <video class="video-js vjs-big-play-centered vjs-16-9" data-setup='{"controls": true, "autoplay": true, "preload": "auto"}'>
                 <source src="https://immout.netromedia.com/Superscreen/nungua/playlist.m3u8" type="video/mp4">
                 
@@ -25,22 +25,7 @@
                 <p class="pb-4 pt-1 text text-gray-500">Feb 3, 2020</p>
             </div>
         </div>
-        <div class="col-span-1 row-span-2 m-1 lg:m-0 xl:m-0 flex md:flex-col">
-            <div class="w-full h-auto my-3 py-5 bg-indigo-500 rounded-lg shadow-2xl flex flex-col text-white items-center mx-2">
-                <span class="rounded-full bg-white">
-                    <i class=" text-indigo-400 las la-church text-3xl p-3"></i>
-                </span>
-                <p class="text-3xl mt-2 font-bold">5</p>
-                <p class="mt-1 text-center">Monthly <br>Attendence</p>
-            </div>
-            <div class="w-full h-auto my-3 py-5 bg-indigo-500 rounded-lg shadow-2xl flex flex-col text-white items-center mx-2">
-                <span class="rounded-full bg-white">
-                    <i class=" text-indigo-400 las la-wallet text-3xl p-3"></i>
-                </span>
-                <p class="text-3xl mt-2 font-bold">GHS 4</p>
-                <p class="mt-1">Total Givings</p>
-            </div>
-        </div>
+
     </div>
 
     <div class="flex flex-wrap w-full">

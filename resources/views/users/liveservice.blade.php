@@ -39,56 +39,10 @@
                     </div>
                 </div>
                 <div x-data="{ open: false }" class="">
-                    <button  x-on:click="open = !open" x-on:click.away="open = false"  type="button" class="inline-flex items-center shadow-md px-8 py-2 my-4 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
+                    <button  x-on:click="open = true" x-on:click.away="open = false"  type="button" class="inline-flex items-center shadow-md px-8 py-2 my-4 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
                         Give Online
                       </button>
-                      <div  x-show="open"  class="fixed bottom-0 inset-x-0 px-4 pb-6 sm:inset-0 sm:p-0 sm:flex sm:items-center sm:justify-center">
-                        <div x-show="open" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 transition-opacity">
-                          <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
-                        </div>
-                      
-                        <div x-show="open" x-on:click.away="open = false" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100" x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" class="bg-white rounded-lg px-4 pt-5 pb-4 overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full sm:p-6">
-                          <div>
-                            <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
-                              <i class="las la-money-bill text-green-600 text-xl"></i>
-                            </div>
-                            <div class="mt-3 text-center sm:mt-5">
-                              <h3 class="text-lg leading-6 font-medium text-gray-900">
-                                Enter the amount to give
-                              </h3>
-                              <div class="mt-2">
-                                <div>
-                                    <div class="mt-1 relative rounded-md shadow-sm">
-                                      <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                        <span class="text-gray-500 sm:text-sm sm:leading-5">
-                                          $
-                                        </span>
-                                      </div>
-                                      <input id="price" class="form-input block w-full pl-7 pr-12 sm:text-sm sm:leading-5" placeholder="0.00" />
-                                      <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                                        <span class="text-gray-500 sm:text-sm sm:leading-5">
-                                          USD
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense">
-                            <span class="flex w-full rounded-md shadow-sm sm:col-start-2">
-                              <button @click="open = !open" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-indigo-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150 sm:text-sm sm:leading-5">
-                                Give
-                              </button>
-                            </span>
-                            <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:col-start-1">
-                              <button @click="open = !open" type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline transition ease-in-out duration-150 sm:text-sm sm:leading-5">
-                                Cancel
-                              </button>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
+                     
                      
                 </div>
                
