@@ -43,7 +43,7 @@
                 Platform Under Construction
               </span>
               <span class="hidden md:inline">
-                Notice! We're currently rolling out the features
+                Notice! Please, refresh page if the stream is not showing
               </span>
             </p>
           </div>
