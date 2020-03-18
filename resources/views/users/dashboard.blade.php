@@ -21,7 +21,7 @@
               </video>
             </div>
             <div class="flex flex-col w-full">
-                <div class="flex justify-between">
+                <div class="flex flex-wrap justify-between">
                     <span>
                         <p class="pt-4 pb-1 text-lg text-gray-700">Mid-Week Service with Pastor Earnest</p>
                          <p class="pb-4 pt-1 text text-gray-500">18th March, 2020</p>
