@@ -81,8 +81,8 @@ class PaymentCategory extends Resource
                                                                 Select::make( __('Partnership'),  'partnership')
 ->sortable()
 ->options([
-    		    'yes' => '1',
-	    	    'no' => '0',
+    		    1 => 'yes',
+	    	    0 => 'no',
 	    	])
 ,
                                                                                             ];

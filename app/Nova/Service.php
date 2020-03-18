@@ -80,15 +80,12 @@ class Service extends Resource
 ->searchable()
 ->sortable()
 ,
-                                                                BelongsTo::make('ServiceType')
-
-->searchable()
-->sortable()
-,
+                                                            
                                                                 Text::make( __('Title'),  'title')
 ->sortable()
 ,
-                                                                Select::make( __('Type'),  'type')
+                                                                
+Select::make( __('Type'),  'type')
 ->sortable()
 ->options([
     		    'onsite' => 'onsite',

@@ -40,10 +40,10 @@
             </span>
             <p class="ml-3 font-medium text-white truncate">
               <span class="md:hidden">
-                We announced a new platform!
+                Platform Under Construction
               </span>
               <span class="hidden md:inline">
-                Big news! We're excited to announce our new streaming platform.
+                Notice! We're currently rooling out the features
               </span>
             </p>
           </div>

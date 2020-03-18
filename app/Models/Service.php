@@ -22,7 +22,7 @@ public function church()
 {
     return $this->belongsTo('App\Models\Church', 'church_id', 'id');
 }
-public function service_type()
+public function servicetype()
 {
 return $this->belongsTo('App\Models\ServiceType', 'service_type_id', 'id');
 }

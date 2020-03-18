@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Church;
 use Illuminate\Database\Seeder;
 
 class ChurchesTableSeeder extends Seeder
@@ -11,6 +12,9 @@ class ChurchesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Church::create([
+            'grow_id' => 237,
+            'name' => 'Christ Embassy Nungua'
+        ]);
     }
 }
