@@ -73,6 +73,13 @@
           <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-indigo-300 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Your Profile</a>
           <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-300 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Settings</a>
           <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-300 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Sign out</a>
+          <a  class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-300 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600" href="{{ route('logout') }}"  onclick="event.preventDefault();
+              document.getElementById('logout-form2').submit();">
+              Logout
+              <form id="logout-form2" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+              </form>
+						</a>
         </div>
       </div>
     </div>
