@@ -58,7 +58,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards()
     {
         return [
-            new Help,
+            (new \App\Nova\Metrics\newUsers),
+            (new \App\Nova\Metrics\newAttendance),
+            (new \App\Nova\Metrics\newPayments),
         ];
     }
 

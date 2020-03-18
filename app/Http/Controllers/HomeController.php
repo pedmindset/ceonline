@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
 {
@@ -21,8 +24,21 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('users.dashboard');
+        $user = $request->user();
+
+        $service = Service::latest()->first();
+
+        $cache_service = 'service' . $user->id;
+
+        if($service){
+            if (!(Cache::has($cache_service))) {
+                Cache::store('redis')->put('service.' . $user->id, $service->id, 600);
+            }
+        }
+
+
+        return view('users.dashboard', compact('service', 'user',));
     }
 }

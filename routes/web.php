@@ -13,15 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes(['verify' => true]);
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/videos', function () {
-    return view('users.liveservice');
-})->middleware('auth');
+Route::middleware(['auth'])->group(function(){
+
+    Route::get('/videos', function () {
+        return view('users.liveservice');
+    });
+
+    Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::post('/attendance_count', 'AttendanceController@store');
+
+});
 
 
-Auth::routes(['verify' => true]);
-
-Route::get('/home', 'HomeController@index')->name('home');

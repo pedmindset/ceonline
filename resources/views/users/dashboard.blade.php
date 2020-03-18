@@ -11,6 +11,7 @@
 @endpush
 
 @push('page-content')
+<div id="myapp">
 <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">   
     <div class="grid grid-rows-2 md:grid-cols-4 gap-2">
         <div class="col-span-4 row-span-2">
@@ -285,8 +286,46 @@
         </div>
     </div>   
 </div>
+</div>
 @endpush
 @push('custom-scripts')
 <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
+<script>
+
+var service = <?= json_encode($service); ?>
+
+var user = <?= json_encode($user); ?>
+
+const app = new Vue({
+    el: '#myapp',
+    data(){
+
+    },
+
+    methods: {
+        attendance_count(){
+            if(service != null){
+                axios.post('../attendance_count', {
+                    service: service.id,
+                    count: 1
+                }).then(function(r){
+                    console.log(r.data);
+                    
+                }).catch(function(e){
+                    console.log(r.data);
+                    
+                })
+            }
+        }
+    },
+
+    mounted: function(){
+        this.attendance_count();
+    }
+
+
+})
+
+</script>
 
 @endpush
