@@ -59,7 +59,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         return [
             (new \App\Nova\Metrics\newUsers),
-            (new \App\Nova\Metrics\newAttendance),
+            // (new \App\Nova\Metrics\newAttendance),
+            (new \App\Nova\Metrics\NewViews),
             (new \App\Nova\Metrics\newPayments),
         ];
     }

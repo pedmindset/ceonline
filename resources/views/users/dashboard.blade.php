@@ -17,7 +17,7 @@
         <div class="col-span-4 row-span-2">
             <div class=" h-auto w-full bg-black flex justify-center items-center">
               <video class="video-js vjs-big-play-centered vjs-16-9" data-setup='{"controls": true, "autoplay": true, "preload": "auto"}'>
-                <source src="https://immout.netromedia.com/Superscreen/nungua/playlist.m3u8" type="video/mp4">
+                <source src="{https://immout.netromedia.com/Superscreen/nungua/playlist.m3u8}" type="video/mp4">
                 
               </video>
             </div>
@@ -186,7 +186,7 @@
 
 @push('custom-scripts')
 <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
 
     var service = <?= json_encode($service); ?>
@@ -195,8 +195,12 @@
     
     const app = new Vue({
         el: '#myapp',
-        data(){
-    
+        data: function(){
+            return {
+                data: '',
+                service: service,
+                user: user,
+            }
         },
     
         methods: {
@@ -207,9 +211,11 @@
                         count: 1
                     }).then(function(r){
                         console.log(r.data);
+                        this.data = r.data
                         
                     }).catch(function(e){
                         console.log(r.data);
+                        this.data = r.data
                         
                     })
                 }

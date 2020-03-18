@@ -33,10 +33,13 @@ class HomeController extends Controller
         $cache_service = 'service' . $user->id;
 
         if($service){
+            views($service)->cooldown(60)->record();
             if (!(Cache::has($cache_service))) {
-                Cache::store('redis')->put('service.' . $user->id, $service->id, 600);
+                Cache::store('file')->put('service.' . $user->id, $service->id, 600);
             }
         }
+
+
 
 
         return view('users.dashboard', compact('service', 'user',));
