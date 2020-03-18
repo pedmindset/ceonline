@@ -43,7 +43,7 @@
                 Platform Under Construction
               </span>
               <span class="hidden md:inline">
-                Notice! We're currently rooling out the features
+                Notice! We're currently rolling out the features
               </span>
             </p>
           </div>
