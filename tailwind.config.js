@@ -35,7 +35,7 @@ module.exports = {
         },
 
         height: {
-          video: '36rem',
+          video: '36rem', 
         },
 
       /*
