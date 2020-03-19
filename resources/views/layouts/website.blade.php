@@ -20,6 +20,7 @@
           </main>
           @include('partials.website.footer')
         </div>
+        <script src="{{ asset('js/app.js') }}" defer></script>
         @include('partials.website.scripts')
 
     </body>
