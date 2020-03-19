@@ -30,10 +30,7 @@ class HomeController extends Controller
     {
         $user = $request->user();
 
-        $service = Service::whereBetween('created_at', [
-                now()->copy()->startOfDay()->toDateTimeString(),
-                now()->copy()->endOfDay()->toDateTimeString(),
-        ])->first();
+        $service = Service::latest()->first();
 
 
         // $cache_service = 'service' . $user->id;
@@ -49,11 +46,7 @@ class HomeController extends Controller
       
         if($service){
             $check_attendance = Attendance::where('user_id', $user->id)
-            ->where('service_id', $service->id)
-            ->whereBetween('created_at', [
-                now()->copy()->startOfDay()->toDateTimeString(),
-                now()->copy()->endOfDay()->toDateTimeString(),
-            ])->first();
+            ->where('service_id', $service->id)->latest()->first();
 
             if($check_attendance){
                 if($check_attendance->count == $count){
