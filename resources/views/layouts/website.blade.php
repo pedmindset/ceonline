@@ -7,6 +7,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         @include('partials.website.styles')
         
+        <script src="{{ asset('js/app.js') }}" ></script>
 
 
         <title>@yield('title') {{ config('app.name', 'CE ONLINE') }}</title>

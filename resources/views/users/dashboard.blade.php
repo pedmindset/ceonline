@@ -36,6 +36,7 @@
       }
       
       </style>
+
 @endpush
 
 @push('page-content')
@@ -227,9 +228,6 @@
     </div>   
 </div>
 </div>
-<script src="{{ asset('js/app.js') }}" ></script>
-
-
 
 @endpush
 
@@ -294,6 +292,7 @@
                   console.log(response.data);
               }).catch(function(e){
                   submit_comment = false   
+                  self.spinner = false;
                   console.log(e);
               })
             },
