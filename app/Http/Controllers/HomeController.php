@@ -51,7 +51,7 @@ class HomeController extends Controller
         }
       
 
-   
+        $this->check_attendance($service);
 
         $video_iframe = $this->video_parse($service);
 
@@ -74,7 +74,9 @@ class HomeController extends Controller
 
     private function check_attendance($service)
     {
-        $check_attendance = Attendance::where('user_id', auth()->user()->id)
+        $user = auth()->user();
+        
+        $check_attendance = Attendance::where('user_id', $user->id)
         ->where('service_id', $service->id)->latest()->first();
 
         if($check_attendance){
