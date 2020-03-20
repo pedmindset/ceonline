@@ -30,6 +30,7 @@ Route::middleware(['auth'])->group(function(){
 
     Route::post('/attendance_count', 'AttendanceController@store');
     Route::post('/comments', 'ServiceController@post_comment');
+    Route::post('/payments', 'PaymentController@give');
 
     Route::get('views', function(){
         $service = Service::latest()->first();

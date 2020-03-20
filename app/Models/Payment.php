@@ -21,8 +21,13 @@ public function church()
 {
 return $this->belongsTo('App\Models\Church', 'church_id', 'id');
 }
-public function payment()
+public function paymentcategory()
 {
 return $this->belongsTo('App\Models\Payment', 'payment_category_id', 'id');
+}
+
+public function service()
+{
+return $this->belongsTo('App\Models\Service', 'service_id', 'id');
 }
 }

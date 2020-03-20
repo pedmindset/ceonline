@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Service;
 use App\Models\Attendance;
 use Illuminate\Http\Request;
+use App\Models\PaymentCategory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Merujan99\LaravelVideoEmbed\Facades\LaravelVideoEmbed;
@@ -41,6 +42,8 @@ class HomeController extends Controller
                             ->limit(4)
                             ->get();
 
+        $payment_categories = PaymentCategory::all();
+
       
 
         // dd (extension_loaded('redis'));
@@ -48,7 +51,7 @@ class HomeController extends Controller
         $timezone = geoip($request->ip());
         $timezone = $timezone['timezone'];
 
-        return view('users.dashboard', compact('service', 'services', 'user','video_iframe', 'timezone'));
+        return view('users.dashboard', compact('service', 'services', 'user','video_iframe', 'timezone', 'payment_categories'));
     }
 
     private function check_attendance($service)

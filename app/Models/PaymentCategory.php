@@ -21,4 +21,6 @@ public function church()
 {
 return $this->belongsTo('App\Models\Church', 'church_id', 'id');
 }
+
+
 }

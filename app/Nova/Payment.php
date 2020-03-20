@@ -75,9 +75,15 @@ class Payment extends Resource
 
 ->sortable()
 ,
-                                                                BelongsTo::make('Payment')
+                                                                BelongsTo::make('PaymentCategory')
 
 ->rules('required')
+
+->sortable()
+,
+
+BelongsTo::make('Service')
+
 
 ->sortable()
 ,

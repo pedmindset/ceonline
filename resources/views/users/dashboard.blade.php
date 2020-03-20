@@ -89,7 +89,19 @@
                                   Pay with Your Visa, Master Card or Mobile Money.
                                 </p>
                                 <div>
-                                  <label for="price" class="my-2 block text-sm font-medium leading-5 text-gray-700">Amount to give</label>
+                                  <div class="mt-6 sm:mt-5  sm:border-t sm:border-gray-200 sm:pt-5">
+                                    <label for="payment_category" class="block text-left my-1 text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+                                      Category
+                                    </label>
+                                    <div class="mt-1 sm:mt-0 sm:col-span-2">
+                                      <div class="rounded-md shadow-sm">
+                                        <select id="payment_category" v-model="payment_category" class="block form-select w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                          <option v-for="category in payment_categories" v-bind:value="category.id" >@{{ category.title }}</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <label for="price" class="my-2 text-left  my-1   block text-sm font-medium leading-5 text-gray-700">Amount to give</label>
                                   <div class="mt-1 relative rounded-md shadow-sm">
                                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                       <span class="text-gray-500 sm:text-sm sm:leading-5">
@@ -312,7 +324,9 @@
     var timezone = "{{ $timezone }}";
 
     var service = <?= json_encode($service); ?>
-    
+
+    var payment_categories = <?= json_encode($payment_categories); ?>
+
     var user = <?= json_encode($user); ?>
     
     var comments = <?= json_encode($service->comments); ?>
@@ -324,10 +338,11 @@
     },
     data: function(){
         return{
-          payment_modal: false,
-          raveKey: 'FLWPUBK-1beb6ca9cea567480a782f5f99294d64-X',
-          email: user.email,
-          amount: 0,
+                payment_modal: false,
+                raveKey: 'FLWPUBK-1beb6ca9cea567480a782f5f99294d64-X',
+                email: user.email,
+                amount: 0,
+                payment_category: '',
                 data: '',
                 service: service,
                 user: user,
@@ -335,6 +350,8 @@
                 message: '',
                 submit_comment: false,
                 spinner: false,
+                payment_categories: payment_categories
+
             }
         },
 
@@ -379,6 +396,22 @@
           rave_callback: function(response){
             this.amount = ''
             this.payment_modal = false
+            if(response.status == 'successful'){
+              axios.post('../payments', {
+                  church: this.service.church_id,
+                  service: this.service.id,
+                  user: this.user.id,
+                  amount: this.amount,
+                  payment_category: this.payment_category
+              }).then(function(response){
+    
+                  console.log(response.data);
+              }).catch(function(e){
+            
+                  console.log(e);
+              })
+            }
+          
             console.log(response)
           },
           rave_close: function(){
