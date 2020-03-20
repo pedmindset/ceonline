@@ -8,6 +8,34 @@
 @push('custom-styles')
     <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
     <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+    <style>
+      @keyframes spinner {
+        to {transform: rotate(360deg);}
+      }
+
+      .spinner {
+      position: relative;
+      color: transparent !important;
+      pointer-events: none;
+    }
+       
+      .spinner:before {
+        content: '';
+        box-sizing: border-box;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        margin-top: -10px;
+        margin-left: -10px;
+        border-radius: 50%;
+        border: 2px solid #ccc;
+        border-top-color: #000;
+        animation: spinner .6s linear infinite;
+      }
+      
+      </style>
 @endpush
 
 @push('page-content')
@@ -48,8 +76,8 @@
                     <div class="mt-1">
                       <textarea id="message" name="message" v-model="message" rows="3" class="form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5 md:w-full lg:w-12/12"></textarea>
                       <span class="inline-flex rounded-md">
-                        <button :disabled="submit_comment"  v-on:click="post_comment()" type="button" class="inline-flex items-center shadow-md px-8 py-2 my-4 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
-                          Submit
+                        <button :disabled="submit_comment"  v-on:click="post_comment()" type="button" class=" inline-flex items-center shadow-md px-8 py-2 my-4 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
+                          <span v-show="spinner" class="spinner mr-5"></span> Submit
                         </button>
                       </span>                  
                     </div>
@@ -202,6 +230,7 @@
 <script src="{{ asset('js/app.js') }}" ></script>
 
 
+
 @endpush
 
 @push('custom-scripts')
@@ -226,6 +255,7 @@
                 comments: comments,
                 message: '',
                 submit_comment: false,
+                spinner: false,
             }
         },
 
@@ -249,7 +279,8 @@
     
           post_comment: function(){
              var self = this;
-              this.submit_comment = true;
+             this.submit_comment = true;
+             this.spinner = true;
               axios.post('../comments', {
                   church: this.service.church_id,
                   service: this.service.id,
@@ -258,6 +289,7 @@
               }).then(function(response){
                   self.comments.unshift(response.data);
                   self.submit_comment = false;
+                  self.spinner = false;
                   self.message = '';
                   console.log(response.data);
               }).catch(function(e){
