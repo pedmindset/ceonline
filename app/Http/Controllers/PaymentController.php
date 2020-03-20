@@ -16,14 +16,19 @@ class PaymentController extends Controller
             'user' => 'required',
             'church' => 'required',
             'amount' => 'required',
-            'payment_category' => 'required',
+            'payment_category' => 'nullable',
         ]);
         
+
         $payment = new Payment;
         $payment->church_id = $request->church;
         $payment->service_id = $request->service;
         $payment->user_id = $request->user;
-        $payment->payment_category_id = $request->message;
+        if($request->filled('payment_category')){
+            $payment->payment_category_id = $request->payment_category;
+        }else{
+            $payment->payment_category_id = 1;
+        }
         $payment->amount = $request->amount;
         $payment->save();
 

@@ -136,11 +136,11 @@
                                   :rave-key="raveKey"
                                   :callback="rave_callback"
                                   :close="rave_close"
-                                  :customerFirstname="fname()"
-                                  :customerLastname="lname()"
-                                  paymentOptions="ussd,card,barter,account"
-                                  hostedPayemt="1"
-                                  customTitle="ECWAVZ 5 Online Church"
+                                  :customer-firstname="first_name"
+                                  :customer-lastname="last_name"
+                                  payment-options="ussd,card,account"
+                                  hosted-payemt="1"
+                                  custom-title="ECWAVZ 5 Online Church"
                                   currency="GHS"
                                   country="GH"
                               ><i class="lab la-cc-visa mr-1 text-2xl"></i><i class="lab la-cc-mastercard mr-1 text-2xl"></i><i class="las la-mobile-alt mr-1 text-2xl"></i> Pay Now</Rave>
@@ -342,6 +342,8 @@
                 raveKey: 'FLWPUBK-1beb6ca9cea567480a782f5f99294d64-X',
                 email: user.email,
                 amount: 0,
+                fname: user.name,
+                lname: '',
                 payment_category: '',
                 data: '',
                 service: service,
@@ -359,6 +361,15 @@
             live_comments: function(){
                 return this.comments;
             },
+
+            first_name(){
+              return this.fname;
+            },
+
+            lname_name(){
+              return this.lname;
+            },
+
             reference(){
               let text = "";
               let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -372,31 +383,29 @@
     
         methods: {
 
-          fname(){
-            var fname;
-            try {
-              fname = user.name.split(' ')[0]
-            } catch (error) {
-              fname = user.name;
-            }
-            return fname;
+          fname: function(){
+            // try {
+            //   this.fname = user.name.split(' ')[0]
+            // } catch (error) {
+            //   this.fname = user.name;
+            // }
+            return this.user.name;
           },
 
-          lname(){
-            var lname;
+          lname: function(){
             try {
-              lname = user.name.split(' ')[1]
+              this.lname = user.name.split(' ')[1]
             } catch (error) {
               return 
             }
 
-            return lname;
+            return this.lname;
           },
 
           rave_callback: function(response){
             this.amount = ''
             this.payment_modal = false
-            if(response.status == 'successful'){
+            if(response.data.status == 'success'){
               axios.post('../payments', {
                   church: this.service.church_id,
                   service: this.service.id,
@@ -467,6 +476,10 @@
         },
     
         mounted: function(){
+
+          this.fname();
+          this.lname();
+
           setInterval(function(){ 
               this.attendance_count();
             },500000
