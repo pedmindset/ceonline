@@ -83,7 +83,17 @@ BelongsTo::make('Church')
 ->searchable()
 ->sortable()
 ,
-                                                                Textarea::make( __('Message'),  'message')
+  
+
+
+BelongsTo::make('Service')
+
+->rules('required')
+->searchable()
+->sortable()
+,
+
+Textarea::make( __('Message'),  'message')
 ->rules('required')
 ->sortable()
 ,

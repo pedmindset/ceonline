@@ -2,10 +2,11 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\DateTime;
 
 
@@ -77,6 +78,12 @@ class Church extends Resource
                                                                 Number::make( __('Grow ID'),  'grow_id')
 ->sortable()
 ,
+
+HasMany::make('User'),
+HasMany::make('Service'),
+HasMany::make('Announcement'),
+HasMany::make('Payment'),
+HasMany::make('Venue'),
                                                                                             ];
     }
 

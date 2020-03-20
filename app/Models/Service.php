@@ -38,4 +38,14 @@ public function videos()
 {
 return $this->hasMany('App\Models\Video');
 }
+
+public function announcements()
+{
+return $this->hasMany('App\Models\Announcement');
+}
+
+public function attendances()
+{
+return $this->hasMany('App\Models\Attendance');
+}
 }

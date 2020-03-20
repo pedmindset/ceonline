@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\BelongsTo;
 
 
@@ -93,7 +94,7 @@ Select::make( __('Type'),  'type')
 	    	    'online' => 'online',
 	    	])
 ,
-                                                                Text::make( __('Description'),  'description')
+                                                                Textarea::make( __('Description'),  'description')
 ->sortable()
 ,
                                                                 Text::make( __('Link'),  'link')
@@ -115,6 +116,11 @@ Select::make( __('Type'),  'type')
 ,
 
 HasMany::make('Videos'),
+
+HasMany::make('Announcements'),
+
+HasMany::make('Attendances'),
+
                                                                                             ];
     }
 
