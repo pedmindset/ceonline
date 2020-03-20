@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5",
+        "aws/aws-sdk-php": "^3.133",
         "cloudstudio/resource-generator": "^1.5",
         "cyrildewit/eloquent-viewable": "^5.0",
         "digitalcloud/nova-resource-notes": "^1.4",
