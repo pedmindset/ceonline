@@ -117,21 +117,23 @@
                         General
                             </div>
                             <div class="ml-2 flex-shrink-0 flex">
+                              @if($a->urgent == 1)
                             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-green-800">
                                 Urgent
                             </span>
+                            @endif
                             </div>
                         </div>
                         <div class="mt-2 flex-col justify-between">
                             <div class="sm:flex text-gray-500 py-2 text-sm">
-                                Mide-Week Service will be carried out online. Thank you
+                               {{ $a->message }}
                             </div>
                             <div class="mt-2 flex items-center text-sm leading-5 text-gray-500 sm:mt-0 py-2">
                             <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
                             </svg>
                             <span>
-                                <time datetime="2020-01-07">March 18, 2020</time>
+                                <time datetime="2020-01-07">{{ $a->created_at->toDateString() }}</time>
                             </span>
                             </div>
                         </div>
