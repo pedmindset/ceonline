@@ -48,7 +48,7 @@
                     <div class="mt-1">
                       <textarea id="message" name="message" v-model="message" rows="3" class="form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5 md:w-full lg:w-12/12"></textarea>
                       <span class="inline-flex rounded-md">
-                        <button :disabled="!!submit_comment"  v-on:click="post_comment()" type="button" class="inline-flex items-center shadow-md px-8 py-2 my-4 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
+                        <button :disabled="submit_comment"  v-on:click="post_comment()" type="button" class="inline-flex items-center shadow-md px-8 py-2 my-4 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
                           Submit
                         </button>
                       </span>                  
@@ -236,11 +236,7 @@
         },
     
         methods: {
-          disable: function(){
-            this.message = null;
-            this.submit_comment = false;
-          },
-
+  
           dateFormat: function(d){
             var date = Moment.tz(d, timezone).fromNow();
             // console.log(date);
@@ -252,6 +248,7 @@
           },
     
           post_comment: function(){
+             var self = this;
               this.submit_comment = true;
               axios.post('../comments', {
                   church: this.service.church_id,
@@ -259,11 +256,12 @@
                   user: this.user.id,
                   message: this.message
               }).then(function(response){
-                  this.comments.unshift(response.data);
-                  this.disable();
+                  self.comments.unshift(response.data);
+                  self.submit_comment = false;
+                  self.message = '';
                   console.log(response.data);
               }).catch(function(e){
-                  this.submit_comment = false   
+                  submit_comment = false   
                   console.log(e);
               })
             },
