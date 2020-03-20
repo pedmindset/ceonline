@@ -126,7 +126,7 @@
                                   :close="rave_close"
                                   :customerFirstname="fname()"
                                   :customerLastname="lname()"
-                                  paymentOptions="card,barter,account,ussd"
+                                  paymentOptions="ussd,card,barter,account"
                                   hostedPayemt="1"
                                   customTitle="ECWAVZ 5 Online Church"
                                   currency="GHS"
@@ -328,19 +328,6 @@
           raveKey: 'FLWPUBK-1beb6ca9cea567480a782f5f99294d64-X',
           email: user.email,
           amount: 0,
-          plan: 2928,
-          meta: [{
-            metaname: 'school',
-            metavalue: 'high school'
-          }],
-          sub: [
-            {
-            id: "1324"
-          },
-          {
-            id: "1221"
-          }
-          ],
                 data: '',
                 service: service,
                 user: user,
