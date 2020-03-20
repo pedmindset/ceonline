@@ -477,9 +477,6 @@
     
         mounted: function(){
 
-          this.fname();
-          this.lname();
-
           setInterval(function(){ 
               this.attendance_count();
             },500000
