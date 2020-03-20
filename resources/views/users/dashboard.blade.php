@@ -60,19 +60,91 @@
                     <p class="pt-4 pb-1 text-lg text-gray-700">{{ $service->title ?? 'No Broadcast' }}</p>
                          <p class="pb-4 pt-1 text text-gray-500">{{ $service->start_date->toFormattedDateString() }}</p>
                     </span>
-                    <div x-data="{ open: false }" class="mt-4">
-                        MTN Mobile Money <span class="p-2 px-6 rounded-full bg-indigo-500 shadow text-white">
-                            <i class="las la-phone-alt"></i> 054 944 9772
-                        </span>
-                        {{-- <button  x-on:click="open = true" x-on:click.away="open = false"  type="button" class="inline-flex items-center shadow-md px-8 py-2 my-4 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
-                            Give Online
-                          </button>   --}}
+                    <div class="mt-2">
+                      <button class="my-2 mx-1 inline-flex items-center shadow-md px-8 py-2 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"> 
+                        <i class="las la-phone-alt text-2xl"></i>  MTN Mobile Money  054 944 9772
+                      </button>
+                      <button v-on:click="payment_modal = true" class="my-2 mx-1 inline-flex items-center shadow-md px-8 py-2 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"> 
+                        <i class="lab la-cc-visa mr-1 text-2xl"></i><i class="lab la-cc-mastercard mr-1 text-2xl"></i><i class="las la-mobile-alt mr-1 text-2xl"></i> Pay Online with Card or Mobile Money
+                      </button>
+
+                      <div style="display: none"  v-show="payment_modal" class="fixed bottom-0 inset-x-0 px-4 pb-6 sm:inset-0 sm:p-0 sm:flex sm:items-center sm:justify-center">
+                        <div v-show="payment_modal"vx-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 transition-opacity">
+                          <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                        </div>
+
+                        <div v-show="payment_modal" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100" x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" class="bg-white rounded-lg px-4 pt-5 pb-4 overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full sm:p-6">
+                          <div>
+                            <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+                              <svg class="h-6 w-6 text-green-600" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                              </svg>
+                            </div>
+                            <div class="mt-3 text-center sm:mt-5">
+                              <h3 class="text-lg leading-6 font-medium text-gray-900">
+                                Give Online
+                              </h3>
+                              <div class="mt-2">
+                                <p class="text-sm leading-5 text-gray-500">
+                                  Pay with Your Visa, Master Card or Mobile Money.
+                                </p>
+                                <div>
+                                  <label for="price" class="my-2 block text-sm font-medium leading-5 text-gray-700">Amount to give</label>
+                                  <div class="mt-1 relative rounded-md shadow-sm">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                      <span class="text-gray-500 sm:text-sm sm:leading-5">
+                                        ₵
+                                      </span>
+                                    </div>
+                                    <input id="amount" v-model="amount" type="number" class="form-input block w-full pl-7 pr-12 sm:text-sm sm:leading-5" placeholder="0.00" />
+                                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                      <span class="text-gray-500 sm:text-sm sm:leading-5">
+                                        GHS
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                                
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense">
+                          </span>
+                          <span class="flex w-full rounded-md shadow-sm sm:col-start-1">
+                            <button v-on:click="payment_modal = false" type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                              Cancel
+                            </button>
+                          </span>
+                            <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:col-start-2">
+                              <Rave
+                                  style-class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-indigo-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150 sm:text-sm sm:leading-5"
+                                  :email="email"
+                                  :amount="amount"
+                                  :reference="reference"
+                                  :rave-key="raveKey"
+                                  :callback="rave_callback"
+                                  :close="rave_close"
+                                  :customerFirstname="fname()"
+                                  :customerLastname="lname()"
+                                  paymentOptions="card,barter,account,ussd"
+                                  hostedPayemt="1"
+                                  customTitle="ECWAVZ 5 Online Church"
+                                  currency="GHS"
+                                  country="GH"
+                              ><i class="lab la-cc-visa mr-1 text-2xl"></i><i class="lab la-cc-mastercard mr-1 text-2xl"></i><i class="las la-mobile-alt mr-1 text-2xl"></i> Pay Now</Rave>
+                          
+                          </div>
+                        </div>
+                      </div>
+                     
+                          
+
                     </div>
                 </div>
                 
-                <div class="sm:col-span-6 ">
+                <div class="sm:col-span-6 mt-4">
                     <label for="about" class="block text-sm font-medium leading-5 text-gray-700">
-                      comment
+                      Comment
                     </label>
                     <div class="mt-1">
                       <textarea id="message" name="message" v-model="message" rows="3" class="form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5 md:w-full lg:w-12/12"></textarea>
@@ -233,6 +305,8 @@
 
 @push('custom-scripts')
 <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
+<script src="https://unpkg.com/vue-ravepayment/dist/rave.min.js"></script>
+
 <script>
 
     var timezone = "{{ $timezone }}";
@@ -245,8 +319,28 @@
 
     const app = new Vue({
         el: '#myapp',
-        data: function(){
-            return {
+        components: {
+          'Rave': VueRavePayment.default
+    },
+    data: function(){
+        return{
+          payment_modal: false,
+          raveKey: 'FLWPUBK-1beb6ca9cea567480a782f5f99294d64-X',
+          email: user.email,
+          amount: 0,
+          plan: 2928,
+          meta: [{
+            metaname: 'school',
+            metavalue: 'high school'
+          }],
+          sub: [
+            {
+            id: "1324"
+          },
+          {
+            id: "1221"
+          }
+          ],
                 data: '',
                 service: service,
                 user: user,
@@ -261,9 +355,47 @@
             live_comments: function(){
                 return this.comments;
             },
+            reference(){
+              let text = "";
+              let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+              for( let i=0; i < 10; i++ )
+                text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+              return text;
+            }
         },
     
         methods: {
+
+          fname(){
+            var fname;
+            try {
+              fname = user.name.split(' ')[0]
+            } catch (error) {
+              fname = user.name;
+            }
+            return fname;
+          },
+
+          lname(){
+            var lname;
+            try {
+              lname = user.name.split(' ')[1]
+            } catch (error) {
+              return 
+            }
+
+            return lname;
+          },
+
+          rave_callback: function(response){
+            this.amount = ''
+            console.log(response)
+          },
+          rave_close: function(){
+            console.log("Payment closed")
+          },
   
           dateFormat: function(d){
             var date = Moment.tz(d, timezone).fromNow();
