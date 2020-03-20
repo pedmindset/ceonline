@@ -31,9 +31,13 @@ class HomeController extends Controller
     {
         $user = $request->user();
 
-        $service = Service::has('videos')->with(['videos', 'comments'=> function($q){
-            return $q->with('user');
-        }])->latest()->first();
+        $service = Service::latest()->first();
+        if(empty($service->link)){
+            $service = Service::has('videos')->with(['videos', 'comments'=> function($q){
+                return $q->with('user');
+            }])->latest()->first();
+        }
+       
 
         $video_iframe = $this->video_parse($service);
 
