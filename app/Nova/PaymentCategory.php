@@ -72,7 +72,7 @@ class PaymentCategory extends Resource
 ,
                                                                 BelongsTo::make('Church')
 
-->searchable()
+
 ->sortable()
 ,
                                                                 Text::make( __('Title'),  'title')

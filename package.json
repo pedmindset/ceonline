@@ -31,5 +31,8 @@
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.10"
     },
-    "dependencies": {}
+    "dependencies": {
+        "moment": "^2.24.0",
+        "moment-timezone": "^0.5.28"
+    }
 }

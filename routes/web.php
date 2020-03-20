@@ -29,6 +29,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/home', 'HomeController@index')->name('home');
 
     Route::post('/attendance_count', 'AttendanceController@store');
+    Route::post('/comments', 'ServiceController@post_comment');
 
     Route::get('views', function(){
         $service = Service::latest()->first();

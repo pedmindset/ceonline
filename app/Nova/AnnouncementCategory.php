@@ -74,7 +74,7 @@ class AnnouncementCategory extends Resource
 BelongsTo::make('Church')
 
 ->rules('required')
-->searchable()
+
 ->sortable()
 ,
                                                                 Text::make( __('Title'),  'title')

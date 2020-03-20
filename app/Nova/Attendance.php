@@ -71,17 +71,18 @@ class Attendance extends Resource
 ,
                                                                 BelongsTo::make('Church')
 
-->searchable()
+
 ->sortable()
 ,
                                                                 BelongsTo::make('User')
 
-->searchable()
+                                                                ->searchable()
+
 ->sortable()
 ,
                                                                 BelongsTo::make('Service')
 
-->searchable()
+
 ->sortable()
 ,
                                                                 Number::make( __('Count'),  'count')

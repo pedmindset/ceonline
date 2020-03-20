@@ -73,14 +73,14 @@ class Announcement extends Resource
                                                                 BelongsTo::make('Category', 'Announcement_Category', 'App\Nova\AnnouncementCategory')
 
 ->rules('required')
-->searchable()
+
 ->sortable()
 ,
 
 BelongsTo::make('Church')
 
 ->rules('required')
-->searchable()
+
 ->sortable()
 ,
   
@@ -89,7 +89,7 @@ BelongsTo::make('Church')
 BelongsTo::make('Service')
 
 ->rules('required')
-->searchable()
+
 ->sortable()
 ,
 
@@ -101,8 +101,8 @@ Textarea::make( __('Message'),  'message')
 ->rules('required')
 ->sortable()
 ->options([
-    		    'yes' => '1',
-	    	    'no' => '0',
+    		    1 => 'Yes',
+	    	    0 => 'No',
 	    	])
 ,
                                                                                             ];

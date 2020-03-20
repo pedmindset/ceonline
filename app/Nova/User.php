@@ -50,7 +50,7 @@ class User extends Resource
 
             BelongsTo::make('Church')
                     ->rules('required')
-                    ->searchable()
+                    
                     ->sortable()
                     ,
 

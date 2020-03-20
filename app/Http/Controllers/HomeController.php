@@ -30,7 +30,9 @@ class HomeController extends Controller
     {
         $user = $request->user();
 
-        $service = Service::has('videos')->latest()->first();
+        $service = Service::has('videos')->with(['videos', 'comments'=> function($q){
+            return $q->with('user');
+        }])->latest()->first();
 
         $video_iframe = $this->video_parse($service);
 
@@ -39,11 +41,17 @@ class HomeController extends Controller
                             ->limit(4)
                             ->get();
 
-        return view('users.dashboard', compact('service', 'services', 'user','video_iframe'));
+      
+
+        // dd (extension_loaded('redis'));
+
+        $timezone = geoip($request->ip());
+        $timezone = $timezone['timezone'];
+
+        return view('users.dashboard', compact('service', 'services', 'user','video_iframe', 'timezone'));
     }
 
-
-    private function video_parse(Service $service)
+    private function check_attendance($service)
     {
         $check_attendance = Attendance::where('user_id', auth()->user()->id)
         ->where('service_id', $service->id)->latest()->first();
@@ -58,7 +66,11 @@ class HomeController extends Controller
             $attendance->count = 1;
             $attendance->save();
         }
+    }
 
+
+    private function video_parse(Service $service)
+    {
         if($service->platform != 'imm' & $service->platform != null & $service->link != null){
              //URL to be used for embed generation
             $url = $service->link;

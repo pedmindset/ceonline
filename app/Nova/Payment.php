@@ -72,13 +72,13 @@ class Payment extends Resource
 ,
                                                                 BelongsTo::make('Church')
 
-->searchable()
+
 ->sortable()
 ,
                                                                 BelongsTo::make('Payment')
 
 ->rules('required')
-->searchable()
+
 ->sortable()
 ,
                                                                 Number::make( __('Amount'),  'amount')

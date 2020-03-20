@@ -74,7 +74,7 @@ class Comment extends Resource
 BelongsTo::make('Church')
 
 ->rules('required')
-->searchable()
+
 ->sortable()
 ,
                                                                 BelongsTo::make('User')
@@ -84,7 +84,7 @@ BelongsTo::make('Church')
 ,
                                                                 BelongsTo::make('Service')
 
-->searchable()
+
 ->sortable()
 ,
                                                                 Text::make( __('Message'),  'message')
@@ -95,8 +95,8 @@ BelongsTo::make('Church')
 ->rules('required')
 ->sortable()
 ->options([
-    		    'yes' => '1',
-	    	    'no' => '0',
+    		    1 => 'yes',
+	    	    0 => 'no',
 	    	])
 ,
                                                                                             ];

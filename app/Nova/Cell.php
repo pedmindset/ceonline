@@ -71,12 +71,13 @@ class Cell extends Resource
 ,
                                                                 BelongsTo::make('Church')
 
-->searchable()
+
 ->sortable()
 ,
                                                                 BelongsTo::make('User')
 
-->searchable()
+                                                                ->searchable()
+
 ->sortable()
 ,
                                                                 Text::make( __('Cell Name'),  'name')

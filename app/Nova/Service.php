@@ -74,12 +74,12 @@ class Service extends Resource
 ,
                                                                 BelongsTo::make('Church')
 
-->searchable()
+
 ->sortable()
 ,
                                                                 BelongsTo::make('ServiceType')
 
-->searchable()
+
 ->sortable()
 ,
                                                             
@@ -120,6 +120,7 @@ HasMany::make('Videos'),
 HasMany::make('Announcements'),
 
 HasMany::make('Attendances'),
+HasMany::make('Comments'),
 
                                                                                             ];
     }

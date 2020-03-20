@@ -73,12 +73,12 @@ class Video extends Resource
 ,
                                                                 BelongsTo::make('Church')
 
-->searchable()
+
 ->sortable()
 ,
                                                                 BelongsTo::make('Service')
 
-->searchable()
+
 ->sortable()
 ,
                                                                 Text::make( __('Title'),  'title')

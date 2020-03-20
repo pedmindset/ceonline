@@ -48,4 +48,10 @@ public function attendances()
 {
 return $this->hasMany('App\Models\Attendance');
 }
+
+
+public function comments()
+{
+return $this->hasMany('App\Models\Comment');
+}
 }
