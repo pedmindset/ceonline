@@ -236,7 +236,7 @@
         methods: {
           disable: function(){
             this.message = null;
-            his.submit_comment = false;
+            this.submit_comment = false;
           },
 
           dateFormat: function(d){
@@ -252,18 +252,18 @@
           post_comment: function(){
               this.submit_comment = true;
               axios.post('../comments', {
-                        church: this.service.church_id,
-                        service: this.service.id,
-                        user: this.user.id,
-                        message: this.message
-                    }).then(function(response){
-                        this.disable();
-                        this.comments.unshift(response.data);
-                        console.log(r.data);
-
-                    }).catch(function(e){
-                        this.submit_comment = false
-                    })    
+                  church: this.service.church_id,
+                  service: this.service.id,
+                  user: this.user.id,
+                  message: this.message
+              }).then(function(response){
+                  this.disable();
+                  this.comments.unshift(response.data);
+                  console.log(response.data);
+              }).catch(function(e){
+                  this.submit_comment = false   
+                
+              })
             },
 
 
