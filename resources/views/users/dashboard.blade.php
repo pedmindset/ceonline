@@ -148,7 +148,7 @@
             
         </div>
         <div class="mt-3 w-full lg:w-6/12">
-            <p class="p-2">Upcoming Services</p>
+            <p class="p-2">Services</p>
             <div class="bg-white shadow overflow-hidden sm:rounded-md mx-2">
                 <ul>
                   @forelse ($services as $s)
@@ -259,12 +259,12 @@
                   user: this.user.id,
                   message: this.message
               }).then(function(response){
-                  this.disable();
                   this.comments.unshift(response.data);
+                  this.disable();
                   console.log(response.data);
               }).catch(function(e){
                   this.submit_comment = false   
-                
+                  console.log(e);
               })
             },
 
