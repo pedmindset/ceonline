@@ -391,6 +391,7 @@
 
           rave_callback: function(response){
             this.amount = ''
+            this.payment_modal = false
             console.log(response)
           },
           rave_close: function(){
