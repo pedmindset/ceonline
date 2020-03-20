@@ -47,7 +47,7 @@
             <div class=" w-full bg-black flex justify-center items-center">
             @if($video_iframe == false)
               <video class="video-js vjs-big-play-centered vjs-16-9" data-setup='{"controls": true, "autoplay": true, "preload": "auto"}'>
-                <source src="{{ $service->videos()->first()->link ?? '' }}" type="video/mp4">
+                <source src="{{ $service->link ?? '' }}" type="video/mp4">
                 
               </video>
             @else
