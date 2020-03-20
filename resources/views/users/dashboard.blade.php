@@ -57,7 +57,7 @@
                 </div>
                 <div class="w-full my-4">
                   <div class="bg-white shadow overflow-hidden sm:rounded-md">
-                      <ul class=" overflow-y-scroll h-96">
+                      <ul class=" overflow-y-scroll max-h-96">
                         <div v-for="comment in live_comments">
                           <li class="border-t border-gray-200">
                             <span class="block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out">

@@ -69339,7 +69339,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(alpinejs__WEBPACK_IMPORTED_MODULE_0__);
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 
-window.moment = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+window.Moment = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
