@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('MAIL_MAILER', 'smtp'),
+    'default' => env('MAIL_MAILER', 'ses'),
 
     /*
     |--------------------------------------------------------------------------
@@ -86,6 +86,9 @@ return [
         'address' => env('MAIL_FROM_ADDRESS', 'info@christembassynungua.org'),
         'name' => env('MAIL_FROM_NAME', 'Christ Embassy Nungua'),
     ],
+
+    'reply_to' => ['address' => 'info@christembassynungua.org', 'name' => 'Christ Embassy Nungua'],
+
 
     /*
     |--------------------------------------------------------------------------

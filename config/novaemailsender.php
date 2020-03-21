@@ -60,9 +60,7 @@ return [
             \App\Models\User::class,
         ],
         'email' => 'email',
-        'name' => 'name',
-        // 'first_name' => 'first_name',
-        // 'last_name' => 'last_name',
+        'name' => 'name'
     ],
 
     /*
