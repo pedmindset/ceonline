@@ -10,7 +10,7 @@
 @endpush
 @push('page-content')
 <div id="myapp">
-<div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+<div class="max-w-8xl mx-auto py-6 sm:px-6 lg:px-8">
     <div class="grid grid-rows-2 md:grid-cols-4 gap-4">
         <div class="col-span-3 row-span-2">
             <div class="mb-2 h-auto md:w-full lg:w-full bg-black flex justify-center items-center">
@@ -193,11 +193,11 @@
               </div>
             </div>
         </div>
-        <div class="col-span-1 row-span-2 m-1 lg:m-0 xl:m-0 flex md:flex-col flex-wrap">
+        <div class="md:col-span-1 col-span-4 md:row-span-2 m-1 lg:m-0 xl:m-0 flex md:flex-col flex-wrap">
             <p class="p-1 px-3 py-3 tex-gray-700 hidden lg:block text-2xl"> Previous Videos </p>
             @forelse ($services as $s)
             <a href="../videos/{{ $s->id }}">
-                <div class="h-auto w-72 my-3 py-5 bg-indigo-500 rounded-lg shadow-2xl flex flex-col text-white items-center mx-2">
+                <div class="h-auto md:max-w-xs  md:min-w-0 min-w-18 my-3 py-5 bg-indigo-500 rounded-lg shadow-2xl flex flex-col text-white items-center mx-2">
                     <span class="rounded-full bg-white">
                         <i class=" text-indigo-400 las la-play text-3xl p-3"></i>
                     </span>
