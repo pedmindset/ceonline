@@ -11,7 +11,7 @@ return [
     |
     */
 
-    'provider' => config('mail.driver'),
+    'provider' => env('MAIL_DRIVER'),
 
     /*
     |--------------------------------------------------------------------------
