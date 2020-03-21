@@ -134,7 +134,7 @@
                     </div>
                 </div>
                 
-                <div class="sm:col-span-6 mt-4">
+                <div class="sm:col-span-6 mt-4 px-6 md:px-1">
                     <label for="about" class="block text-sm font-medium leading-5 text-gray-700">
                       Comment
                     </label>
@@ -148,7 +148,7 @@
                     </div>
                     <p class="mt-2 text-sm text-gray-500">post your thoughts here.</p>
                 </div>
-                <div class="w-full my-4">
+                <div class="w-full my-4 px-6 md:px-1">
                   <div class="bg-white shadow overflow-hidden sm:rounded-md">
                       <ul class=" overflow-y-scroll max-h-96">
                         <div v-for="comment in live_comments">
