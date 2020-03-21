@@ -2,9 +2,10 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Gate;
-use Laravel\Nova\Cards\Help;
 use Laravel\Nova\Nova;
+use Laravel\Nova\Cards\Help;
+use Illuminate\Support\Facades\Gate;
+use Dniccum\CustomEmailSender\CustomEmailSender;
 use Laravel\Nova\NovaApplicationServiceProvider;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
@@ -84,6 +85,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         return [
             \Vyuldashev\NovaPermission\NovaPermissionTool::make(),
+            new CustomEmailSender(),
             new \Cloudstudio\ResourceGenerator\ResourceGenerator(),
         ];
     }

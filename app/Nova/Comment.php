@@ -14,6 +14,15 @@ class Comment extends Resource
 {
     public static $group = 'Service Center';
 
+      /**
+         * The relationship columns that should be searched.
+         *
+         * @var array
+         */
+        public static $searchRelations = [
+            'user' => ['name', 'email'],
+        ];
+
     /**
      * The model the resource corresponds to.
      *

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c713bab00fa08e0adec7a49eed06b7f3",
+    "content-hash": "c974cd6dfeba12bab6a3fcea50a79df2",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -672,6 +672,60 @@
                 "nova"
             ],
             "time": "2019-02-05T06:48:46+00:00"
+        },
+        {
+            "name": "dniccum/custom-email-sender",
+            "version": "v2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dniccum/nova-custom-email-sender.git",
+                "reference": "a39149e306b599699fe9e5df25aabfac713c810a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dniccum/nova-custom-email-sender/zipball/a39149e306b599699fe9e5df25aabfac713c810a",
+                "reference": "a39149e306b599699fe9e5df25aabfac713c810a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.8|^6.0|^7.0",
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Dniccum\\CustomEmailSender\\ToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dniccum\\CustomEmailSender\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Doug Niccum",
+                    "email": "dniccumdesign@gmail.com",
+                    "homepage": "http://dniccumdesign.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A tool for Laravel's Nova administrator panel that allows you to send custom email messages that within your application that leverages the applications existing settings and configurations.",
+            "homepage": "https://github.com/dniccum/nova-custom-email-sender",
+            "keywords": [
+                "email",
+                "laravel",
+                "messages",
+                "nova",
+                "tool"
+            ],
+            "time": "2020-03-15T14:49:27+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1817,6 +1871,113 @@
                 "php crawler detect"
             ],
             "time": "2020-02-20T21:42:59+00:00"
+        },
+        {
+            "name": "kabbouchi/nova-impersonate",
+            "version": "v1.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KABBOUCHI/nova-impersonate.git",
+                "reference": "b5579fa059e1fbde9e7fbf6748ec3c60d53711d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KABBOUCHI/nova-impersonate/zipball/b5579fa059e1fbde9e7fbf6748ec3c60d53711d8",
+                "reference": "b5579fa059e1fbde9e7fbf6748ec3c60d53711d8",
+                "shasum": ""
+            },
+            "require": {
+                "lab404/laravel-impersonate": "^1.4.1",
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "KABBOUCHI\\NovaImpersonate\\ToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "KABBOUCHI\\NovaImpersonate\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova field allows you to authenticate as your users.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "time": "2019-12-16T08:30:29+00:00"
+        },
+        {
+            "name": "lab404/laravel-impersonate",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/404labfr/laravel-impersonate.git",
+                "reference": "ac3a2bfe056f35b4201b1a06db04af2b3a2905d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/404labfr/laravel-impersonate/zipball/ac3a2bfe056f35b4201b1a06db04af2b3a2905d6",
+                "reference": "ac3a2bfe056f35b4201b1a06db04af2b3a2905d6",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^6.0 | ^7.0",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "orchestra/database": "^4.0 | ^5.0",
+                "orchestra/testbench": "^4.0 | ^5.0",
+                "phpunit/phpunit": "^7.5 | ^8.0",
+                "symfony/http-foundation": ">=4.3.8",
+                "symfony/mime": ">=4.3.8"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Lab404\\Impersonate\\ImpersonateServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Lab404\\Impersonate\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "404lab",
+                    "email": "web@404lab.fr"
+                }
+            ],
+            "description": "Laravel Impersonate is a plugin that allows to you to authenticate as your users.",
+            "keywords": [
+                "auth",
+                "impersonate",
+                "impersonation",
+                "laravel",
+                "laravel-package",
+                "laravel-plugin",
+                "package",
+                "plugin",
+                "user"
+            ],
+            "time": "2020-03-03T15:57:38+00:00"
         },
         {
             "name": "laravel/framework",
@@ -6188,6 +6349,42 @@
             "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
             "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
             "time": "2019-10-24T08:53:34+00:00"
+        },
+        {
+            "name": "titasgailius/search-relations",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TitasGailius/nova-search-relations.git",
+                "reference": "dc043261b954fca72b85ae208d52b27276385c30"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TitasGailius/nova-search-relations/zipball/dc043261b954fca72b85ae208d52b27276385c30",
+                "reference": "dc043261b954fca72b85ae208d52b27276385c30",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Titasgailius\\SearchRelations\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova tool.",
+            "keywords": [
+                "laravel",
+                "nova",
+                "relations",
+                "search"
+            ],
+            "time": "2019-03-15T08:17:44+00:00"
         },
         {
             "name": "torann/geoip",

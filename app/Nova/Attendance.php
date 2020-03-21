@@ -14,6 +14,16 @@ class Attendance extends Resource
     public static $group = 'Service Center';
 
     /**
+     * The relationship columns that should be searched.
+     *
+     * @var array
+     */
+    public static $searchRelations = [
+        'user' => ['name', 'email'],
+    ];
+
+
+    /**
      * The model the resource corresponds to.
      *
      * @var  string
@@ -100,7 +110,9 @@ class Attendance extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+            (new \App\Nova\Metrics\NewAttendance),
+        ];
     }
 
     /**
