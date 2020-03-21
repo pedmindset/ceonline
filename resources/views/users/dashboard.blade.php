@@ -102,29 +102,32 @@
                                       </div>
                                     </div>
                                   </div>
-                                  <label for="phone" class="my-2 text-left  my-1   block text-sm font-medium leading-5 text-gray-700">Mobile Money Number</label>
-                                  <div class="mt-1 relative rounded-md shadow-sm">
-                                      <div class="absolute inset-y-0 left-0 flex items-center">
-                                        <select aria-label="Country" class="form-select h-full py-0 pl-3 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm sm:leading-5">
-                                          <option>GH</option>
-                                          <option>NG</option>
-                                        </select>
-                                      </div>
-                                      <input id="phone" v-model="phone" class="form-input block w-full pl-16 sm:text-sm sm:leading-5" placeholder="233241582764" />
-                                    </div>
-                                  <label for="amount" class="my-2 text-left  my-1   block text-sm font-medium leading-5 text-gray-700">Amount to give</label>
+                              
+                                  <label for="phone" class="my-2 text-left  my-1   block text-sm font-medium leading-5 text-gray-700">Phone Number</label>
                                   <div class="mt-1 relative rounded-md shadow-sm">
                                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                       <span class="text-gray-500 sm:text-sm sm:leading-5">
-                                        ₵
+                                        <li class="las la-phone-alt"></li>
                                       </span>
                                     </div>
-                                    <input id="amount" v-model="amount" type="number" class="form-input block w-full pl-7 pr-12 sm:text-sm sm:leading-5" placeholder="0.00" />
+                                    <input id="phone" v-model="phone" type="tel" class="form-input block w-full pl-7 pr-12 sm:text-sm sm:leading-5" placeholder="233241582764" />
                                     <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                                       <span class="text-gray-500 sm:text-sm sm:leading-5">
-                                        GHS
+                                        Phone
                                       </span>
                                     </div>
+                                  </div>
+
+                                  <label for="phone" class="my-2 text-left  my-1  block text-sm font-medium leading-5 text-gray-700">Amount to give</label>
+                                  <div class="mt-1 relative rounded-md shadow-sm">
+                                      <div class="absolute inset-y-0 left-0 flex items-center">
+                                        <select v-model="currency" aria-label="Country" class="form-select h-full py-0 pl-3 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm sm:leading-5">
+                                          <option value="GHS">GHS</option>
+                                          <option value="NGN">NGN</option>
+                                          <option value="USD">USD</option>
+                                        </select>
+                                      </div>
+                                      <input id="amount" v-model="amount" class="form-input block w-full pl-5 text-right pl-16 sm:text-sm sm:leading-5" placeholder="0.00" />
                                   </div>
                                 </div>
                                 
@@ -150,11 +153,10 @@
                                   :close="rave_close"
                                   :customer-firstname="first_name"
                                   :customer-lastname="last_name"
-                                  payment-options="ussd, card, account"
+                                  {{-- payment-options="ussd, card, account" --}}
                                   hosted-payment=0
-                                  custom-title="ECWAVZ 5 Online Church"
-                                  currency="GHS"
-                                  country="GH"
+                                  :currency="currency"
+                                  :country="rave_country"
                               ><i class="lab la-cc-visa mr-1 text-2xl"></i><i class="lab la-cc-mastercard mr-1 text-2xl"></i><i class="las la-mobile-alt mr-1 text-2xl"></i> Pay Now</Rave>
                           
                           </div>
