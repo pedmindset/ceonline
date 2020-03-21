@@ -54,7 +54,8 @@ class AttendanceController extends Controller
 
     private function check_attendance(Service $service, $count = 1)
     {
-        $check_attendance = Attendance::where('user_id', auth()->user()->id)
+        $user = auth()->user();
+        $check_attendance = Attendance::where('user_id', $user->id)
         ->where('service_id', $service->id)->latest()->first();
 
         if($check_attendance){
