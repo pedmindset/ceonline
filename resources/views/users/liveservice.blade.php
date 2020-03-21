@@ -12,7 +12,7 @@
 {{-- <div id="myapp"> --}}
 <div class="max-w-8xl mx-auto py-6 sm:px-6 lg:px-8">
     <div class="grid grid-rows-2 md:grid-cols-4 gap-4">
-        <div class="col-span-3 row-span-2">
+        <div class="col-span-4 md:col-span-3 row-span-2">
             <div class="mb-2 h-auto md:w-full lg:w-full bg-black flex justify-center items-center">
                 @if($video_iframe == false)
                     <video class="video-js vjs-big-play-centered vjs-16-9" data-setup='{"controls": true, "autoplay": true, "preload": "auto"}'>
