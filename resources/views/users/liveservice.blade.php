@@ -307,7 +307,7 @@ data: function(){
       rave_callback: function(response){
         this.amount = ''
         this.payment_modal = false
-        if(response.data.status == 'success'){
+        if(response.data.data.status == 'success'){
           axios.post('../payments', {
               church: this.service.church_id,
               service: this.service.id,
