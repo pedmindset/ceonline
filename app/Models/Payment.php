@@ -23,7 +23,7 @@ class Payment extends Model
     }
     public function paymentcategory()
     {
-    return $this->belongsTo('App\Models\Payment', 'payment_category_id', 'id');
+    return $this->belongsTo('App\Models\PaymentCategory', 'payment_category_id', 'id');
     }
 
     public function service()
