@@ -307,8 +307,8 @@ data: function(){
 
     methods: {
       rave_callback: function(response){
-        this.amount = ''
-        this.payment_modal = false
+        this.payment_modal = false;
+        var self = this;
         if(response.data.data.status == 'successful'){
           axios.post('../payments', {
               church: this.service.church_id,
@@ -318,12 +318,14 @@ data: function(){
               payment_category: this.payment_category
           }).then(function(response){
           }).catch(function(e){
-        
+              self.amount = ''
               console.log(e);
           })
         }      
       },
       rave_close: function(){
+        this.amount = ''
+
         console.log("Payment closed")
       },
 
