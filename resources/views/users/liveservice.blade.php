@@ -9,7 +9,7 @@
     <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
 @endpush
 @push('page-content')
-<div id="myapp">
+{{-- <div id="myapp"> --}}
 <div class="max-w-8xl mx-auto py-6 sm:px-6 lg:px-8">
     <div class="grid grid-rows-2 md:grid-cols-4 gap-4">
         <div class="col-span-3 row-span-2">
@@ -212,7 +212,7 @@
         </div>
     </div>
 </div>
-</div>
+{{-- </div> --}}
 @endpush
 @push('custom-scripts')
 <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>

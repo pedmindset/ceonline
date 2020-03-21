@@ -14,7 +14,7 @@
         <title>@yield('title') {{ config('app.name', 'CE ONLINE') }}</title>
     </head>
     <body>
-        <div>
+        <div id="myapp">
          @include('partials.website.nav')
          @include('partials.website.header')
           <main>

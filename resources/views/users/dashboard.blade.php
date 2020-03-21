@@ -40,7 +40,7 @@
 @endpush
 
 @push('page-content')
-<div id="myapp">
+{{-- <div id="myapp"> --}}
 <div class="max-w-7xl mx-auto py-6 px-6 sm:px-6 lg:px-8">   
     <div class="grid grid-rows-2 md:grid-cols-4 gap-2">
         <div class="col-span-4 row-span-2">
@@ -323,7 +323,7 @@
         </div>
     </div>   
 </div>
-</div>
+{{-- </div> --}}
 
 @endpush
 
