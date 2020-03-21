@@ -143,16 +143,16 @@
                 </span>
                 <p class="ml-3 font-medium text-white truncate">
                   <span class="md:hidden">
-                    Platform Under Construction
+                    Watch Previous Services here!
                   </span>
                   <span class="hidden md:inline">
-                    Notice! We're currently rooling out the features
+                    Watch Previous Services here!
                   </span>
                 </p>
               </div>
               <div class="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
                 <div class="rounded-md shadow-sm">
-                  <a href="#" class="flex items-center justify-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-indigo-600 bg-white hover:text-indigo-500 focus:outline-none focus:shadow-outline transition ease-in-out duration-150">
+                  <a href="../videos" class="flex items-center justify-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-indigo-600 bg-white hover:text-indigo-500 focus:outline-none focus:shadow-outline transition ease-in-out duration-150">
                     Learn more
                   </a>
                 </div>

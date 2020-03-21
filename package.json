@@ -28,11 +28,12 @@
         "sass-loader": "^8.0.0",
         "tailwindcss": "^1.2.0",
         "video.js": "^7.6.6",
-        "vue": "^2.5.17",
+        "vue": "^2.6.11",
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
         "moment": "^2.24.0",
-        "moment-timezone": "^0.5.28"
+        "moment-timezone": "^0.5.28",
+        "vue-ravepayment": "^2.0.2"
     }
 }

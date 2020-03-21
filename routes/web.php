@@ -29,7 +29,14 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/home', 'HomeController@index')->name('home');
 
     Route::post('/attendance_count', 'AttendanceController@store');
+
     Route::post('/comments', 'ServiceController@post_comment');
+
+    Route::get('/videos', 'ServiceController@index');
+
+    Route::get('/videos/{id}', 'ServiceController@show');
+
+
     Route::post('/payments', 'PaymentController@give');
 
     Route::get('views', function(){

@@ -96,12 +96,23 @@
                                     <div class="mt-1 sm:mt-0 sm:col-span-2">
                                       <div class="rounded-md shadow-sm">
                                         <select id="payment_category" v-model="payment_category" class="block form-select w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                          <option value="" disabled>Select Payment Category</option>
                                           <option v-for="category in payment_categories" v-bind:value="category.id" >@{{ category.title }}</option>
                                         </select>
                                       </div>
                                     </div>
                                   </div>
-                                  <label for="price" class="my-2 text-left  my-1   block text-sm font-medium leading-5 text-gray-700">Amount to give</label>
+                                  <label for="phone" class="my-2 text-left  my-1   block text-sm font-medium leading-5 text-gray-700">Mobile Money Number</label>
+                                  <div class="mt-1 relative rounded-md shadow-sm">
+                                      <div class="absolute inset-y-0 left-0 flex items-center">
+                                        <select aria-label="Country" class="form-select h-full py-0 pl-3 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm sm:leading-5">
+                                          <option>GH</option>
+                                          <option>NG</option>
+                                        </select>
+                                      </div>
+                                      <input id="phone" v-model="phone" class="form-input block w-full pl-16 sm:text-sm sm:leading-5" placeholder="233241582764" />
+                                    </div>
+                                  <label for="amount" class="my-2 text-left  my-1   block text-sm font-medium leading-5 text-gray-700">Amount to give</label>
                                   <div class="mt-1 relative rounded-md shadow-sm">
                                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                       <span class="text-gray-500 sm:text-sm sm:leading-5">
@@ -132,14 +143,15 @@
                                   style-class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-indigo-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150 sm:text-sm sm:leading-5"
                                   :email="email"
                                   :amount="amount"
+                                  :customer-phone="phone"
                                   :reference="reference"
                                   :rave-key="raveKey"
                                   :callback="rave_callback"
                                   :close="rave_close"
                                   :customer-firstname="first_name"
                                   :customer-lastname="last_name"
-                                  payment-options="ussd,card,account"
-                                  hosted-payemt="1"
+                                  payment-options="ussd, card, account"
+                                  hosted-payment=0
                                   custom-title="ECWAVZ 5 Online Church"
                                   currency="GHS"
                                   country="GH"
@@ -333,16 +345,14 @@
 
     const app = new Vue({
         el: '#myapp',
-        components: {
-          'Rave': VueRavePayment.default
-    },
     data: function(){
         return{
                 payment_modal: false,
                 raveKey: 'FLWPUBK-1beb6ca9cea567480a782f5f99294d64-X',
                 email: user.email,
                 amount: 0,
-                fname: user.name,
+                phone: '',
+                fname: '',
                 lname: '',
                 payment_category: '',
                 data: '',
@@ -363,10 +373,21 @@
             },
 
             first_name(){
-              return this.fname;
+              try {
+                  this.fname = user.name.split(' ')[0]
+                } catch (error) {
+                  console.log(error);
+                  this.fname = user.name;
+                }
+                return this.fname
             },
 
-            lname_name(){
+            last_name(){
+              try {
+                this.lname = user.name.split(' ')[1]
+              } catch (error) {
+                return 
+              }
               return this.lname;
             },
 
@@ -382,26 +403,6 @@
         },
     
         methods: {
-
-          fname: function(){
-            // try {
-            //   this.fname = user.name.split(' ')[0]
-            // } catch (error) {
-            //   this.fname = user.name;
-            // }
-            return this.user.name;
-          },
-
-          lname: function(){
-            try {
-              this.lname = user.name.split(' ')[1]
-            } catch (error) {
-              return 
-            }
-
-            return this.lname;
-          },
-
           rave_callback: function(response){
             this.amount = ''
             this.payment_modal = false
