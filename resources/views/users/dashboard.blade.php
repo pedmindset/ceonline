@@ -3,7 +3,7 @@
 @section('title', 'Dasboard')
 
 @push('page-title')
-    Dashboard
+    Live Service - {{ $service->title }}
 @endpush
 @push('custom-styles')
     <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
