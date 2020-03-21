@@ -329,7 +329,6 @@
 
 @push('custom-scripts')
 <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
-<script src="https://unpkg.com/vue-ravepayment/dist/rave.min.js"></script>
 
 <script>
 
@@ -350,7 +349,7 @@
                 payment_modal: false,
                 raveKey: 'FLWPUBK-1beb6ca9cea567480a782f5f99294d64-X',
                 email: user.email,
-                amount: 0,
+                amount: '',
                 phone: '',
                 fname: '',
                 lname: '',
@@ -362,7 +361,9 @@
                 message: '',
                 submit_comment: false,
                 spinner: false,
-                payment_categories: payment_categories
+                payment_categories: payment_categories,
+                currency: 'GHS',
+                country: 'GH',
 
             }
         },
@@ -370,6 +371,20 @@
         computed: {
             live_comments: function(){
                 return this.comments;
+            },
+
+            rave_country: function(){
+              if(this.currency == "GHS"){
+                  return this.country = 'GH'
+              }
+
+              if(this.currency == "NGN"){
+                  return this.country = 'NG'
+              }
+
+              if(this.currency == "USD"){
+                  return this.country = 'US'
+              }
             },
 
             first_name(){

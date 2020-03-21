@@ -246,15 +246,32 @@ data: function(){
             message: '',
             submit_comment: false,
             spinner: false,
-            payment_categories: payment_categories
+            payment_categories: payment_categories,
+            currency: 'GHS',
+                country: 'GH',
 
-        }
-    },
-
-    computed: {
-        live_comments: function(){
-            return this.comments;
+            }
         },
+
+        computed: {
+            live_comments: function(){
+                return this.comments;
+            },
+
+            rave_country: function(){
+              if(this.currency == "GHS"){
+                  return this.country = 'GH'
+              }
+
+              if(this.currency == "NGN"){
+                  return this.country = 'NG'
+              }
+
+              if(this.currency == "USD"){
+                  return this.country = 'US'
+              }
+            },
+
 
         first_name(){
           try {
