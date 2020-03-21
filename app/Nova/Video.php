@@ -131,7 +131,9 @@ Select::make( __('Platform'),  'platform')
      */
     public function lenses(Request $request)
     {
-        return [];
+        return [
+
+        ];
     }
 
     /**
@@ -142,6 +144,8 @@ Select::make( __('Platform'),  'platform')
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new \Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel,
+        ];
     }
 }

@@ -129,6 +129,9 @@ HasMany::make('Announcement')
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new \Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel,
+
+        ];
     }
 }

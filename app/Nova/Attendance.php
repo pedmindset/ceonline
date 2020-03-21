@@ -133,6 +133,9 @@ class Attendance extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new \Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel,
+
+        ];
     }
 }

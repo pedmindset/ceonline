@@ -149,6 +149,8 @@ Textarea::make( __('Message'),  'message')
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new \Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel,
+        ];
     }
 }
