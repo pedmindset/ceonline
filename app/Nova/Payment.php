@@ -91,6 +91,13 @@ class Payment extends Resource
 ->sortable()
 ,
 
+BelongsTo::make('User')
+
+->searchable()
+->sortable()
+,
+     
+
 BelongsTo::make('Service')
 
 
