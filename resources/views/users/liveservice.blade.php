@@ -380,9 +380,9 @@ data: function(){
     },
 
     mounted: function(){
-
+        var self = this;
       setInterval(function(){ 
-          this.attendance_count();
+         self.attendance_count();
         },500000
       );
 
