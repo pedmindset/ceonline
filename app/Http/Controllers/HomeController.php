@@ -32,11 +32,13 @@ class HomeController extends Controller
         $user = $request->user();
 
         $latest_service = Service::with(['videos', 'comments'=> function($q){
-            return $q->with('user');
+            $q->latest();
+            $q->with('user');
         }])->latest()->first();
 
         $service_videos_check = Service::has('videos')->with(['videos', 'comments'=> function($q){
-            return $q->with('user');
+            $q->latest();
+             $q->with('user');
         }])->latest()->first();
 
         $latest_service_has_a_video_check = $latest_service->videos()->exists();
