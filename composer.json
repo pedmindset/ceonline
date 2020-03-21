@@ -29,7 +29,8 @@
         "spatie/laravel-medialibrary": "^7.19",
         "spatie/laravel-permission": "^3.11",
         "torann/geoip": "^1.1",
-        "vyuldashev/nova-permission": "^2.1"
+        "vyuldashev/nova-permission": "^2.1",
+        "yoeunes/toastr": "^1.2"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

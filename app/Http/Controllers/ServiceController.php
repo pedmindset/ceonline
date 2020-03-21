@@ -43,7 +43,7 @@ class ServiceController extends Controller
 
     private function service_with_video(){
         $service = Service::has('videos')->with(['videos', 'comments'=> function($q){
-            $q->latest();
+             $q->latest();
              $q->with('user');
         }])->latest()->first();
 
@@ -149,6 +149,8 @@ class ServiceController extends Controller
 
         if(!$service->videos()->exists())
         {
+            toastr()->warning('Select Service video has not been uploaded yet')->success('You have been redirected to another service');
+
             $service = $this->service_with_video();
         }
       
