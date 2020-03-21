@@ -49,7 +49,7 @@ class HomeController extends Controller
         }elseif (!empty($latest_service->link)) {
             $service = $latest_service;
         }else{
-            toastr()->warning( $latest_service->title. 'Service has not started yet')->success('You can watch a prevoius service');
+            toastr()->warning( $latest_service->title. ' has not started yet')->success('You can watch a prevoius service');
             $service = $latest_service;
         }
       
