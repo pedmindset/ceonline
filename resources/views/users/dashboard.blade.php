@@ -423,7 +423,7 @@
           rave_callback: function(response){
             this.amount = ''
             this.payment_modal = false
-            if(response.data.data.status == 'success'){
+            if(response.data.data.status == 'successful'){
               axios.post('../payments', {
                   church: this.service.church_id,
                   service: this.service.id,
@@ -431,15 +431,13 @@
                   amount: this.amount,
                   payment_category: this.payment_category
               }).then(function(response){
-    
-                  console.log(response.data);
+                    
               }).catch(function(e){
             
                   console.log(e);
               })
             }
           
-            console.log(response)
           },
           rave_close: function(){
             console.log("Payment closed")
