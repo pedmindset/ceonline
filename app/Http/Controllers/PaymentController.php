@@ -54,11 +54,11 @@ class PaymentController extends Controller
         $total_year = $payments->sum('amount');
         $total_count = $payments->count();
 
-        $total_tithe = Payment::whereHas('paymentcategory', function ($query) {
+        $total_tithe = Payment::where('user_id', $request->user()->id)->whereHas('paymentcategory', function ($query) {
             $query->where('title', 'tithe');
         })->sum('amount');
 
-        $total_partnership = Payment::whereHas('paymentcategory', function ($query) {
+        $total_partnership = Payment::where('user_id', $request->user()->id)->whereHas('paymentcategory', function ($query) {
             $query->where('partnership', 1);
         })->sum('amount');
 
