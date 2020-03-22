@@ -94,10 +94,10 @@ Select::make( __('Type'),  'type')
 	    	    'online' => 'online',
 	    	])
 ,
-                                                                Textarea::make( __('Description'),  'description')
+                                                                Textarea::make( __('Description'),  'description')->hideFromIndex()
 ->sortable()
 ,
-                                                                Text::make( __('Link'),  'link')
+                                                                Text::make( __('Link'),  'link')->hideFromIndex()
 ->sortable()
 ,
                                                                 Select::make( __('Platform'),  'platform')

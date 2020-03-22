@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Service;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['verify' => true]);
 
-Route::get('/', function () {
+Route::get('/', function (Request $request) {
+    if($request->user()){
+        return redirect('home');
+    }
     return view('welcome');
 });
 
