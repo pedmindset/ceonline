@@ -12,9 +12,18 @@
     min-width: 200px;
 }
 
+$imgKey: random(5);
+
+$list: pastor_earnest_2, christ_embassy_nungua, pastor_earnest, ce_nungua_church;
+$nth: nth($list, $imgKey);
+
+body {
+  background-image: "/images/#{$nth}.jpg";
+}
+
 .bg-image-slider{
    background-color: rgba(0, 0, 0, 0.267);
-   background-image: url(../images/pastor_earnest.jpg);
+   background-image: url(../images/#{$nth}.jpg);
    background-repeat: no-repeat;
    background-blend-mode: overlay;
    background-position: top;

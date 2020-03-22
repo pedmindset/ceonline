@@ -42127,9 +42127,13 @@ video {
   min-width: 200px;
 }
 
+body {
+  background-image: "/images/pastor_earnest_2.jpg";
+}
+
 .bg-image-slider {
   background-color: rgba(0, 0, 0, 0.267);
-  background-image: url(../images/pastor_earnest.jpg);
+  background-image: url(../images/pastor_earnest_2.jpg);
   background-repeat: no-repeat;
   background-blend-mode: overlay;
   background-position: top;
