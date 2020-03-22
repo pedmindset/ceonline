@@ -147,7 +147,7 @@ class ServiceController extends Controller
                 $q->with('user');
         }])->latest()->first();
 
-        if(!$service->videos()->exists())
+        if(!$service->videos()->exists() & $service->platform != 'youtube' & !empty($service->link))
         {
             toastr()->warning('Select Service video has not been uploaded yet')->success('You have been redirected to another service');
 

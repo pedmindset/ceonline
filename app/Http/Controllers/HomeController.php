@@ -59,7 +59,9 @@ class HomeController extends Controller
         $video_iframe = $this->video_parse($service);
 
         $services = Service::latest()
-                            ->with('servicetype', 'announcements')
+                            ->with(['servicetype', 'announcements' => function($q){
+                                $q->latest();
+                            }])
                             ->limit(4)
                             ->get();
 
