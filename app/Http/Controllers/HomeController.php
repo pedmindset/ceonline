@@ -34,6 +34,8 @@ class HomeController extends Controller
         $latest_service = Service::with(['videos', 'comments'=> function($q){
             $q->latest();
             $q->with('user');
+        },  'announcements' => function($q){
+            $q->latest();
         }])->latest()->first();
 
         // $service_videos_check = Service::has('videos')->with(['videos', 'comments'=> function($q){
