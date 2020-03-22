@@ -54,7 +54,7 @@
           </div>
         </div>
 
-        <div x-data="{ open: false }" class="relative pt-6 pb-12 sm:pb-16 md:pb-20 lg:pb-28 xl:pb-32">
+        <div x-data="{ open: false }" class="relative pt-6 pb-12 sm:pb-16 md:pb-20 lg:pb-28 xl:pb-32 z-0">
           <div class="max-w-screen-xl mx-auto px-4 sm:px-6">
             <nav class="relative flex items-center justify-between sm:h-10 md:justify-center">
               <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
@@ -103,7 +103,7 @@
             </nav>
           </div>
 
-          <div x-show="open" style="display: none;" class="absolute top-0 inset-x-0 p-2 md:hidden">
+          <div x-show="open" style="display: none;" class="absolute top-0 inset-x-0 p-2 md:hidden z-0">
             <div class="rounded-lg shadow-md transition transform origin-top-right" x-show="open" x-transition:enter="duration-150 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="duration-100 ease-in" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95">
               <div class="rounded-lg bg-white shadow-xs overflow-hidden">
                 <div class="px-5 pt-4 flex items-center justify-between">
@@ -145,12 +145,12 @@
             </div>
           </div>
 
-          <div class="mt-32 mx-auto max-w-screen-xl px-4 sm:mt-48 sm:px-6 md:mt-72 lg:mt-72 xl:mt-72">
+          <div class="mt-32 mx-auto max-w-screen-xl px-4 sm:mt-48 sm:px-6 md:mt-72 lg:mt-72 xl:mt-72 z-10 ">
             <div class="text-center">
               <h2 class="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
                 <span class="text-white">You're welcome to Christ Embassy</span>               
               </h2>
-              <div class="leading-10 font-extrabold text-indigo-700 sm:text-5xl sm:leading-none md:text-6xl py-2 md:py-3 px-8 bg-white mt-3 rounded opacity-75 max-w-4xl mx-auto">
+              <div class="leading-10 font-extrabold text-indigo-700 sm:text-5xl sm:leading-none md:text-6xl py-2 md:py-3 px-8 bg-white mt-3 rounded max-w-4xl mx-auto z-20">
                 Giving your life a meaning
               </div>
               <p class="mt-3 max-w-md mx-auto text-base text-gray-100 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">

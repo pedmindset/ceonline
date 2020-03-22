@@ -48,7 +48,6 @@
             @if($video_iframe == false)
               <video class="video-js vjs-big-play-centered vjs-16-9" data-setup='{"controls": true, "autoplay": true, "preload": "auto"}'>
                 <source src="{{ $service->link ?? '' }}" type="video/mp4">
-                
               </video>
             @else
               {!! $video_iframe !!}
