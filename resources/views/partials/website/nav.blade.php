@@ -12,10 +12,7 @@
               <a href="../videos" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Video Center</a>
               <a href="../givings" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Giving</a>
               {{-- <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Messaging Center</a> --}}
-              <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Invite Friends</a>
-              {{-- <a href="https://www.facebook.com/sharer/sharer.php?u=http://live.christembassynungua.org" target="_blank">Share</a>
-              <a href="https://www.facebook.com/sharer/sharer.php?u=http://live.christembassynungua.org" target="_blank">Share</a>
-              <a href="https://www.facebook.com/sharer/sharer.php?u=http://live.christembassynungua.org" target="_blank">Share</a> --}}
+              <a href="#" v-on:click.prevent="shareURl = true" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Invite Friends</a> 
 
             </div>
           </div>
@@ -68,7 +65,7 @@
         <a href="../videos" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Video Center</a>
         <a href="../givings" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Giving</a>
         {{-- <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Messaging Center</a> --}}
-        <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Invite Friends</a>
+        <a href="#" v-on:click.prevent="shareURl = true" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Invite Friends</a>
       </div>
       @auth
       <div class="pt-4 pb-3 border-t border-gray-700">
@@ -97,5 +94,40 @@
         </div>
       </div>
       @endauth
+    </div>
+        
+    <div style="display:none"  v-show="shareURl" class="fixed bottom-0 inset-x-0 px-4 pb-6 sm:inset-0 sm:p-0 sm:flex sm:items-center sm:justify-center">
+      <div v-show="shareURl" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 transition-opacity">
+        <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+      </div>
+
+      <div v-show="shareURl" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100" x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" class="bg-white rounded-lg px-4 pt-5 pb-4 overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full sm:p-6">
+        <div>
+          <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+            <i class="las la-broadcast-tower text-green-600 text-2xl"></i>
+          </div>
+          <div class="mt-3 text-center sm:mt-5">
+            <h3 class="text-lg leading-6 font-medium text-gray-900">
+              Share with Family & Friends
+            </h3>
+            <div class="mt-2">
+              <p class="text-sm leading-5 text-gray-500 mt-1 mb-3">
+                Choose your prefered Social Platform
+              </p>
+              <a class="px-3 pt-8 pb-2 rounded-md text-sm font-medium text-indigo-600 hover:text-white hover:bg-indigo-900 focus:outline-none focus:text-white focus:bg-indigo-900" href="https://www.facebook.com/sharer/sharer.php?u=http://live.christembassynungua.org" target="_blank"><i class="text-5xl lab la-facebook"></i></a>
+              <a class="ml-4 pt-8 pb- rounded-md text-sm font-medium text-indigo-600 hover:text-white hover:bg-indigo-900 focus:outline-none focus:text-white focus:bg-indigo-900" href="https://twitter.com/intent/tweet?text=You're welcome to Christ Embassy Online Church, Join us worship the Lord in the beauty of Holiness&amp;url=http://live.christembassynungua.org" class="social-button " id=""><i class="text-5xl lab la-twitter"></i></a>
+              <a class="ml-4 pt-8 pb- rounded-md text-sm font-medium text-indigo-600 hover:text-white hover:bg-indigo-900 focus:outline-none focus:text-white focus:bg-indigo-900" href="https://wa.me/?text=http://live.christembassynungua.org" class="social-button " id=""><i class="text-5xl lab la-whatsapp"></i></span></a>   
+            </div>
+          </div>
+          <div class="mt-5 sm:mt-6">
+            <span class="flex w-full rounded-md shadow-sm">
+              <button v-on:click="closeShareURL()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-indigo-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                Close
+              </button>
+            </span>
+          </div>
+        </div>
+
+      </div>
     </div>
   </nav>

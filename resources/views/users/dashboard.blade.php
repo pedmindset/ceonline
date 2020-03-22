@@ -365,6 +365,7 @@
                 payment_categories: payment_categories,
                 currency: 'GHS',
                 country: 'GH',
+                shareURl: false,
 
             }
         },
@@ -419,6 +420,10 @@
         },
     
         methods: {
+          closeShareURL: function () {
+                console.log(this.shareURl = false);
+                
+            },
           rave_callback: function(response){
             this.payment_modal = false;
             var self = this;

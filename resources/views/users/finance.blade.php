@@ -211,7 +211,7 @@
   
       const app = new Vue({
           el: '#myapp',
-      data: function(){
+          data: function(){
           return{
                   payment_modal: false,
                   raveKey: 'FLWPUBK-1beb6ca9cea567480a782f5f99294d64-X',
@@ -230,6 +230,7 @@
                   payment_categories: payment_categories,
                   currency: 'GHS',
                   country: 'GH',
+                  shareURl: false,
   
               }
           },
@@ -281,6 +282,10 @@
           },
       
           methods: {
+            closeShareURL: function () {
+                console.log(this.shareURl = false);
+                
+            },
             rave_callback: function(response){
               this.payment_modal = false;
               var self = this;

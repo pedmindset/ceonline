@@ -6,9 +6,9 @@
         <meta property="og:title" content="Shout of Victory Music Concert" /> 
         <meta property="og:type" content="article" /> 
         <meta property="og:url" content="http://live.christembassynungua.org" />
-        <meta property="og:description" content="Shout of Victory is an annual music concert organized by Christ Embassy Church Nungua to bring the people of Ghana into a place of worship where God can touch His people" />
-        <meta name="twitter:image" content="http://http://live.christembassynungua.org/images/slider/slide-1.jpg" />
-        <meta property="og:image" content="http://http://live.christembassynungua.org/images/slider/slide-1.jpg"  />
+        <meta property="og:description" content="You're welcome to Christ Embassy Online Church, Join us worship the Lord in the beauty of Holiness" />
+        <meta name="twitter:image" content="http://http://live.christembassynungua.org/images/christ_embassy_nungua.jpg" />
+        <meta property="og:image" content="http://http://live.christembassynungua.org/images/christ_embassy_nungua.jpg"  />
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         {{-- <link href="{{ asset('css/bootstrapcss.css') }}" rel="stylesheet"> --}}
         <script src="{{ asset('js/app.js') }}" defer></script>

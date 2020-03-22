@@ -28,7 +28,6 @@ Vue.component('Rave', require('./components/Rave.vue').default);
  */
 
 
-
 // const app = new Vue({
 //     el: '#app',
 //     data: {
