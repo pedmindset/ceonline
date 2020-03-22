@@ -4,7 +4,7 @@
 
 @push('page-title')
 <div class="flex justify-between">
-    Your Giving
+    <p class="hidden sm:block">Your Giving</p>
     <button v-on:click="payment_modal = true" class="my-2 mx-1 inline-flex items-center shadow-md px-8 py-2 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"> 
         <i class="lab la-cc-visa mr-1 text-2xl"></i><i class="lab la-cc-mastercard mr-1 text-2xl"></i><i class="las la-mobile-alt mr-1 text-2xl"></i> Click to Pay Online with Card or MoMo
       </button>
@@ -120,14 +120,14 @@
                 <i class=" text-white las la-check-circle text-3xl p-3"></i>
             </span>
             <p class="text-lg mt-2 font-bold px-4 max-w-xl">{{ $total_count }}</p>
-            <time class="text-sm">Giving no</time>
+            <time class="text-sm">Total #</time>
         </div>
         <div class="h-auto min-w-18 my-3 py-5 bg-white rounded-lg shadow-xl flex flex-col text-gray-500 items-center mx-2">
             <span class="rounded-full bg-indigo-400">
                 <i class=" text-white las la-church text-3xl p-3"></i>
             </span>
             <p class="text-lg mt-2 font-bold px-4 max-w-xl">GHS{{ $total_year }}</p>
-            <time class="text-sm">Total Givng</time>
+            <time class="text-sm">Total Giving</time>
         </div>
         <div class="h-auto min-w-18 my-3 py-5 bg-white rounded-lg shadow-xl flex flex-col text-gray-500 items-center mx-2">
             <span class="rounded-full bg-indigo-400">

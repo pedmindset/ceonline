@@ -19,6 +19,22 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrapcss.css') }}" rel="stylesheet">
+    {{-- @php
+    $bg = array('pastor_earnest_2.jpg', 'christ_embassy_nungua.jpg', 'pastor_earnest.jpg', 'ce_nungua_church.jpg' ); // array of filenames
+
+    $i = rand(0, count($bg)-1); // generate random number size of the array
+    $selectedBg = "$bg[$i]"; // set variable equal to which random filename was chosen
+    @endphp
+
+    <style type="text/css">
+        .bg-image-slider{
+        background-color: rgba(0, 0, 0, 0.267);
+        background-image: url(../images/{{ $selectedBg }});
+        background-repeat: no-repeat;
+        background-blend-mode: overlay;
+        background-position: top;
+        };
+    </style> --}}
 </head>
 <body>
     <div id="app">
