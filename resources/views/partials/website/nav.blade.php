@@ -115,8 +115,8 @@
                 Choose your prefered Social Platform
               </p>
               <a class="px-3 pt-8 pb-2 rounded-md text-sm font-medium text-indigo-600 hover:text-white hover:bg-indigo-900 focus:outline-none focus:text-white focus:bg-indigo-900" href="https://www.facebook.com/sharer/sharer.php?u={{ url('/') }}" target="_blank"><i class="text-5xl lab la-facebook"></i></a>
-              <a class="ml-4 px-3 pt-8 pb- rounded-md text-sm font-medium text-indigo-600 hover:text-white hover:bg-indigo-900 focus:outline-none focus:text-white focus:bg-indigo-900" href="https://twitter.com/intent/tweet?text=You're welcome to Christ Embassy Online Church, Join us worship the Lord in the beauty of Holiness&amp;url={{ url('/') }}" class="social-button " id=""><i class="text-5xl lab la-twitter"></i></a>
-              <a class="ml-4 px-3 pt-8 pb- rounded-md text-sm font-medium text-indigo-600 hover:text-white hover:bg-indigo-900 focus:outline-none focus:text-white focus:bg-indigo-900" href="https://wa.me/?text={{ url('/') }}" class="social-button " id=""><i class="text-5xl lab la-whatsapp"></i></span></a>   
+              <a class="ml-4 px-3 pt-8 pb-2 rounded-md text-sm font-medium text-indigo-600 hover:text-white hover:bg-indigo-900 focus:outline-none focus:text-white focus:bg-indigo-900" href="https://twitter.com/intent/tweet?text=You're welcome to Christ Embassy Online Church, Join us worship the Lord in the beauty of Holiness&amp;url={{ url('/') }}" class="social-button " target="_blank"><i class="text-5xl lab la-twitter"></i></a>
+              <a class="ml-4 px-3 pt-8 pb-2 rounded-md text-sm font-medium text-indigo-600 hover:text-white hover:bg-indigo-900 focus:outline-none focus:text-white focus:bg-indigo-900" href="https://wa.me/?text={{ url('/') }}" class="social-button " target="_blank"><i class="text-5xl lab la-whatsapp"></i></span></a>   
             </div>
           </div>
           <div class="mt-5 sm:mt-6">
