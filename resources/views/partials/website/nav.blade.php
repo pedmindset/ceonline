@@ -4,7 +4,7 @@
         <div class="flex items-center">
           <div class="flex-shrink-0 text-white">
             {{-- <img class="h-8 w-8" src="/img/logos/workflow-mark-on-brand.svg" alt="" /> --}}
-            CE Online
+            <a href="../home">CE Online</a>
           </div>
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline">
