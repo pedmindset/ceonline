@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Payment;
+use App\Models\Service;
 use Illuminate\Http\Request;
+use App\Models\PaymentCategory;
 
 class PaymentController extends Controller
 {
@@ -43,6 +45,13 @@ class PaymentController extends Controller
      */
     public function index(Request $request)
     {
+        $payment_categories = PaymentCategory::all();
+
+        $service = Service::latest()->first();
+
+        $user = $request->user();
+
+
         $payments = Payment::where('user_id', $request->user()->id)
                            ->with('user','service', 'paymentcategory')
                             ->whereBetween('created_at', [
@@ -63,7 +72,7 @@ class PaymentController extends Controller
         })->sum('amount');
 
 
-        return view('users.finance', compact('payments', 'total_year', 'total_count', 'total_tithe', 'total_partnership'));
+        return view('users.finance', compact('payments', 'total_year', 'total_count', 'total_tithe', 'total_partnership', 'service', 'payment_categories', 'user'));
     }
 
     // /**
