@@ -40,10 +40,10 @@
             </span>
             <p class="ml-3 font-medium text-white truncate">
               <span class="md:hidden">
-                Sunday Service is live!
+                Refresh your page to load live stream
               </span>
               <span class="hidden md:inline">
-                Sunday Service is live!
+                Refresh your page to load live stream
               </span>
             </p>
           </div>
