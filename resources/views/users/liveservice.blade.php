@@ -317,13 +317,17 @@ data: function(){
               amount: this.amount,
               payment_category: this.payment_category
           }).then(function(response){
+                self.payment_modal = false;
+
           }).catch(function(e){
+             self.payment_modal = false;
               self.amount = ''
               console.log(e);
           })
         }      
       },
       rave_close: function(){
+        this.payment_modal = false;
         this.amount = ''
 
         console.log("Payment closed")

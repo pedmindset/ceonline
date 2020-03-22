@@ -421,7 +421,7 @@
     
         methods: {
           rave_callback: function(response){
-            this.payment_modal = false
+            this.payment_modal = false;
             var self = this;
             if(response.data.data.status == 'successful'){
               axios.post('../payments', {
@@ -431,16 +431,19 @@
                   amount: this.amount,
                   payment_category: this.payment_category
               }).then(function(response){
-                self.amount = ''
+                self.amount = '';
+                self.payment_modal = false
+
 
               }).catch(function(e){
-            
+
                   console.log(e);
               })
             }
           
           },
           rave_close: function(){
+            this.payment_modal = false;
             this.amount = ''
             console.log("Payment closed")
           },

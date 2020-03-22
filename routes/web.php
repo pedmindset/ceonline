@@ -36,8 +36,10 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('/videos/{id}', 'ServiceController@show');
 
-
     Route::post('/payments', 'PaymentController@give');
+
+    Route::get('/givings', 'PaymentController@index');
+
 
     Route::get('views', function(){
         $service = Service::latest()->first();

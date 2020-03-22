@@ -34,15 +34,20 @@ class PaymentController extends Controller
 
         return response()->json($payment);
     }
-    // /**
-    //  * Display a listing of the resource.
-    //  *
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function index()
-    // {
-    //     //
-    // }
+
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        $payments = Payment::where('user_id', $request->user()->id)
+                            ->latest()->get();
+
+        return view('users.finance', compact('payments'));
+    }
 
     // /**
     //  * Store a newly created resource in storage.
