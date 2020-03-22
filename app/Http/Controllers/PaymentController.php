@@ -44,9 +44,26 @@ class PaymentController extends Controller
     public function index(Request $request)
     {
         $payments = Payment::where('user_id', $request->user()->id)
+                           ->with('user','service', 'paymentcategory')
+                            ->whereBetween('created_at', [
+                                now()->copy()->startOfYear()->toDateTimeString(),
+                                now()->copy()->endOfYear()->toDateTimeString()
+                            ])
                             ->latest()->get();
 
-        return view('users.finance', compact('payments'));
+        $total_year = $payments->sum('amount');
+        $total_count = $payments->count();
+
+        $total_tithe = Payment::whereHas('paymentcategory', function ($query) {
+            $query->where('title', 'tithe');
+        })->sum('amount');
+
+        $total_partnership = Payment::whereHas('paymentcategory', function ($query) {
+            $query->where('partnership', 1);
+        })->sum('amount');
+
+
+        return view('users.finance', compact('payments', 'total_year', 'total_count', 'total_tithe', 'total_partnership'));
     }
 
     // /**
