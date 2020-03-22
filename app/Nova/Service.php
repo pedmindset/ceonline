@@ -105,7 +105,9 @@ Select::make( __('Type'),  'type')
 ->options([
     		    'youtube' => 'youtube',
 	    	    'facebook' => 'facebook',
+	    	    'vimeo' => 'vimeo',
 	    	    'imm' => 'imm',
+	    	    'other' => 'other',
 	    	])
 ,
                                                                 DateTime::make( __('Start Date'),  'start_date')
