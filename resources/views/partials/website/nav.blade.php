@@ -13,6 +13,7 @@
               <a href="../givings" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Giving</a>
               <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Messaging Center</a>
               <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Invite Friends</a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://live.christembassynungua.org" target="_blank">Share</a>
 
             </div>
           </div>

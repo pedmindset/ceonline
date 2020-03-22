@@ -3,6 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:title" content="Shout of Victory Music Concert" /> 
+        <meta property="og:type" content="article" /> 
+        <meta property="og:url" content="http://live.christembassynungua.org" />
+        <meta property="og:description" content="Shout of Victory is an annual music concert organized by Christ Embassy Church Nungua to bring the people of Ghana into a place of worship where God can touch His people" />
+        <meta name="twitter:image" content="http://http://live.christembassynungua.org/images/slider/slide-1.jpg" />
+        <meta property="og:image" content="http://http://live.christembassynungua.org/images/slider/slide-1.jpg"  />
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         {{-- <link href="{{ asset('css/bootstrapcss.css') }}" rel="stylesheet"> --}}
         <script src="{{ asset('js/app.js') }}" defer></script>
@@ -10,13 +16,13 @@
     </head>
     <body>
 
-      <div class="relative bg-gray-50 overflow-hidden h-screen">
+      <div class="relative overflow-hidden h-screen  bg-image-slider bg-cover bg-fixed m-0">
         <div class="hidden sm:block sm:absolute sm:inset-y-0 sm:h-full sm:w-full">
           <div class="relative h-full max-w-screen-xl mx-auto">
             <svg class="absolute right-full transform translate-y-1/4 translate-x-1/4 lg:translate-x-1/2" width="404" height="784" fill="none" viewBox="0 0 404 784">
               <defs>
                 <pattern id="svg-pattern-squares-1" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                  <rect x="0" y="0" width="4" height="4" class="text-red-200" fill="currentColor" />
+                  <rect x="0" y="0" width="4" height="4" class="text-indigo-300" fill="currentColor" />
                 </pattern>
               </defs>
               <rect width="404" height="784" fill="url(#svg-pattern-squares-1)" />
@@ -24,7 +30,7 @@
             <svg class="absolute left-full transform -translate-y-3/4 -translate-x-1/4 md:-translate-y-1/2 lg:-translate-x-1/2" width="404" height="784" fill="none" viewBox="0 0 404 784">
               <defs>
                 <pattern id="svg-pattern-squares-2" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                  <rect x="0" y="0" width="4" height="4" class="text-red-200" fill="currentColor" />
+                  <rect x="0" y="0" width="4" height="4" class="text-indigo-300" fill="currentColor" />
                 </pattern>
               </defs>
               <rect width="404" height="784" fill="url(#svg-pattern-squares-2)" />
@@ -37,12 +43,12 @@
             <nav class="relative flex items-center justify-between sm:h-10 md:justify-center">
               <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
                 <div class="flex items-center justify-between w-full md:w-auto">
-                  <a href="#">
+                  <a class="text-white" href="../">
                     {{-- <img class="h-8 w-auto sm:h-10" src="/img/logos/workflow-mark-on-white.svg" alt="" /> --}}
                     CE ONLINE
                   </a>
                   <div class="-mr-2 flex items-center md:hidden">
-                    <buttonx-on:click="open = true" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                    <button x-on:click="open = true" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-100 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-100 transition duration-150 ease-in-out">
                       <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                       </svg>
@@ -51,11 +57,11 @@
                 </div>
               </div>
               <div class="hidden md:block">
-                <a href="../" class="font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Home</a>
-                <a href="../home" class="ml-10 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Live Service</a>
-                <a href="../videos" class="ml-10 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Video Center</a>
-                <a href="#" class="ml-10 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Salvation</a>
-                <a href="#" class="ml-10 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Contact</a>
+                <a href="../" class="font-medium text-gray-100 hover:text-indigo-500 focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out">Home</a>
+                <a href="../home" class="ml-10 font-medium text-gray-100 hover:text-indigo-500 focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out">Live Service</a>
+                <a href="../videos" class="ml-10 font-medium text-gray-100 hover:text-indigo-500 focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out">Video Center</a>
+                <a href="#" class="ml-10 font-medium text-gray-100 hover:text-indigo-500 focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out">Salvation</a>
+                {{-- <a href="#" class="ml-10 font-medium text-gray-100 hover:text-indigo-500 focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out">Contact</a> --}}
               </div>
               <div class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
                 @auth
@@ -85,12 +91,12 @@
             <div class="rounded-lg shadow-md transition transform origin-top-right" x-show="open" x-transition:enter="duration-150 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="duration-100 ease-in" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95">
               <div class="rounded-lg bg-white shadow-xs overflow-hidden">
                 <div class="px-5 pt-4 flex items-center justify-between">
-                  <div>
+                  <a class="text-white" href="../">
                     {{-- <img class="h-8 w-auto" src="/img/logos/workflow-mark-on-white.svg" alt="" /> --}}
                     CE ONLINE
-                  </div>
+                  </a>
                   <div class="-mr-2">
-                    <buttonx-on:click="open = false" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                    <button x-on:click="open = false" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-100 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-100 transition duration-150 ease-in-out">
                       <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                       </svg>
@@ -98,11 +104,11 @@
                   </div>
                 </div>
                 <div class="px-2 pt-2 pb-3">
-                  <a href="../" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">Home</a>
-                  <a href="../home" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">Live Service</a>
-                  <a href="../videos" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">Video Center</a>
-                  <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">Salvation</a>
-                  <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">Contact</a>
+                  <a href="../" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-500 hover:bg-gray-50 focus:outline-none focus:text-gray-500 focus:bg-gray-50 transition duration-150 ease-in-out">Home</a>
+                  <a href="../home" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-500 hover:bg-gray-50 focus:outline-none focus:text-gray-500 focus:bg-gray-50 transition duration-150 ease-in-out">Live Service</a>
+                  <a href="../videos" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-500 hover:bg-gray-50 focus:outline-none focus:text-gray-500 focus:bg-gray-50 transition duration-150 ease-in-out">Video Center</a>
+                  <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-500 hover:bg-gray-50 focus:outline-none focus:text-gray-500 focus:bg-gray-50 transition duration-150 ease-in-out">Salvation</a>
+                  {{-- <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-500 hover:bg-gray-50 focus:outline-none focus:text-gray-500 focus:bg-gray-50 transition duration-150 ease-in-out">Contact</a> --}}
                 </div>
                 <div>
                   @auth
@@ -123,14 +129,15 @@
             </div>
           </div>
 
-          <div class="mt-32 mx-auto max-w-screen-xl px-4 sm:mt-32 sm:px-6 md:mt-32 lg:mt-32 xl:mt-32">
+          <div class="mt-32 mx-auto max-w-screen-xl px-4 sm:mt-48 sm:px-6 md:mt-72 lg:mt-72 xl:mt-72">
             <div class="text-center">
               <h2 class="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
-                You're welcome to Christ Embassy
-                <br class="xl:hidden" />
-                <span class="text-indigo-600">Giving your life a meaning</span>
+                <span class="text-white">You're welcome to Christ Embassy</span>               
               </h2>
-              <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+              <div class="leading-10 font-extrabold text-indigo-700 sm:text-5xl sm:leading-none md:text-6xl py-2 md:py-3 px-8 bg-white mt-3 rounded opacity-75 max-w-4xl mx-auto">
+                Giving your life a meaning
+              </div>
+              <p class="mt-3 max-w-md mx-auto text-base text-gray-100 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
                 Register to take full advantage of our Online church.
               </p>
               <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
