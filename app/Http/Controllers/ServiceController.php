@@ -47,7 +47,7 @@ class ServiceController extends Controller
              $q->with('user');
         }])->latest()->first();      
         
-        dd($service);
+        // dd($service);
 
         return $service;
     }
