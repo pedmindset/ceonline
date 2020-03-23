@@ -45,7 +45,7 @@ class ServiceController extends Controller
         $service = Service::with(['videos', 'comments'=> function($q){
              $q->latest();
              $q->with('user');
-        }])->orderby('desc', 'is')->first();
+        }])->orderby('id', 'desc')->first();
 
 
 
