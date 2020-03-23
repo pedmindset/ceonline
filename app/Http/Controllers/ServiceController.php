@@ -42,7 +42,9 @@ class ServiceController extends Controller
 
 
     private function service_with_video(){
-        $service = Service::has('videos')->with(['videos', 'comments'=> function($q){
+        $service = Service::whereHas('videos', function($q){
+            $query->latest();
+        })->with(['videos', 'comments'=> function($q){
              $q->latest();
              $q->with('user');
         }])->latest()->first();
@@ -87,7 +89,7 @@ class ServiceController extends Controller
             //Optional attributes for embed container
             $attributes = [
             'type' => null,
-            'class' => 'w-full h-video',
+            'class' => 'w-full h-video ',
             'data-html5-parameter' => true
             ];
 
