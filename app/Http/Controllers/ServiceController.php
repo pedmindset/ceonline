@@ -45,7 +45,9 @@ class ServiceController extends Controller
         $service = Service::has('videos')->with(['videos', 'comments'=> function($q){
              $q->latest();
              $q->with('user');
-        }])->oldest()->first();            
+        }])->latest()->first();      
+        
+        dd($service);
 
         return $service;
     }
