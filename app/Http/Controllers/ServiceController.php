@@ -42,12 +42,10 @@ class ServiceController extends Controller
 
 
     private function service_with_video(){
-        $service = Service::with(['videos', 'comments'=> function($q){
+        $service = Service::has('videos')->with(['videos', 'comments'=> function($q){
              $q->latest();
              $q->with('user');
-        }])->orderby('id', 'desc')->first();
-
-
+        }])->oldest()->first();            
 
         return $service;
     }
