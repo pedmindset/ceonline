@@ -76,4 +76,16 @@ class User extends Authenticatable implements MustVerifyEmail
     {
     return $this->hasMany('App\Models\Invite', 'owner_id', 'id');
     }
+
+    public function salvation()
+    {
+    return $this->hasOne('App\Models\Salvation');
+    }
+
+    public function first_timer()
+    {
+    return $this->hasOne('App\Models\FirstTimer');
+    }
+
+
 }

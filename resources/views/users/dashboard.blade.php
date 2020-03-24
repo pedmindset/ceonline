@@ -437,7 +437,7 @@
               'service': this.service.id
             }).then(function(r){
               console.log(r.data);
-              alert('A pastor will get in contact with you shortly, God Bless you')
+              alert(r.data.message)
             }).catch(function(e){
 
             })
@@ -448,7 +448,7 @@
               'service': this.service.id
             }).then(function(r){
               console.log(r.data);
-              alert('A pastor will get in contact with you shortly, God Bless you')
+              alert(r.data.message)
             }).catch(function(e){
 
             })

@@ -287,6 +287,29 @@
           },
       
           methods: {
+
+            first_timer: function(){
+              axios.post('../first_timer',{
+                'service': this.service.id
+              }).then(function(r){
+                console.log(r.data);
+                alert(r.data.message)
+              }).catch(function(e){
+
+              })
+            },
+
+            salvation: function(){
+              axios.post('../salvation',{
+                'service': this.service.id
+              }).then(function(r){
+                console.log(r.data);
+                alert(r.data.message)
+              }).catch(function(e){
+
+              })
+
+            },
             closeShareURL: function () {
                 console.log(this.shareURl = false);
                 

@@ -180,17 +180,27 @@ class ServiceController extends Controller
     public function first_timer(Request $request)
     {
         $user = $request->user();
-        $first_timer = new FirstTimer;
-        $first_timer->church_id = $user->church_id;
-        $first_timer->service_id = $request->service;
-        $first_timer->name = $user->name;
-        $first_timer->user_id = $user->id;
-        $first_timer->save(); 
 
-        return response()->json([
-            'message' => 'success',
-            'code' => 100
-        ]);
+        $check = $user->first_timer()->exists();
+        if($check){
+            return response()->json([
+                'message' => 'Already a first timer',
+                'code' => 100
+            ]);
+
+        }else{
+            $first_timer = new FirstTimer;
+            $first_timer->church_id = $user->church_id;
+            $first_timer->service_id = $request->service;
+            $first_timer->name = $user->name;
+            $first_timer->user_id = $user->id;
+            $first_timer->save(); 
+
+            return response()->json([
+                'message' => 'A Pastor will contact you shortly',
+                'code' => 100
+            ]);
+        }
 
     }
 
@@ -198,15 +208,28 @@ class ServiceController extends Controller
     public function salvation(Request $request)
     {
         $user = $request->user();
-        $salvation = new Salvation;
-        $salvation->church_id = $user->church_id;
-        $salvation->service_id = $request->service;
-        $salvation->name = $user->name;
-        $salvation->user_id = $user->id;
-        $firssalvationt_timer->save(); 
+        
+        $check = $user->salvation()->exists();
+        if($check){
+    
+            return response()->json([
+                'message' => 'Already been saved',
+                'code' => 100
+            ]);
+
+        }else{
+           
+            $salvation = new Salvation;
+            $salvation->church_id = $user->church_id;
+            $salvation->service_id = $request->service;
+            $salvation->name = $user->name;
+            $salvation->user_id = $user->id;
+            $salvation->save(); 
+        }
+       
 
         return response()->json([
-            'message' => 'success',
+            'message' => 'A Pastor will contact you shortly',
             'code' => 100
         ]);
 
