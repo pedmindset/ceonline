@@ -98,6 +98,9 @@ class Profile extends Resource
                                                                 Text::make( __('Name'),  'name')
 ->sortable()
 ,
+Text::make('Email')
+->sortable()
+->rules('required', 'email', 'max:254'),
                                                                 Date::make( __('Date Of Birth'),  'date_of_birth')
 ->sortable()
 ,
