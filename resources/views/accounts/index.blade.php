@@ -52,7 +52,9 @@
           </div>
     </div>
   <div class="w-full rounded-md shadow-lg p-4 bg-white">
-    <form>
+    <form method="POST" action="../'profile_update'">
+      @csrf
+      @method('PUT')
         <div>
           <div>
           
@@ -78,12 +80,12 @@
               ];    
             @endphp
             <div class="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-              <label for="titke" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+              <label for="title" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
                 Title
               </label>
               <div class="mt-1 sm:mt-0 sm:col-span-2">
                 <div class="max-w-xs rounded-md shadow-sm">
-                  <select id="title" class="block form-select w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                  <select id="title" class=" @error('title') border-red-300 text-red-900 placeholder-red-300 @enderror block form-select w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                     <option disabled>All Titles</option>
                     @foreach($titles as $title)
                     @if(key($title) == old('title'))
@@ -94,6 +96,11 @@
                     @endforeach
                   </select>
                 </div>
+                @error('title')
+                    <div class="mt-3 text-red-600 text-sm ml-1" role="alert">
+                        {{ $message }}
+                    </div>
+                @enderror
               </div>
             </div>
             <div class="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
@@ -102,7 +109,7 @@
               </label>
               <div class="mt-1 sm:mt-0 sm:col-span-2">
                 <div class="max-w-xs rounded-md shadow-sm">
-                  <select id="country" class="block form-select w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                  <select id="country" class="@error('church') border-red-300 text-red-900 placeholder-red-300 @enderror block form-select w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                     <option disabled>All Churches</option>
                     @foreach($churches as $church)
                     @if($church->id == old('church'))
@@ -113,6 +120,11 @@
                     @endforeach
                   </select>
                 </div>
+                @error('church')
+                  <div class="mt-3 text-red-600 text-sm ml-1" role="alert">
+                      {{ $message }}
+                  </div>
+                @enderror
               </div>
             </div>
             <div class="mt-6 sm:mt-5">
@@ -122,8 +134,13 @@
                 </label>
                 <div class="mt-1 sm:mt-0 sm:col-span-2">
                   <div class="max-w-xs rounded-md shadow-sm">
-                    <input id="first_name" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                    <input id="name" value="{{ old('name', $user->name ?? '') }}" class="@error('name') border-red-300 text-red-900 placeholder-red-300 @enderror form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                   </div>
+                  @error('name')
+                    <div class="mt-3 text-red-600 text-sm ml-1" role="alert">
+                        {{ $message }}
+                    </div>
+                  @enderror
                 </div>
               </div>
       
@@ -133,30 +150,45 @@
                 </label>
                 <div class="mt-1 sm:mt-0 sm:col-span-2">
                   <div class="max-w-xs rounded-md shadow-sm">
-                    <input id="phone" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                    <input id="phone" value="{{ old('phone', $user->profile->phone ?? '') }}" class="@error('phone') border-red-300 text-red-900 placeholder-red-300 @enderror form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                   </div>
+                  @error('phone')
+                    <div class="mt-3 text-red-600 text-sm ml-1" role="alert">
+                        {{ $message }}
+                    </div>
+                  @enderror
                 </div>
               </div>
       
               <div class="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                <label for="email" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+                <label for="email" class="@error('email') border-red-300 text-red-900 placeholder-red-300 @enderror block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
                   Email address
                 </label>
                 <div class="mt-1 sm:mt-0 sm:col-span-2">
                   <div class="max-w-lg rounded-md shadow-sm">
-                    <input id="email" name="email" type="email" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                    <input id="email" value="{{ old('email', $user->email ?? '') }}" name="email" type="email" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                   </div>
+                  @error('email')
+                    <div class="mt-3 text-red-600 text-sm ml-1" role="alert">
+                        {{ $message }}
+                    </div>
+                  @enderror
                 </div>
               </div> 
       
               <div class="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                <label for="street_address" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+                <label for="kings_chat" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
                   KingsChat Number
                 </label>
                 <div class="mt-1 sm:mt-0 sm:col-span-2">
                   <div class="max-w-lg rounded-md shadow-sm">
-                    <input id="kings_chat" name="kings_chat" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                    <input id="kings_chat" value="{{ old('kings_chat', $user->profile->kings_chat ?? '') }}" name="kings_chat" class="@error('kings_chat') border-red-300 text-red-900 placeholder-red-300 @enderror form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                   </div>
+                  @error('email')
+                    <div class="mt-3 text-red-600 text-sm ml-1" role="alert">
+                        {{ $message }}
+                    </div>
+                  @enderror
                 </div>
               </div>
       
@@ -166,8 +198,13 @@
                 </label>
                 <div class="mt-1 sm:mt-0 sm:col-span-2">
                   <div class="max-w-xs rounded-md shadow-sm">
-                    <input id="city" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                    <input id="date_of_birth" value="{{ old('date_of_birth', $user->profile->date_of_birth ?? '') }}" name="date_of_birth" type="date" class="@error('kings_chat') border-red-300 text-red-900 placeholder-red-300 @enderror form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                   </div>
+                  @error('date_of_birth')
+                    <div class="mt-3 text-red-600 text-sm ml-1" role="alert">
+                        {{ $message }}
+                    </div>
+                  @enderror
                 </div>
               </div>
 
@@ -175,7 +212,7 @@
                 <fieldset>
                   <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-baseline">
                     <div>
-                      <legend class="text-base leading-6 font-medium text-gray-900 sm:text-sm sm:leading-5 sm:text-gray-700">
+                      <legend class=" text-base leading-6 font-medium text-gray-900 sm:text-sm sm:leading-5 sm:text-gray-700">
                         Marital Status
                       </legend>
                     </div>
@@ -183,19 +220,24 @@
                       <div class="max-w-lg">
                         <div class="mt-4">
                           <div class="flex items-center">
-                            <input id="marital_status" name="form-input marital_status" type="radio" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out" />
+                            <input id="marital_status" @if(old('marital_status') == 'single') checked @elseif($user->profile->marital_status == 'single') checked @endif value="single" name="marital_status" type="radio" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out" />
                             <label for="marital_status" class="ml-3">
                               <span class="block text-sm leading-5 font-medium text-gray-700">Single</span>
                             </label>
                           </div>
                           <div class="mt-4 flex items-center">
-                            <input id="marital_status" name="form-input marital_status" type="radio" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out" />
+                            <input id="marital_status" @if(old('marital_status') == 'married') checked @elseif($user->profile->marital_status == 'married') checked @endif   name="marital_status" value="married" type="radio" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out" />
                             <label for="marital_status" class="ml-3">
                               <span class="block text-sm leading-5 font-medium text-gray-700">Married</span>
                             </label>
                           </div>
                       
                         </div>
+                        @error('date_of_birth')
+                          <div class="mt-3 text-red-600 text-sm ml-1" role="alert">
+                              {{ $message }}
+                          </div>
+                        @enderror
                       </div>
                     </div>
                   </div>
