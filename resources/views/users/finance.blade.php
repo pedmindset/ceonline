@@ -1,6 +1,6 @@
 @extends('layouts.website')
 
-@section('title', 'Dasboard')
+@section('title', 'Finance')
 
 @push('page-title')
 <div class="flex justify-between">

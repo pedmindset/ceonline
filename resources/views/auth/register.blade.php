@@ -77,6 +77,7 @@
                             </div>
                         </div>
 
+                        @if($invite == null)
                         <div class="form-group row">
                             <label for="church" class="col-md-4 col-form-label text-md-right">{{ __('Church') }}</label>
 
@@ -102,6 +103,9 @@
                                 @enderror
                             </div>
                         </div>
+                        @else
+                            <input type="hidden" name="church" value="{{ \App\Models\User::find($invite)->church_id }}">
+                        @endif
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
