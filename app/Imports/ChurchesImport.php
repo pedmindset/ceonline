@@ -16,6 +16,8 @@ class ChurchesImport implements ToModel
     {
         return new Church([
             'name' => $row[0],
+            'grow_id' => $row[1],
+
         ]);
     }
 
