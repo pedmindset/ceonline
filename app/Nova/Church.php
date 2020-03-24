@@ -79,11 +79,11 @@ class Church extends Resource
 ->sortable()
 ,
 
-HasMany::make('User'),
-HasMany::make('Service'),
-HasMany::make('Announcement'),
-HasMany::make('Payment'),
-HasMany::make('Venue'),
+HasMany::make('Users'),
+HasMany::make('Services'),
+HasMany::make('Announcements'),
+HasMany::make('Payments'),
+HasMany::make('Venues'),
                                                                                             ];
     }
 
