@@ -178,7 +178,12 @@
                         {{ $payment->paymentcategory->title ?? 'NA'}}
                     </td>
                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                        {{ $payment->amount ?? 'NA'}}
+                       @if($payment->currency == null)
+                       GHS {{ $payment->amount ?? 'NA'}}
+                       @else
+                       {{ $payment->currency }} {{ $payment->amount ?? 'NA'}}
+                       @endif
+                       
                     </td>
                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
                         {{ $payment->service->title ?? 'NA'}}
