@@ -198,7 +198,7 @@
                 </label>
                 <div class="mt-1 sm:mt-0 sm:col-span-2">
                   <div class="max-w-xs rounded-md shadow-sm">
-                    <input id="date_of_birth" value="{{ old('date_of_birth', $user->profile->date_of_birth ?? '') }}" name="date_of_birth" type="date" class="@error('kings_chat') border-red-300 text-red-900 placeholder-red-300 @enderror form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                    <input id="date_of_birth" value="{{ old('date_of_birth', $user->profile->date_of_birth->toDateString() ?? '') }}" name="date_of_birth" type="date" class="@error('date_of_birth') border-red-300 text-red-900 placeholder-red-300 @enderror form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                   </div>
                   @error('date_of_birth')
                     <div class="mt-3 text-red-600 text-sm ml-1" role="alert">
