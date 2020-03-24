@@ -3,7 +3,14 @@
 @section('title', 'Dasboard')
 
 @push('page-title')
-    Live Service - {{ $service->title }}
+    <div class="flex justify-between">
+      <p class="hidden sm:block"></p>
+      <div>
+        <button  type="button" class="inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+          Click here, if this is your first time here!
+        </button>
+      </div>
+    </div>
 @endpush
 @push('custom-styles')
     <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />

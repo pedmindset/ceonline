@@ -14,6 +14,7 @@ class CreateFirstTimersTable extends Migration
     {
         Schema::create('first_timers', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name')->nullable();
             $table->unsignedbiginteger('church_id')->nullable();
             $table->foreign('church_id')->references('id')->on('churches');
             $table->unsignedbiginteger('service_id')->nullable();

@@ -8,11 +8,12 @@
           </div>
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline">
-              <a href="../home" class="px-3 py-2 rounded-md text-sm font-medium text-white bg-indigo-800 focus:outline-none focus:text-white focus:bg-indigo-600">Live Service</a>
-              <a href="../videos" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Video Center</a>
-              <a href="../givings" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Giving</a>
-              {{-- <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Messaging Center</a> --}}
-              <a href="#" v-on:click.prevent="shareURl = true" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Invite Friends</a> 
+              <a href="../home" class="px-3 py-2 rounded-md text-sm font-medium {{ request()->is('home') ? 'text-white  bg-indigo-800 focus:outline-none focus:text-white focus:bg-indigo-600' : 'text-indigo-50 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600' }}">Live Service</a>
+              <a href="../videos" class="ml-4 px-3 py-2 rounded-md text-sm font-medium  {{ request()->is('videos') ? 'text-white  bg-indigo-800 focus:outline-none focus:text-white focus:bg-indigo-600' : 'text-indigo-50 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600' }}">Video Center</a>
+              <a href="../givings" class="ml-4 px-3 py-2 rounded-md text-sm font-medium {{ request()->is('givings') ? 'text-white  bg-indigo-800 focus:outline-none focus:text-white focus:bg-indigo-600' : 'text-indigo-50 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600' }}">Giving</a>
+              <a href="#" v-on:click.prevent="shareURl = true" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-50 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Invite Friends</a> 
+              <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-indigo-100 bg-red-500 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Accept the Lord Jesus</a>
+
 
             </div>
           </div>
