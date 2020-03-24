@@ -6,7 +6,7 @@
   <p class="hidden sm:block"></p>
   <div>
     <button v-on:click.prevent="first_timer()"   type="button" class="inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150 sm:text-sm sm:leading-5">
-      Click here, if this is your first time here!
+      <i class="las la-handshake text-xl mr-1"></i> Click here, if this is your first time worshipping with us!
     </button>
   </div>
 </div>
