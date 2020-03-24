@@ -4,12 +4,12 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\DateTime;
 
 
-class FirstTimer extends Resource
+class Invite extends Resource
 {
     public static $group = 'Service Center';
 
@@ -18,7 +18,7 @@ class FirstTimer extends Resource
      *
      * @var  string
      */
-    public static $model = \App\Models\FirstTimer::class;
+    public static $model = \App\Models\Invite::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -43,7 +43,7 @@ class FirstTimer extends Resource
      */
     public static function label()
     {
-        return __('First Timers');
+        return __('Invites');
     }
 
     /**
@@ -53,7 +53,7 @@ class FirstTimer extends Resource
     */
     public static function singularLabel()
     {
-        return __('First Timer');
+        return __('Invite');
     }
 
     /**
@@ -69,13 +69,17 @@ class FirstTimer extends Resource
 ->rules('required')
 ->sortable()
 ,
-
-BelongsTo::make('User')
+                                                                BelongsTo::make('Church')
 
 ->searchable()
 ->sortable()
 ,
-                                                                BelongsTo::make('Church')
+                                                                BelongsTo::make('Invitor', 'owner', 'App\Nova\User' )
+
+->searchable()
+->sortable()
+,
+                                                                BelongsTo::make('Invitee', 'user', 'App\Nova\User')
 
 ->searchable()
 ->sortable()
@@ -85,8 +89,7 @@ BelongsTo::make('User')
 ->searchable()
 ->sortable()
 ,
-
-                                                                                            ];
+                                                                                                                        ];
     }
 
     /**

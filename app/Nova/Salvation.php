@@ -69,10 +69,6 @@ class Salvation extends Resource
 ->rules('required')
 ->sortable()
 ,
-                                                                Text::make( __('Name'),  'name')
-->onlyOnIndex()
-->sortable()
-,
 
 BelongsTo::make('User')
 

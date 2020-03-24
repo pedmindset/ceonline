@@ -4,19 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class FirstTimer extends Model
+class Invite extends Model
 {
 
 /**
 * @var  string
 */
-protected $table = 'first_timers';
+protected $table = 'invites';
 
 protected $casts = [
 'created_at' => 'datetime',
 'updated_at' => 'datetime',
 ];
-
 
 /**
  * Boot function from laravel.
@@ -36,12 +35,16 @@ public function church()
 {
 return $this->belongsTo('App\Models\Church', 'church_id', 'id');
 }
-public function service()
+public function owner()
 {
-return $this->belongsTo('App\Models\Service', 'service_id', 'id');
+return $this->belongsTo('App\Models\User', 'owner_id', 'id');
 }
 public function user()
 {
 return $this->belongsTo('App\Models\User', 'user_id', 'id');
+}
+public function service()
+{
+return $this->belongsTo('App\Models\Service', 'service_id', 'id');
 }
 }

@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Models\Church;
+use App\Models\Invite;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -41,6 +44,23 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+      /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm(Request $request)
+    {
+        $invite = null;
+        if($request->filled('invite')){
+            $invite = $request->invite;
+        }
+
+        $churches = Church::all();
+
+        return view('auth.register', compact('churches', 'invite'));
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -50,6 +70,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'invite' => ['nullable'],
+            'title' => ['required'],
+            'church' => ['required'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:4', 'confirmed'],
@@ -64,10 +87,30 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'church_id' => $data['church'],
             'password' => Hash::make($data['password']),
         ]);
+
+        $user->profile()->create([
+            'title' => $data['title'],
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'church_id' => $data['church'],
+        ]);
+
+        if(!empty($data['invite'])){
+            $invite = new Invite;
+            $invite->church_id = $data['church'];
+            $invite->owner_id = $data['invite'];
+            $invite->user_id = $user->id;
+            $invite->save();
+        }
+
+        return $user;
+
+        
     }
 }

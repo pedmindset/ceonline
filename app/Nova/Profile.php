@@ -4,21 +4,23 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\DateTime;
 
 
-class FirstTimer extends Resource
+class Profile extends Resource
 {
-    public static $group = 'Service Center';
+    public static $group = 'Account';
 
     /**
      * The model the resource corresponds to.
      *
      * @var  string
      */
-    public static $model = \App\Models\FirstTimer::class;
+    public static $model = \App\Models\Profile::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -43,7 +45,7 @@ class FirstTimer extends Resource
      */
     public static function label()
     {
-        return __('First Timers');
+        return __('Profiles');
     }
 
     /**
@@ -53,7 +55,7 @@ class FirstTimer extends Resource
     */
     public static function singularLabel()
     {
-        return __('First Timer');
+        return __('Profile');
     }
 
     /**
@@ -69,23 +71,43 @@ class FirstTimer extends Resource
 ->rules('required')
 ->sortable()
 ,
-
-BelongsTo::make('User')
-
-->searchable()
-->sortable()
-,
                                                                 BelongsTo::make('Church')
 
 ->searchable()
 ->sortable()
 ,
-                                                                BelongsTo::make('Service')
+                                                                BelongsTo::make('User')
 
 ->searchable()
 ->sortable()
 ,
-
+                                                                Select::make( __('Title'),  'title')
+->sortable()
+->options([
+	    	    'bro' => 'Bro',
+                'sis' => 'Sis',
+                'mr' => 'Mr',
+	    	    'mrs' => 'Mrs',
+	    	    'dr' => 'Dr',
+                'sir' => 'Sir',
+                'dcn' => 'Dcn',
+	    	    'dcns' => 'Dcns',
+	    	    'pst' => 'Pst',
+	    	])
+,
+                                                                Text::make( __('Name'),  'name')
+->sortable()
+,
+                                                                Date::make( __('Date Of Birth'),  'date_of_birth')
+->sortable()
+,
+                                                                Select::make( __('Marital Status'),  'marital_status')
+->sortable()
+->options([
+    		    'single' => 'Single',
+	    	    'married' => 'Married',
+	    	])
+,
                                                                                             ];
     }
 

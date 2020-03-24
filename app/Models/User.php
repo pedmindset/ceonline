@@ -16,7 +16,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'church_id',
     ];
 
     /**
@@ -65,5 +65,15 @@ class User extends Authenticatable implements MustVerifyEmail
     public function attendances()
     {
     return $this->hasMany('App\Models\Attendance');
+    }
+
+    public function profile()
+    {
+    return $this->hasOne('App\Models\Profile');
+    }
+
+    public function invites()
+    {
+    return $this->hasMany('App\Models\Invite', 'owner_id', 'id');
     }
 }
