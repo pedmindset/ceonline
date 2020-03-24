@@ -14,7 +14,7 @@ class ChurchesTableSeeder extends Seeder
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
 
-        DB::table('Churches')->truncate();
+        DB::table('churches')->truncate();
 
         Maatwebsite\Excel\Facades\Excel::import(new App\Imports\ChurchesImport, storage_path('churches.csv'));
     }
