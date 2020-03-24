@@ -19,6 +19,11 @@ protected $casts = [
 
 public function users()
 {
+return $this->hasMany('App\Models\User');
+}
+
+public function cells()
+{
 return $this->hasMany('App\Models\Cell');
 }
 

@@ -80,6 +80,7 @@ class Church extends Resource
 ,
 
 HasMany::make('Users'),
+HasMany::make('Cells'),
 HasMany::make('Services'),
 HasMany::make('Announcements'),
 HasMany::make('Payments'),
