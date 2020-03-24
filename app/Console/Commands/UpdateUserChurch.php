@@ -40,7 +40,8 @@ class UpdateUserChurch extends Command
     {
         $users = User::chunk(200, function($users){
             foreach ($users as $user) {
-                $user->profile()->create([
+
+                $user->profile()->updateOrCreate([
                     'name' => $user->name,
                     'email' => $user->email,
                     'church_id' => $user->church_id,
