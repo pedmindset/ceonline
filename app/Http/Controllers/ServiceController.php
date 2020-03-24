@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Invite;
 use App\Models\Comment;
 use App\Models\Service;
 use App\Models\Salvation;
@@ -9,6 +10,7 @@ use App\Models\Attendance;
 use App\Models\FirstTimer;
 use Illuminate\Http\Request;
 use App\Models\PaymentCategory;
+use Illuminate\Support\Facades\Auth;
 use Merujan99\LaravelVideoEmbed\Facades\LaravelVideoEmbed;
 
 class ServiceController extends Controller
@@ -233,6 +235,52 @@ class ServiceController extends Controller
             'code' => 100
         ]);
 
+    }
+
+    public function invites()
+    {
+        $payment_categories = PaymentCategory::all();
+
+        $service = Service::latest()->first();
+
+        $user = Auth::user();
+
+        $invites = Invite::where('owner_id', Auth::id())
+                            ->with('user')
+                            ->get();
+
+        $total_year = Invite::where('owner_id', Auth::id())
+                        ->whereBetween('created_at', [
+                            now()->copy()->startOfYear()->toDateTimeString(),
+                            now()->copy()->endOfYear()->toDateTimeString(),
+                        ])
+                        ->count();
+
+        $total_month = Invite::where('owner_id', Auth::id())
+        ->whereBetween('created_at', [
+            now()->copy()->startOfMonth()->toDateTimeString(),
+            now()->copy()->endOfMonth()->toDateTimeString(),
+        ])
+        ->count();
+
+        $total_week = Invite::where('owner_id', Auth::id())
+        ->whereBetween('created_at', [
+            now()->copy()->startOfWeek()->toDateTimeString(),
+            now()->copy()->endOfWeek()->toDateTimeString(),
+        ])
+        ->count();
+
+        $total_day = Invite::where('owner_id', Auth::id())
+        ->whereBetween('created_at', [
+            now()->copy()->startOfDay()->toDateTimeString(),
+            now()->copy()->endOfDay()->toDateTimeString(),
+        ])
+        ->count();
+
+        $total_ = Invite::where('owner_id', Auth::id())->count();
+
+
+        return view('users.invites', compact('invites', 'total_year', 'total_month', 'total_week', 'total_day', 'payment_categories', 'user', 'service'));
     }
 
   
