@@ -181,7 +181,7 @@ class ServiceController extends Controller
     {
         $user = $request->user();
         $first_timer = new FirstTimer;
-        $first_timer->church_id = $request->church;
+        $first_timer->church_id = $user->church_id;
         $first_timer->service_id = $request->service;
         $first_timer->name = $user->name;
         $first_timer->user_id = $user->id;
@@ -199,7 +199,7 @@ class ServiceController extends Controller
     {
         $user = $request->user();
         $salvation = new Salvation;
-        $salvation->church_id = $request->church;
+        $salvation->church_id = $user->church_id;
         $salvation->service_id = $request->service;
         $salvation->name = $user->name;
         $salvation->user_id = $user->id;
