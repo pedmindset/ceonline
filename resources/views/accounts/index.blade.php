@@ -184,7 +184,7 @@
                   <div class="max-w-lg rounded-md shadow-sm">
                     <input id="kings_chat" value="{{ old('kings_chat', $user->profile->kings_chat ?? '') }}" name="kings_chat" class="@error('kings_chat') border-red-300 text-red-900 placeholder-red-300 @enderror form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                   </div>
-                  @error('email')
+                  @error('kings_chat')
                     <div class="mt-3 text-red-600 text-sm ml-1" role="alert">
                         {{ $message }}
                     </div>
@@ -198,7 +198,11 @@
                 </label>
                 <div class="mt-1 sm:mt-0 sm:col-span-2">
                   <div class="max-w-xs rounded-md shadow-sm">
+                    @if($user->profile->date_of_birth == null)
+                    <input id="date_of_birth" value="{{ old('date_of_birth', $user->profile->date_of_birth ?? '') }}" name="date_of_birth" type="date" class="@error('date_of_birth') border-red-300 text-red-900 placeholder-red-300 @enderror form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                    @else
                     <input id="date_of_birth" value="{{ old('date_of_birth', $user->profile->date_of_birth->toDateString() ?? '') }}" name="date_of_birth" type="date" class="@error('date_of_birth') border-red-300 text-red-900 placeholder-red-300 @enderror form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                    @endif 
                   </div>
                   @error('date_of_birth')
                     <div class="mt-3 text-red-600 text-sm ml-1" role="alert">
@@ -233,7 +237,7 @@
                           </div>
                       
                         </div>
-                        @error('date_of_birth')
+                        @error('marital_status')
                           <div class="mt-3 text-red-600 text-sm ml-1" role="alert">
                               {{ $message }}
                           </div>

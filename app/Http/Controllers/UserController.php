@@ -39,7 +39,7 @@ class UserController extends Controller
             'church' => 'required',
             'phone' => 'nullable|min:9|max:12',
             'email' => 'nullable',
-            'kings_chat' => 'nullable',
+            'kings_chat' => 'nullable|min:9|max:12',
             'date_of_birth' => 'nullable',
             'marital_status' => 'nullable',
         ]);
