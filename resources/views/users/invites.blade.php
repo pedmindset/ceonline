@@ -20,28 +20,28 @@
         
         <div class="h-auto min-w-18 my-3 py-5 bg-white rounded-lg shadow-xl flex flex-col text-gray-500 items-center mx-2">
             <span class="rounded-full bg-indigo-400">
-                <i class=" text-white las la-check-circle text-3xl p-3"></i>
+                <i class=" text-white las la-users text-3xl p-3"></i>
             </span>
             <p class="text-lg mt-2 font-bold px-4 max-w-xl">{{ $total_year }}</p>
             <time class="text-sm">Total #</time>
         </div>
         <div class="h-auto min-w-18 my-3 py-5 bg-white rounded-lg shadow-xl flex flex-col text-gray-500 items-center mx-2">
             <span class="rounded-full bg-indigo-400">
-                <i class=" text-white las la-church text-3xl p-3"></i>
+                <i class=" text-white las la-users text-3xl p-3"></i>
             </span>
             <p class="text-lg mt-2 font-bold px-4 max-w-xl">{{ $total_month }}</p>
             <time class="text-sm">Total this Month</time>
         </div>
         <div class="h-auto min-w-18 my-3 py-5 bg-white rounded-lg shadow-xl flex flex-col text-gray-500 items-center mx-2">
             <span class="rounded-full bg-indigo-400">
-                <i class=" text-white las la-handshake text-3xl p-3"></i>
+                <i class=" text-white las la-users text-3xl p-3"></i>
             </span>
             <p class="text-lg mt-2 font-bold px-4 max-w-xl">{{ $total_week }}</p>
             <time class="text-sm">Total this Week</time>
         </div>
         <div class="h-auto min-w-18 my-3 py-5 bg-white rounded-lg shadow-xl flex flex-col text-gray-500 items-center mx-2">
             <span class="rounded-full bg-indigo-400">
-                <i class=" text-white las la-wallet text-3xl p-3"></i>
+                <i class=" text-white las la-users text-3xl p-3"></i>
             </span>
             <p class="text-lg mt-2 font-bold px-4 max-w-xl">{{ $total_day }}</p>
             <time class="text-sm">Total Today</time>
