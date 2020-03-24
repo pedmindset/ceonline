@@ -67,6 +67,7 @@ class Profile extends Resource
     public function fields(Request $request)
     {
         return [
+
                                                 ID::make( __('Id'),  'id')
 ->rules('required')
 ->sortable()
@@ -96,6 +97,12 @@ class Profile extends Resource
 	    	])
 ,
                                                                 Text::make( __('Name'),  'name')
+->sortable()
+,
+Text::make( __('Phone'),  'phone')
+->sortable()
+,
+Text::make( __('Kings Chat No'),  'kings_chat')
 ->sortable()
 ,
 Text::make('Email')

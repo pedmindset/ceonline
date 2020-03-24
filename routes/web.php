@@ -48,6 +48,7 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('/givings', 'PaymentController@index');
 
+    Route::get('accounts', 'UserController@index');
 
     Route::get('views', function(){
         $service = Service::latest()->first();
