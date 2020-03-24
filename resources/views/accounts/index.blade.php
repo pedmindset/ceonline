@@ -26,7 +26,7 @@
                   </div>
                   <div class="ml-4">
                     <h3 class="text-lg leading-6 font-medium text-gray-900">
-                      {{ $user->profile->name ?? "N/A" }}
+                      {{ $user->name ?? "N/A" }}
                     </h3>
                     <p class="text-sm leading-5 text-gray-500">
                       <a href="#">
@@ -52,7 +52,7 @@
           </div>
     </div>
   <div class="w-full rounded-md shadow-lg p-4 bg-white">
-    <form method="POST" action="../'profile_update'">
+    <form method="POST" action="../profile_update">
       @csrf
       @method('PUT')
         <div>
@@ -85,7 +85,7 @@
               </label>
               <div class="mt-1 sm:mt-0 sm:col-span-2">
                 <div class="max-w-xs rounded-md shadow-sm">
-                  <select id="title" class=" @error('title') border-red-300 text-red-900 placeholder-red-300 @enderror block form-select w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                  <select id="title" name="title" class=" @error('title') border-red-300 text-red-900 placeholder-red-300 @enderror block form-select w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                     <option disabled>All Titles</option>
                     @foreach($titles as $title)
                     @if(key($title) == old('title'))
@@ -109,7 +109,7 @@
               </label>
               <div class="mt-1 sm:mt-0 sm:col-span-2">
                 <div class="max-w-xs rounded-md shadow-sm">
-                  <select id="country" class="@error('church') border-red-300 text-red-900 placeholder-red-300 @enderror block form-select w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                  <select id="country" name="church" class="@error('church') border-red-300 text-red-900 placeholder-red-300 @enderror block form-select w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                     <option disabled>All Churches</option>
                     @foreach($churches as $church)
                     @if($church->id == old('church'))
@@ -134,7 +134,7 @@
                 </label>
                 <div class="mt-1 sm:mt-0 sm:col-span-2">
                   <div class="max-w-xs rounded-md shadow-sm">
-                    <input id="name" value="{{ old('name', $user->name ?? '') }}" class="@error('name') border-red-300 text-red-900 placeholder-red-300 @enderror form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                    <input id="name" name="name" value="{{ old('name', $user->name ?? '') }}" class="@error('name') border-red-300 text-red-900 placeholder-red-300 @enderror form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                   </div>
                   @error('name')
                     <div class="mt-3 text-red-600 text-sm ml-1" role="alert">
@@ -150,7 +150,7 @@
                 </label>
                 <div class="mt-1 sm:mt-0 sm:col-span-2">
                   <div class="max-w-xs rounded-md shadow-sm">
-                    <input id="phone" value="{{ old('phone', $user->profile->phone ?? '') }}" class="@error('phone') border-red-300 text-red-900 placeholder-red-300 @enderror form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                    <input id="phone" name="phone" value="{{ old('phone', $user->profile->phone ?? '') }}" class="@error('phone') border-red-300 text-red-900 placeholder-red-300 @enderror form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                   </div>
                   @error('phone')
                     <div class="mt-3 text-red-600 text-sm ml-1" role="alert">
@@ -166,7 +166,7 @@
                 </label>
                 <div class="mt-1 sm:mt-0 sm:col-span-2">
                   <div class="max-w-lg rounded-md shadow-sm">
-                    <input id="email" value="{{ old('email', $user->email ?? '') }}" name="email" type="email" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                    <input id="email" value="{{ old('email', $user->profile->email ?? '') }}" name="email" type="email" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                   </div>
                   @error('email')
                     <div class="mt-3 text-red-600 text-sm ml-1" role="alert">

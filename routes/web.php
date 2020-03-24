@@ -50,6 +50,8 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('accounts', 'UserController@index');
 
+    Route::put('profile_update', 'UserController@profile_update');
+
     Route::get('views', function(){
         $service = Service::latest()->first();
 
