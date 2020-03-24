@@ -40,17 +40,17 @@
             </span>
             <p class="ml-3 font-medium text-white truncate">
               <span class="md:hidden">
-                Give your tithe, Offerings & Partnership Online
+                Invite your Friends with a personalized Link
               </span>
               <span class="hidden md:inline">
-                Give your tithe, Offerings & Partnership Online
+                Invite your Friends with a personalized Link
               </span>
             </p>
           </div>
           <div class="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
             <div class="rounded-md shadow-sm">
-              <a href="../givings" class="flex items-center justify-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-indigo-600 bg-white hover:text-indigo-500 focus:outline-none focus:shadow-outline transition ease-in-out duration-150">
-                Give Now!
+              <a href="../invites" class="flex items-center justify-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-indigo-600 bg-white hover:text-indigo-500 focus:outline-none focus:shadow-outline transition ease-in-out duration-150">
+                Invite Now!
               </a>
             </div>
           </div>

@@ -88,6 +88,7 @@
                                 required
                                 >
                                     <option disabled>All Churches</option>
+                                    <option value="1">Christ Embassy Nungua</option>
                                     @foreach($churches as $church)
                                     @if($church->id == old('church'))
                                     <option selected value="{{ $church->id }}">{{ $church->name }}</option>
