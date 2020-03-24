@@ -433,27 +433,62 @@
             },
 
           first_timer: function(){
-            axios.post('../first_timer',{
-              'service': this.service.id
-            }).then(function(r){
-              console.log(r.data);
-              alert(r.data.message)
-            }).catch(function(e){
+            var self = this;
+            self.$swal.fire({
+              title: 'Are you a First Timer?',
+              text: "Is this your first time worshiping with us!",
+              icon: 'info',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Yes, My First Time!'
+            }).then((result) => {
+              if (result.value) {
+                axios.post('../first_timer',{
+                  'service': self.service.id
+                }).then(function(r){
+                  self.$swal.fire(
+                  'Success!',
+                  r.data.message,
+                  'success'
+                )
+                }).catch(function(e){
 
+                })
+               
+              }
             })
+           
           },
 
           salvation: function(){
-            axios.post('../salvation',{
-              'service': this.service.id
-            }).then(function(r){
-              console.log(r.data);
-              alert(r.data.message)
-            }).catch(function(e){
+            var self = this;
+            self.$swal.fire({
+              title: 'Accept the Lord Jesus',
+              text: "Do you want to accept the Lord Jesus as your Lord and personal Savior",
+              icon: 'info',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Yes!'
+            }).then((result) => {
+              if (result.value) {
+                axios.post('../salvation',{
+                'service': this.service.id
+              }).then(function(r){
+                self.$swal.fire(
+                  'Success!',
+                  r.data.message,
+                  'success'
+                )
+                }).catch(function(e){
 
+                })
+               
+              }
             })
-
           },
+
           rave_callback: function(response){
             this.payment_modal = false;
             var self = this;
