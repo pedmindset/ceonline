@@ -36,7 +36,7 @@
               </div>
               <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
                 <div class="py-1 rounded-md bg-white shadow-xs">
-                  <a href="../accounts" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Your Profile</a>
+                  <a href="../accounts" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Edit Profile</a>
                   <a href="../invites" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Invites</a>
                   <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" href="{{ route('logout') }}"  onclick="event.preventDefault();
                   document.getElementById('logout-form2').submit();">
@@ -83,7 +83,7 @@
         </div>
        
         <div class="mt-3 px-2">
-          <a href="../accounts" class="block px-3 py-2 rounded-md text-base font-medium text-indigo-300 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Your Profile</a>
+          <a href="../accounts" class="block px-3 py-2 rounded-md text-base font-medium text-indigo-300 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Edit Profile</a>
           <a href="../invites" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-300 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Invites</a>
           <a  class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-300 bg-indigo-800 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600" href="{{ route('logout') }}"  onclick="event.preventDefault();
               document.getElementById('logout-form2').submit();">
