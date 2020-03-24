@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\Church;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ChurchesTableSeeder extends Seeder
 {
@@ -12,9 +12,10 @@ class ChurchesTableSeeder extends Seeder
      */
     public function run()
     {
-        Church::create([
-            'grow_id' => 237,
-            'name' => 'Christ Embassy Nungua'
-        ]);
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+
+        DB::table('Churches')->truncate();
+
+        Maatwebsite\Excel\Facades\Excel::import(new App\Imports\ChurchesImport, storage_path('churches.csv'));
     }
 }
