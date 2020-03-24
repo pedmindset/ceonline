@@ -38,6 +38,10 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('/videos', 'ServiceController@index');
 
+    Route::get('/salavation', 'ServiceController@salvation');
+
+    Route::get('/first_timer', 'ServiceController@first_timer');
+
     Route::get('/videos/{id}', 'ServiceController@show');
 
     Route::post('/payments', 'PaymentController@give');

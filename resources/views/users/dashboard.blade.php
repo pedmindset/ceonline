@@ -6,7 +6,7 @@
     <div class="flex justify-between">
       <p class="hidden sm:block"></p>
       <div>
-        <button  type="button" class="inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+        <button v-on:click.prevent="first_timer()"   type="button" class="inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150 sm:text-sm sm:leading-5">
           Click here, if this is your first time here!
         </button>
       </div>
@@ -431,6 +431,29 @@
                 console.log(this.shareURl = false);
                 
             },
+
+          first_timer: function(){
+            axios.post('../first_timer',{
+              'service': this.service.id
+            }).then(function(r){
+              console.log(r.data);
+              alert('A pastor will get in contact with you shortly, God Bless you')
+            }).catch(function(e){
+
+            })
+          },
+
+          salvation: function(){
+            axios.post('../salvation',{
+              'service': this.service.id
+            }).then(function(r){
+              console.log(r.data);
+              alert('A pastor will get in contact with you shortly, God Bless you')
+            }).catch(function(e){
+
+            })
+
+          },
           rave_callback: function(response){
             this.payment_modal = false;
             var self = this;
@@ -440,6 +463,7 @@
                   service: this.service.id,
                   user: this.user.id,
                   amount: this.amount,
+                  currency: this.currency,
                   payment_category: this.payment_category
               }).then(function(response){
                 self.amount = '';

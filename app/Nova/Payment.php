@@ -99,8 +99,9 @@ BelongsTo::make('User')
      
 
 BelongsTo::make('Service')
-
-
+->sortable()
+,
+Text::make( __('Currency'),  'currency')
 ->sortable()
 ,
                                                                 Number::make( __('Amount'),  'amount')

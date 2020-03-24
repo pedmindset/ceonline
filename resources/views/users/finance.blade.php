@@ -295,6 +295,7 @@
                     service: this.service.id,
                     user: this.user.id,
                     amount: this.amount,
+                    currency: this.currency,
                     payment_category: this.payment_category
                 }).then(function(response){
                   self.amount = '';
