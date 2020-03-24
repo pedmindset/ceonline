@@ -12,7 +12,6 @@ class CreateSalvationsTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('salvations');
         Schema::create('salvations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->nullable();
