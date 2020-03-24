@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use App\Models\Service;
+use App\Models\Salvation;
 use App\Models\Attendance;
+use App\Models\FirstTimer;
 use Illuminate\Http\Request;
 use App\Models\PaymentCategory;
 use Merujan99\LaravelVideoEmbed\Facades\LaravelVideoEmbed;
@@ -173,6 +175,41 @@ class ServiceController extends Controller
         $timezone = $timezone['timezone'];
 
         return view('users.liveservice', compact('service', 'services', 'user','video_iframe', 'timezone', 'payment_categories'));
+    }
+
+    public function first_timer(Request $request)
+    {
+        $user = $request->user();
+        $first_timer = new FirstTimer;
+        $first_timer->church_id = $request->church;
+        $first_timer->service_id = $request->service;
+        $first_timer->name = $user->name;
+        $first_timer->user_id = $user->id;
+        $first_timer->save(); 
+
+        return response()->json([
+            'message' => 'success',
+            'code' => 100
+        ]);
+
+    }
+
+
+    public function salvation(Request $request)
+    {
+        $user = $request->user();
+        $salvation = new Salvation;
+        $salvation->church_id = $request->church;
+        $salvation->service_id = $request->service;
+        $salvation->name = $user->name;
+        $salvation->user_id = $user->id;
+        $firssalvationt_timer->save(); 
+
+        return response()->json([
+            'message' => 'success',
+            'code' => 100
+        ]);
+
     }
 
   
