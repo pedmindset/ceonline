@@ -202,7 +202,7 @@
               </div>
             </div>
         </div>
-        <div class="md:col-span-1 col-span-4 md:row-span-2 m-1 lg:m-0 xl:m-0 flex md:flex-col flex-wrap">
+        <div class="md:col-span-1 col-span-4 md:row-span-2 flex flex-row m-1 lg:m-0 xl:m-0 md:flex-col flex-wrap">
             <p class="p-1 px-3 py-3 tex-gray-700 hidden lg:block text-2xl"> Previous Videos </p>
             @forelse ($services as $s)
             <a href="../videos/{{ $s->id }}">
