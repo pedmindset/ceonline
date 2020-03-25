@@ -210,7 +210,7 @@
                     <span class="rounded-full bg-white">
                         <i class=" text-indigo-400 las la-play text-3xl p-3"></i>
                     </span>
-                    <p class="text-lg mt-2 font-bold px-4 max-w-xl overflow-hidden truncate">{{ $s->title }}</p>
+                    <p class="text-lg mt-2 px-2 font-bold px-4 max-w-xl truncate">{{ $s->title }}</p>
                     <time class="text-sm">{{ $s->created_at->diffForHumans() }}</time>
                 </div>
             </a>
