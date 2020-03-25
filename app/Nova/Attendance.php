@@ -99,6 +99,14 @@ class Attendance extends Resource
 ->sortable()
 ->step(1)
 ,
+
+DateTime::make('created_at')
+->sortable()
+->onlyOnIndex(),
+
+DateTime::make('updated_at')
+->sortable()
+->onlyOnIndex(),
                                                                                             ];
     }
 
