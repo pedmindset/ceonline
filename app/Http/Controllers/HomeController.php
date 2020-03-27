@@ -111,7 +111,8 @@ class HomeController extends Controller
             //Optional parameters to be appended to embed
             $params = [
                 'autoplay' => 1,
-            ];
+                'rel' => 0
+             ];
 
             //Optional attributes for embed container
             $attributes = [
