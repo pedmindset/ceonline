@@ -570,7 +570,7 @@
               Echo.join(`comment.${this.service.id}`)
               .listen('NewComment', function(e) {
                 console.log(e);
-                self.comments.unshift(e);
+                self.comments.unshift(e.comment);
             });
             }
 
