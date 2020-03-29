@@ -569,6 +569,7 @@
               var self = this;
               Echo.join(`comment.${this.service.id}`)
               .listen('NewComment', function(e) {
+                console.log(e);
                 self.comments.unshift(e);
             });
             }
