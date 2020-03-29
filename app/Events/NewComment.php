@@ -37,7 +37,7 @@ class NewComment implements ShouldBroadcast
         return [
             'comment' => [
                 'id'              => $this->comment->getKey(),
-                'body'            => $this->comment->message,
+                'message'            => $this->comment->message,
                 'user'            => $this->comment->user,
                 'service_id'            => $this->comment->service_id,
                 'created_at'      => $this->comment->created_at,
