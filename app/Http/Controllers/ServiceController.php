@@ -94,7 +94,7 @@ class ServiceController extends Controller
             //Optional attributes for embed container
             $attributes = [
             'type' => null,
-            'class' => 'w-full h-video ',
+            'class' => 'w-full sm:h-video',
             'data-html5-parameter' => true
             ];
 
