@@ -566,7 +566,7 @@
             },
 
             subscribeComment: function(){
-              var self = this'
+              var self = this;
               Echo.join(`comment.${this.service.id}`)
               .listen('NewComment', function(e) {
                 self.comments.unshift(e);
