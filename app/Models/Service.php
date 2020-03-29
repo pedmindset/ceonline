@@ -64,4 +64,9 @@ public function firsttimers()
 {
 return $this->hasMany('App\Models\FirstTimer');
 }
+
+public function payments()
+{
+return $this->hasMany('App\Models\Payment');
+}
 }
