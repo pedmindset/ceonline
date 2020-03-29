@@ -138,7 +138,7 @@ class ServiceController extends Controller
         $comment->message = $request->message;
         $comment->save();
 
-        broadcast(new NewComment($comment))->toOthers();
+        broadcast(new NewComment($comment));
 
         return response()->json($comment);
     }
