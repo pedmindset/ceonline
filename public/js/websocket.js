@@ -10044,7 +10044,7 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
   key: "1314244",
   cluster: "mt1",
-  encrypted: true
+  encrypted: false
 });
 
 /***/ }),
