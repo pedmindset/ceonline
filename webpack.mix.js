@@ -14,6 +14,7 @@ const purgeCss = require("laravel-mix-purgecss");
  */
 
 mix.js('resources/js/app.js', 'public/js')
+   .js('resources/js/websocket.js', 'public/js')
    .copy('node_modules/line-awesome/dist/line-awesome/fonts', 'public/fonts')
    .copy('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/fonts')
    .sass('resources/sass/bootstrapcss.scss', 'public/css')

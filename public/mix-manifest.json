@@ -1,5 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/bootstrapcss.css": "/css/bootstrapcss.css",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/js/websocket.js": "/js/websocket.js"
 }

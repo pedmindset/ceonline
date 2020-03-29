@@ -337,6 +337,7 @@
 
 @push('custom-scripts')
 <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
+<script src="{{ asset('js/websocket.js') }}" ></script>
 
 <script>
 
