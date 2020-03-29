@@ -6,6 +6,7 @@ use App\Models\Invite;
 use App\Models\Comment;
 use App\Models\Service;
 use App\Models\Salvation;
+use App\Events\NewComment;
 use App\Models\Attendance;
 use App\Models\FirstTimer;
 use Illuminate\Http\Request;
@@ -134,6 +135,8 @@ class ServiceController extends Controller
         $comment->user_id = $request->user;
         $comment->message = $request->message;
         $comment->save();
+
+        broadcast(new NewComment($comment))->toOthers();
 
         return response()->json($comment);
     }
