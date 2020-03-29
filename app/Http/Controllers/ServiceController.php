@@ -138,9 +138,7 @@ class ServiceController extends Controller
         $comment->message = $request->message;
         $comment->save();
 
-        $comment = Comment::find($comment->id)->with('user');
-
-        broadcast(new NewComment($comment))->toOthers();
+        broadcast(new NewComment($comment));
 
         return response()->json($comment);
     }
