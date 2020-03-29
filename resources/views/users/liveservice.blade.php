@@ -225,6 +225,8 @@
 @endpush
 @push('custom-scripts')
 <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
+<script src="{{ asset('js/websocket.js') }}" ></script>
+
 <script>
 var timezone = "{{ $timezone }}";
 
@@ -424,7 +426,7 @@ data: function(){
               user: this.user.id,
               message: this.message
           }).then(function(response){
-              self.comments.unshift(response.data);
+              // self.comments.unshift(response.data);
               self.submit_comment = false;
               self.spinner = false;
               self.message = '';
@@ -450,9 +452,20 @@ data: function(){
             }
         },
 
+        subscribeComment: function(){
+              var self = this;
+              Echo.join(`comment.${this.service.id}`)
+              .listen('NewComment', function(e) {
+                console.log(e);
+                self.comments.unshift(e.comment);
+            });
+
+        }
+
     },
 
     mounted: function(){
+      this.subscribeComment();
         var self = this;
       setInterval(function(){ 
          self.attendance_count();

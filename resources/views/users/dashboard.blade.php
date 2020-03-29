@@ -573,8 +573,6 @@
                 self.comments.unshift(e.comment);
             });
 
-            console.log(Echo);
-
             }
 
         },
