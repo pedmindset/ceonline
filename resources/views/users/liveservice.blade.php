@@ -5,8 +5,8 @@
 <div class="flex justify-between">
   <p class="hidden sm:block"></p>
   <div>
-    <button v-on:click.prevent="first_timer()"   type="button" class="inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150 sm:text-sm sm:leading-5">
-      <i class="las la-handshake text-sm sm:text-xl mr-1"></i> Click here, if this is your first time worshipping with us!
+    <button v-on:click.prevent="first_timer()"   type="button" class="inline-flex text-sm md:text-base justify-center rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+      <i class="las la-handshake text-2xl mr-1"></i> Click here, if this is your first time worshipping with us!
     </button>
   </div>
 </div>
@@ -32,8 +32,8 @@
             <div class="flex flex-col w-full">
                 <div class="flex flex-wrap justify-between">
                     <span class="px-4">
-                    <p class="pt-4 pb-1 text-lg text-gray-700">{{ $service->title ?? 'No Broadcast' }}</p>
-                         <p class="pb-4 pt-1 text text-gray-500">{{ $service->start_date->toFormattedDateString() }}</p>
+                    <p class="pt-4 pb-1 text-sm  md:text-lg text-gray-700">{{ $service->title ?? 'No Broadcast' }}</p>
+                         <p class="pb-4 pt-1 text-sm  md:text-base text-gray-500">{{ $service->start_date->toFormattedDateString() }}</p>
                     </span>
                     <div class="mt-2">
                       {{-- <button class="my-2 mx-1 inline-flex items-center shadow-md px-8 py-2 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"> 
