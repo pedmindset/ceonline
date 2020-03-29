@@ -564,9 +564,18 @@
                 }
             },
 
+            subscribeComment: function(){
+              var self = this'
+              Echo.join(`comment.${this.service.id}`)
+              .listen('NewComment', function(e) {
+                self.comments.unshift(e);
+            });
+            }
+
         },
     
         mounted: function(){
+          this.subscribeComment();
           var self = this;
           setInterval(function(){ 
               self.attendance_count();

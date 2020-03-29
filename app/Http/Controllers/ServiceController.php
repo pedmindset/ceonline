@@ -67,6 +67,8 @@ class ServiceController extends Controller
         if($check_attendance){
             $check_attendance->count = 1;
             $check_attendance->service_id = $service->id;
+            $check_attendance->updated_at = now()->toDateTimeString();
+
         }else{
             $attendance = new Attendance;
             $attendance->user_id = $user->id;

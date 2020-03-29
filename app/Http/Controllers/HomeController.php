@@ -88,6 +88,7 @@ class HomeController extends Controller
 
         if($check_attendance){
             $check_attendance->count = 1;
+            $check_attendance->updated_at = now()->toDateTimeString();
             $check_attendance->service_id = $service->id;
         }else{
             $attendance = new Attendance;

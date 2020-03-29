@@ -61,6 +61,7 @@ class AttendanceController extends Controller
         if($check_attendance){
             if(!($check_attendance->count == $count)){
                 $check_attendance->count = $count;
+                $check_attendance->updated_at = now()->toDateTimeString();
                 $check_attendance->save();
             }
         }else{
