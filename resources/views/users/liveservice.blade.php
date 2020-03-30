@@ -202,17 +202,17 @@
               </div>
             </div>
         </div>
-        <div class="md:col-span-1 md:max-w-xs  md:min-w-0 min-w-18  col-span-4 md:row-span-2 flex flex-row m-1 lg:m-0 xl:m-0 md:flex-col flex-wrap">
+        <div class="md:col-span-1 col-span-4 md:row-span-2 flex flex-row m-1 lg:m-0 xl:m-0 md:flex-col flex-wrap">
             <p class="p-1 px-3 py-3 tex-gray-700 hidden lg:block text-2xl"> Previous Videos </p>
             @forelse ($services as $s)
-            <a href="../videos/{{ $s->id }}">
-                <p class=" h-auto my-3 py-5 bg-indigo-500 rounded-lg shadow-2xl flex flex-col text-white items-center mx-2">
+            <a href="../videos/{{ $s->id }}" class=" w-72 md:w-auto md:max-w-xs">
+                <div class="h-auto my-3 py-5 bg-indigo-500 rounded-lg shadow-2xl flex flex-col text-white items-center mx-2">
                     <span class="rounded-full bg-white">
                         <i class=" text-indigo-400 las la-play text-3xl p-3"></i>
                     </span>
-                    <p class="text-lg mt-2 font-bold px-4 max-w-xl text-center">{{ $s->title }}</p>
+                    <p class="text-lg mt-2 font-bold px-4 text-center">{{ $s->title }}</p>
                     <p class="text-sm text-center">{{ $s->created_at->diffForHumans() }}</p>
-                  </p>
+                  </div>
             </a>
             @empty
             <p class="p-4">No Videos. Thank you</p>
