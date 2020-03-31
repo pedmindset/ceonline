@@ -104,8 +104,13 @@
                                         </div>
                                         <input id="amount" v-model="amount" class="form-input block w-full pl-5 text-right pl-16 sm:text-sm sm:leading-5" placeholder="0.00" />
                                     </div>
+
+                                    <label for="expectation" class="my-2 text-left  my-1  block text-sm font-medium leading-5 text-gray-700">Expectation</label>
+                                    <div class="mt-1 relative shadow-sm">
+                                      <textarea id="expectation" v-model="expectation"  rows="3" placeholder="" class="form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
+                                    </div>
+
                                   </div>
-                                  
                                 </div>
                               </div>
                             </div>
@@ -246,6 +251,7 @@ data: function(){
             raveKey: 'FLWPUBK-1beb6ca9cea567480a782f5f99294d64-X',
             email: user.email,
             amount: 0,
+            expectation: '',
             phone: '',
             fname: '',
             lname: '',
@@ -310,7 +316,7 @@ data: function(){
           for( let i=0; i < 10; i++ )
             text += possible.charAt(Math.floor(Math.random() * possible.length));
 
-          return text + '-' + this.payment_category;
+            return text + '-' + this.payment_category + '-' + this.expectation;
         }
     },
 
@@ -426,7 +432,7 @@ data: function(){
               user: this.user.id,
               message: this.message
           }).then(function(response){
-              // self.comments.unshift(response.data);
+              self.comments.unshift(response.data);
               self.submit_comment = false;
               self.spinner = false;
               self.message = '';
