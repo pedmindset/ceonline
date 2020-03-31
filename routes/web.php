@@ -19,7 +19,7 @@ Auth::routes(['verify' => true]);
 
 Route::get('/', function (Request $request) {
     if($request->user()){
-        return redirect('videos');
+        return redirect('home');
     }
     return view('welcome');
 });
