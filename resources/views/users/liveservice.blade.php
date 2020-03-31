@@ -432,7 +432,9 @@ data: function(){
               user: this.user.id,
               message: this.message
           }).then(function(response){
-              self.comments.unshift(response.data);
+              if(response.data.user.id != this.user.id){
+                  self.comments.unshift(response.data);
+              }
               self.submit_comment = false;
               self.spinner = false;
               self.message = '';
