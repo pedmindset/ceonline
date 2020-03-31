@@ -37,7 +37,7 @@
                     <div class="mt-1 sm:mt-0 sm:col-span-2">
                       <div class="rounded-md shadow-sm">
                         <select id="payment_category" v-model="payment_category" class="block form-select w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                          <option value="" disabled>Select Payment Category</option>
+                          <option value="" disabled>Select Giving Category</option>
                           <option v-for="category in payment_categories" v-bind:value="category.id" >@{{ category.title }}</option>
                         </select>
                       </div>

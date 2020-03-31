@@ -102,9 +102,10 @@
                                     <div class="mt-1 sm:mt-0 sm:col-span-2">
                                       <div class="rounded-md shadow-sm">
                                         <select id="payment_category" v-model="payment_category" class="block form-select w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                                          <option value="" disabled>Select Payment Category</option>
+                                          <option value="" disabled>Select Giving Category</option>
                                           <option v-for="category in payment_categories" v-bind:value="category.id" >@{{ category.title }}</option>
                                         </select>
+                                        <p v-show="false" class="text-left text-sm text-red-500">Please select a category</p>
                                       </div>
                                     </div>
                                   </div>
@@ -134,6 +135,7 @@
                                         </select>
                                       </div>
                                       <input id="amount" v-model="amount" class="form-input block w-full pl-5 text-right pl-16 sm:text-sm sm:leading-5" placeholder="0.00" />
+                                      <p v-show="false" class="text-left text-sm text-red-500">Please enter an amount</p>
                                   </div>
                                 </div>
 
@@ -363,7 +365,7 @@
                 raveKey: 'FLWPUBK-1beb6ca9cea567480a782f5f99294d64-X',
                 email: user.email,
                 expectation: '',
-                amount: '',
+                amount: null,
                 phone: '',
                 fname: '',
                 lname: '',
