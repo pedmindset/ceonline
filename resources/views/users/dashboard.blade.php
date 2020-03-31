@@ -365,7 +365,7 @@
                 raveKey: 'FLWPUBK-1beb6ca9cea567480a782f5f99294d64-X',
                 email: user.email,
                 expectation: '',
-                amount: null,
+                amount: '',
                 phone: '',
                 fname: '',
                 lname: '',
