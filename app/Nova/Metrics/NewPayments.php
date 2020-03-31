@@ -31,6 +31,7 @@ class NewPayments extends Value
             30 => '30 Days',
             60 => '60 Days',
             365 => '365 Days',
+            7 => '7 Days',
             'TODAY' => 'Today',
             'MTD' => 'Month To Date',
             'QTD' => 'Quarter To Date',
