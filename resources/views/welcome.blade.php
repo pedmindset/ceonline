@@ -159,7 +159,7 @@
               <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
                 <div class="rounded-md shadow">
                   <a href="../register" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
-                    Get started
+                    Sign up
                   </a>
                 </div>
                 <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
