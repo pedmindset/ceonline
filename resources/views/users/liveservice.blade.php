@@ -464,8 +464,9 @@ data: function(){
               var self = this;
               Echo.join(`comment.${this.service.id}`)
               .listen('NewComment', function(e) {
-                console.log(e);
-                self.comments.unshift(e.comment);
+                if(e.comment.user.id != self.user.id){
+                    self.comments.unshift(e.comment);
+                }
             });
 
         }
