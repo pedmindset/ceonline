@@ -41,6 +41,7 @@
                           <option v-for="category in payment_categories" v-bind:value="category.id" >@{{ category.title }}</option>
                         </select>
                       </div>
+                      <p v-show="categoryValidation" class="text-left text-sm text-red-500">Please select a category</p>
                     </div>
                   </div>
               
@@ -70,6 +71,7 @@
                       </div>
                       <input id="amount" v-model="amount" class="form-input block w-full pl-5 text-right pl-16 sm:text-sm sm:leading-5" placeholder="0.00" />
                   </div>
+                  <p v-show="amountValidation" class="text-left text-sm text-red-500">Please enter an amount</p>
 
                   <label for="expectation" class="my-2 text-left  my-1  block text-sm font-medium leading-5 text-gray-700">Expectation/ Desired Harvest</label>
                   <div class="mt-1 relative shadow-sm">
@@ -89,6 +91,7 @@
           </span>
             <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:col-start-2">
               <Rave
+                  ref="rave"
                   style-class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-indigo-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150 sm:text-sm sm:leading-5"
                   :email="email"
                   :amount="amount"
@@ -97,6 +100,7 @@
                   :rave-key="raveKey"
                   :callback="rave_callback"
                   :close="rave_close"
+                  :validate-fields="validateForm"
                   :customer-firstname="first_name"
                   :customer-lastname="last_name"
                   {{-- payment-options="ussd, card, account" --}}
@@ -242,6 +246,8 @@
                   currency: 'GHS',
                   country: 'GH',
                   shareURl: false,
+                  amountValidation: false,
+                  categoryValidation: false
   
               }
           },
@@ -351,38 +357,65 @@
             })
           },
 
-            closeShareURL: function () {
-                console.log(this.shareURl = false);
-                
-            },
-            rave_callback: function(response){
-              this.payment_modal = false;
-              var self = this;
-              if(response.data.data.status == 'successful'){
-                axios.post('../payments', {
-                    church: this.service.church_id,
-                    service: this.service.id,
-                    user: this.user.id,
-                    amount: this.amount,
-                    currency: this.currency,
-                    payment_category: this.payment_category
-                }).then(function(response){
-                  self.amount = '';
-                  self.payment_modal = false
-  
-  
-                }).catch(function(e){
-  
-                    console.log(e);
-                })
-              }
-            
-            },
-            rave_close: function(){
-              this.payment_modal = false;
-              this.amount = ''
-              console.log("Payment closed")
-            },
+          closeShareURL: function () {
+              console.log(this.shareURl = false);
+              
+          },
+          rave_callback: function(response){
+            this.payment_modal = false;
+            var self = this;
+            if(response.data.data.status == 'successful'){
+              axios.post('../payments', {
+                  church: this.service.church_id,
+                  service: this.service.id,
+                  user: this.user.id,
+                  amount: this.amount,
+                  currency: this.currency,
+                  payment_category: this.payment_category
+              }).then(function(response){
+                self.amount = '';
+                self.payment_modal = false
+
+
+              }).catch(function(e){
+
+                  console.log(e);
+              })
+            }
+          },
+
+          rave_close: function(){
+            this.payment_modal = false;
+            this.amount = ''
+            console.log("Payment closed")
+          },
+
+          validateForm: function(){
+            if(this.checkCategory() === true){
+              return
+            }
+            if(this.checkAmount() === true){
+              return
+            }
+            this.$refs.rave.payWithRave();
+          },
+
+          checkCategory: function(){
+            if(this.payment_category == ''){
+              return  this.categoryValidation = true;
+            }else{
+              return this.categoryValidation = false
+            }
+          },
+
+          checkAmount: function(){
+            if(this.amount == ''){
+              return this.amountValidation = true;
+            }else{
+              return this.amountValidation = false
+            }
+          },
+          
         }
 
       

@@ -94,19 +94,18 @@
                                 <p class="text-sm leading-5 text-gray-500">
                                   Give with Your Visa, Master Card or Mobile Money.
                                 </p>
-                                <div>
                                   <div class="mt-6 sm:mt-5  sm:border-t sm:border-gray-200 sm:pt-5">
                                     <label for="payment_category" class="block text-left my-1 text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
                                       Category
                                     </label>
                                     <div class="mt-1 sm:mt-0 sm:col-span-2">
                                       <div class="rounded-md shadow-sm">
-                                        <select id="payment_category" v-model="payment_category" class="block form-select w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                        <select v-on:change="checkCategory" id="payment_category" v-model="payment_category" class="block form-select w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                                           <option value="" disabled>Select Giving Category</option>
                                           <option v-for="category in payment_categories" v-bind:value="category.id" >@{{ category.title }}</option>
                                         </select>
-                                        <p v-show="false" class="text-left text-sm text-red-500">Please select a category</p>
                                       </div>
+                                      <p v-show="categoryValidation" class="text-left text-sm text-red-500">Please select a category</p>
                                     </div>
                                   </div>
                               
@@ -134,10 +133,9 @@
                                           <option value="USD">USD</option>
                                         </select>
                                       </div>
-                                      <input id="amount" v-model="amount" class="form-input block w-full pl-5 text-right pl-16 sm:text-sm sm:leading-5" placeholder="0.00" />
-                                      <p v-show="false" class="text-left text-sm text-red-500">Please enter an amount</p>
+                                      <input v-on:change="checkAmount" id="amount" v-model="amount" class="form-input block w-full pl-5 text-right pl-16 sm:text-sm sm:leading-5" placeholder="0.00" />
                                   </div>
-                                </div>
+                                  <p v-show="amountValidation" class="text-left text-sm text-red-500">Please enter an amount</p>
 
                                 <label for="expectation" class="my-2 text-left  my-1  block text-sm font-medium leading-5 text-gray-700">Expectation/ Desired Harvest</label>
                                 <div class="mt-1 relative shadow-sm">
@@ -155,6 +153,7 @@
                           </span>
                             <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:col-start-2">
                               <Rave
+                                  ref="rave"
                                   style-class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-indigo-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150 sm:text-sm sm:leading-5"
                                   :email="email"
                                   :amount="amount"
@@ -163,6 +162,7 @@
                                   :rave-key="raveKey"
                                   :callback="rave_callback"
                                   :close="rave_close"
+                                  :validate-fields="validateForm"
                                   :customer-firstname="first_name"
                                   :customer-lastname="last_name"
                                   {{-- payment-options="ussd, card, account" --}}
@@ -381,6 +381,8 @@
                 currency: 'GHS',
                 country: 'GH',
                 shareURl: false,
+                amountValidation: false,
+                categoryValidation: false
 
             }
         },
@@ -440,6 +442,32 @@
                 console.log(this.shareURl = false);
                 
             },
+
+          validateForm: function(){
+            if(this.checkCategory() === true){
+              return
+            }
+            if(this.checkAmount() === true){
+              return
+            }
+            this.$refs.rave.payWithRave();
+          },
+
+          checkCategory: function(){
+            if(this.payment_category == ''){
+              return  this.categoryValidation = true;
+            }else{
+              return this.categoryValidation = false
+            }
+          },
+
+          checkAmount: function(){
+            if(this.amount == ''){
+              return this.amountValidation = true;
+            }else{
+              return this.amountValidation = false
+            }
+          },
 
           first_timer: function(){
             var self = this;

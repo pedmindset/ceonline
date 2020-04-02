@@ -3595,7 +3595,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'rave',
   props: {
     styleClass: {
       type: String,
@@ -3623,6 +3625,11 @@ __webpack_require__.r(__webpack_exports__);
       "default": function _default(response) {}
     },
     close: {
+      type: Function,
+      required: true,
+      "default": function _default() {}
+    },
+    validateFields: {
       type: Function,
       required: true,
       "default": function _default() {}
@@ -3705,6 +3712,9 @@ __webpack_require__.r(__webpack_exports__);
         },
         callback: function callback(response) {
           return _this.callback(response);
+        },
+        validate_fields: function validate_fields() {
+          return _this.validateFields();
         },
         // meta: this.metadata,
         currency: this.currency,
@@ -61183,7 +61193,14 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "button",
-    { class: _vm.styleClass, on: { click: _vm.payWithRave } },
+    {
+      class: _vm.styleClass,
+      on: {
+        click: function($event) {
+          return _vm.validateFields()
+        }
+      }
+    },
     [_vm._t("default", [_vm._v("Make Payment")])],
     2
   )

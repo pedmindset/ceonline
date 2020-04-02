@@ -1,7 +1,8 @@
 <template>
   <button
     :class="styleClass"
-    @click="payWithRave"
+    
+    v-on:click="validateFields()"
   >
     <slot>Make Payment</slot>
   </button>
@@ -9,6 +10,7 @@
 
 <script type="text/javascript">
 export default {
+    name: 'rave',
     props: {
         styleClass: {
             type: String,
@@ -36,6 +38,11 @@ export default {
             default: (response) => {}
         },
         close: {
+            type: Function,
+            required: true,
+            default: () => {}
+        },
+        validateFields: {
             type: Function,
             required: true,
             default: () => {}
@@ -111,6 +118,7 @@ export default {
                 PBFPubKey: this.raveKey,
                 onclose: () => this.close(),
                 callback: response => this.callback(response),
+                validate_fields: () => this.validateFields(),
                 // meta: this.metadata,
                 currency: this.currency,
                 country: this.country,
