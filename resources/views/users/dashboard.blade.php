@@ -541,16 +541,13 @@
                 self.payment_modal = false;
                 self.amount = '',
                 self.payment_category = ''
-          }).catch(function(e){
-            //  self.payment_modal = false;
-            //  self.amount = '',
-            //   self.payment_category = ''              
-              console.log(e);
-          })
+              }).catch(function(e){
+                //  self.payment_modal = false;
+                //  self.amount = '',
+                //   self.payment_category = ''              
                   console.log(e);
-              })
+              });
             }
-          
           },
           rave_close: function(){
             this.payment_modal = false;
