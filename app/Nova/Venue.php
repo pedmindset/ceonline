@@ -68,34 +68,33 @@ class Venue extends Resource
     public function fields(Request $request)
     {
         return [
-                                                ID::make( __('Id'),  'id')
-->rules('required')
-->sortable()
-,
+            ID::make( __('Id'),  'id')
+            ->rules('required')
+            ->sortable()
+            ,
 
-BelongsTo::make('Church')
-
-->rules('required')
-
-->sortable()
-,
-                                                                Text::make( __('Name'),  'name')
-->sortable()
-,
-                                                                Textarea::make( __('Description'),  'description')
-->sortable()
-,
-                                                                Place::make( __('City'),  'city')
-->sortable()
-->onlyCities()
-	,
-                                                                Country::make( __('Country'),  'country')
-->sortable()
-,
-                                                                Text::make( __('Location'),  'location')
-->sortable()
-,
-                                                                                                                                                    ];
+            BelongsTo::make('Church')
+            ->searchable()
+            ->rules('required')
+            ->sortable()
+            ,
+            Text::make( __('Name'),  'name')
+            ->sortable()
+            ,
+            Textarea::make( __('Description'),  'description')
+            ->sortable()
+            ,
+            Place::make( __('City'),  'city')
+            ->sortable()
+            ->onlyCities()
+                ,
+            Country::make( __('Country'),  'country')
+            ->sortable()
+            ,
+            Text::make( __('Location'),  'location')
+            ->sortable()
+            ,
+    ];
     }
 
     /**

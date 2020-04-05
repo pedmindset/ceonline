@@ -68,64 +68,61 @@ class Service extends Resource
     public function fields(Request $request)
     {
         return [
-                                                ID::make( __('Id'),  'id')
-->rules('required')
-->sortable()
-,
-                                                                BelongsTo::make('Church')
+            ID::make( __('Id'),  'id')
+            ->rules('required')
+            ->sortable()
+            ,
+            BelongsTo::make('Church')
+            ->searchable()
+            ->sortable()
+            ,
+            BelongsTo::make('ServiceType')
+            ->sortable()
+            ,
+                        
+            Text::make( __('Title'),  'title')
+            ->sortable()
+            ,
 
+            Select::make( __('Type'),  'type')
+            ->sortable()
+            ->options([
+                'onsite' => 'onsite',
+                'online' => 'online',
+            ])
+            ,
+            Textarea::make( __('Description'),  'description')->hideFromIndex()
+            ->sortable()
+            ,
+            Text::make( __('Link'),  'link')->hideFromIndex()
+            ->sortable()
+            ,
+            Select::make( __('Platform'),  'platform')
+            ->sortable()
+            ->options([
+                    'youtube' => 'youtube',
+                    'facebook' => 'facebook',
+                    'vimeo' => 'vimeo',
+                    'imm' => 'imm',
+                    'other' => 'other',
+                ])
+            ,
+            DateTime::make( __('Start Date'),  'start_date')
+            ->sortable()
+            ,
+            DateTime::make( __('End Date'),  'end_date')
+            ->sortable()
+            ,
 
-->sortable()
-,
-                                                                BelongsTo::make('ServiceType')
+            HasMany::make('Videos'),
+            HasMany::make('FirstTImers'),
+            HasMany::make('Salvations'),
+            HasMany::make('Payments'),
+            HasMany::make('Attendances'),
+            HasMany::make('Announcements'),
+            HasMany::make('Comments'),
 
-
-->sortable()
-,
-                                                            
-                                                                Text::make( __('Title'),  'title')
-->sortable()
-,
-                                                                
-Select::make( __('Type'),  'type')
-->sortable()
-->options([
-    		    'onsite' => 'onsite',
-	    	    'online' => 'online',
-	    	])
-,
-                                                                Textarea::make( __('Description'),  'description')->hideFromIndex()
-->sortable()
-,
-                                                                Text::make( __('Link'),  'link')->hideFromIndex()
-->sortable()
-,
-                                                                Select::make( __('Platform'),  'platform')
-->sortable()
-->options([
-    		    'youtube' => 'youtube',
-	    	    'facebook' => 'facebook',
-	    	    'vimeo' => 'vimeo',
-	    	    'imm' => 'imm',
-	    	    'other' => 'other',
-	    	])
-,
-                                                                DateTime::make( __('Start Date'),  'start_date')
-->sortable()
-,
-                                                                DateTime::make( __('End Date'),  'end_date')
-->sortable()
-,
-
-HasMany::make('Videos'),
-HasMany::make('FirstTImers'),
-HasMany::make('Salvations'),
-HasMany::make('Payments'),
-HasMany::make('Attendances'),
-HasMany::make('Announcements'),
-HasMany::make('Comments'),
-
-                                                                                            ];
+         ];
     }
 
     /**

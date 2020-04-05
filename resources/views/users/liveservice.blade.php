@@ -402,10 +402,12 @@ data: function(){
               payment_category: this.payment_category
           }).then(function(response){
                 self.payment_modal = false;
-
+                self.amount = '',
+                self.payment_category = ''
           }).catch(function(e){
              self.payment_modal = false;
-              self.amount = ''
+             self.amount = '',
+              self.payment_category = ''              
               console.log(e);
           })
         }      
@@ -454,18 +456,16 @@ data: function(){
       },
 
       post_comment: function(){
-         var self = this;
-         this.submit_comment = true;
-         this.spinner = true;
+          var self = this;
+          this.submit_comment = true;
+          this.spinner = true;
           axios.post('../comments', {
               church: this.service.church_id,
               service: this.service.id,
               user: this.user.id,
               message: this.message
           }).then(function(response){
-              if(response.data.user.id != this.user.id){
-                  self.comments.unshift(response.data);
-              }
+              self.comments.unshift(response.data);
               self.submit_comment = false;
               self.spinner = false;
               self.message = '';

@@ -68,57 +68,55 @@ class Profile extends Resource
     {
         return [
 
-                                                ID::make( __('Id'),  'id')
-->rules('required')
-->sortable()
-,
-                                                                BelongsTo::make('Church')
-
-->searchable()
-->sortable()
-,
-                                                                BelongsTo::make('User')
-
-->searchable()
-->sortable()
-,
-                                                                Select::make( __('Title'),  'title')
-->sortable()
-->options([
-	    	    'bro' => 'Bro',
+            ID::make( __('Id'),  'id')
+            ->rules('required')
+            ->sortable()
+            ,
+            BelongsTo::make('Church')
+            ->searchable()
+            ->sortable()
+            ,
+            BelongsTo::make('User')
+            ->searchable()
+            ->sortable()
+            ,
+            Select::make( __('Title'),  'title')
+            ->sortable()
+            ->options([
+                'bro' => 'Bro',
                 'sis' => 'Sis',
                 'mr' => 'Mr',
-	    	    'mrs' => 'Mrs',
-	    	    'dr' => 'Dr',
+                'mrs' => 'Mrs',
+                'dr' => 'Dr',
                 'sir' => 'Sir',
                 'dcn' => 'Dcn',
-	    	    'dcns' => 'Dcns',
-	    	    'pst' => 'Pst',
-	    	])
-,
-                                                                Text::make( __('Name'),  'name')
-->sortable()
-,
-Text::make( __('Phone'),  'phone')
-->sortable()
-,
-Text::make( __('Kings Chat No'),  'kings_chat')
-->sortable()
-,
-Text::make('Email')
-->sortable()
-->rules('required', 'email', 'max:254'),
-                                                                Date::make( __('Date Of Birth'),  'date_of_birth')
-->sortable()
-,
-                                                                Select::make( __('Marital Status'),  'marital_status')
-->sortable()
-->options([
+                'dcns' => 'Dcns',
+                'pst' => 'Pst',
+            ])
+            ,
+            Text::make( __('Name'),  'name')
+            ->sortable()
+            ,
+            Text::make( __('Phone'),  'phone')
+            ->sortable()
+            ,
+            Text::make( __('Kings Chat No'),  'kings_chat')
+            ->sortable()
+            ,
+            Text::make('Email')
+            ->sortable()
+            ->rules('required', 'email', 'max:254'),
+            Date::make( __('Date Of Birth'),  'date_of_birth')
+            ->sortable()
+            ,
+            Select::make( __('Marital Status'),  'marital_status')
+            ->sortable()
+            ->options([
     		    'single' => 'Single',
 	    	    'married' => 'Married',
 	    	])
 ,
-                                                                                            ];
+         ];
     }
 
     /**

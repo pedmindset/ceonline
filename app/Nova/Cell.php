@@ -65,25 +65,22 @@ class Cell extends Resource
     public function fields(Request $request)
     {
         return [
-                                                ID::make( __('Id'),  'id')
-->rules('required')
-->sortable()
-,
-                                                                BelongsTo::make('Church')
-
-
-->sortable()
-,
-                                                                BelongsTo::make('User')
-
-                                                                ->searchable()
-
-->sortable()
-,
-                                                                Text::make( __('Cell Name'),  'name')
-->sortable()
-,
-                                                                                            ];
+            ID::make( __('Id'),  'id')
+            ->rules('required')
+            ->sortable()
+            ,
+            BelongsTo::make('Church')
+            ->searchable()
+            ->sortable()
+            ,
+            BelongsTo::make('User')
+            ->searchable()
+            ->sortable()
+            ,
+            Text::make( __('Cell Name'),  'name')
+            ->sortable()
+            ,
+        ];
     }
 
     /**

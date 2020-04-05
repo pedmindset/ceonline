@@ -75,40 +75,36 @@ class Comment extends Resource
     public function fields(Request $request)
     {
         return [
-                                                ID::make( __('Id'),  'id')
-->rules('required')
-->sortable()
-,
+            ID::make( __('Id'),  'id')
+            ->rules('required')
+            ->sortable()
+            ,
 
-BelongsTo::make('Church')
-
-->rules('required')
-
-->sortable()
-,
-                                                                BelongsTo::make('User')
-
-->searchable()
-->sortable()
-,
-                                                                BelongsTo::make('Service')
-
-
-->sortable()
-,
-                                                                Text::make( __('Message'),  'message')
-->rules('required')
-->sortable()
-,
-                                                                Select::make( __('Approve'),  'approve')
-->rules('required')
-->sortable()
-->options([
+            BelongsTo::make('Church')
+            ->searchable()
+            ->rules('required')
+            ->sortable()
+            ,
+            BelongsTo::make('User')
+            ->searchable()
+            ->sortable()
+            ,
+            BelongsTo::make('Service')
+            ->sortable()
+            ,
+            Text::make( __('Message'),  'message')
+            ->rules('required')
+            ->sortable()
+            ,
+            Select::make( __('Approve'),  'approve')
+            ->rules('required')
+            ->sortable()
+            ->options([
     		    1 => 'yes',
 	    	    0 => 'no',
-	    	])
+	    	    ])
 ,
-                                                                                            ];
+        ];
     }
 
     /**

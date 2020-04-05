@@ -66,26 +66,26 @@ class Church extends Resource
     public function fields(Request $request)
     {
         return [
-                                                ID::make( __('Id'),  'id')
-->rules('required')
-->sortable()
-,
+            ID::make( __('Id'),  'id')
+            ->rules('required')
+            ->sortable()
+            ,
 
-                                                                Text::make( __('Name'),  'name')
-->rules('required')
-->sortable()
-,
-                                                                Number::make( __('Grow ID'),  'grow_id')
-->sortable()
-,
+            Text::make( __('Name'),  'name')
+            ->rules('required')
+            ->sortable()
+            ,
+            Number::make( __('Grow ID'),  'grow_id')
+            ->sortable()
+            ,
 
-HasMany::make('Users'),
-HasMany::make('Cells'),
-HasMany::make('Services'),
-HasMany::make('Announcements'),
-HasMany::make('Payments'),
-HasMany::make('Venues'),
-                                                                                            ];
+            HasMany::make('Users'),
+            HasMany::make('Cells'),
+            HasMany::make('Services'),
+            HasMany::make('Announcements'),
+            HasMany::make('Payments'),
+            HasMany::make('Venues'),
+        ];
     }
 
     /**

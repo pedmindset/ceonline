@@ -76,49 +76,45 @@ class Payment extends Resource
     public function fields(Request $request)
     {
         return [
-                                                ID::make( __('Id'),  'id')
-->rules('required')
-->sortable()
-,
-                                                                BelongsTo::make('Church')
+            ID::make( __('Id'),  'id')
+            ->rules('required')
+            ->sortable()
+            ,
+            BelongsTo::make('Church')
+            ->searchable()
+            ->sortable()
+            ,
+            BelongsTo::make('PaymentCategory')
+            ->rules('required')
+            ->sortable()
+            ,
 
+            BelongsTo::make('User')
+            ->searchable()
+            ->sortable()
+            ,
+                
 
-->sortable()
-,
-                                                                BelongsTo::make('PaymentCategory')
-
-->rules('required')
-
-->sortable()
-,
-
-BelongsTo::make('User')
-
-->searchable()
-->sortable()
-,
-     
-
-BelongsTo::make('Service')
-->sortable()
-,
-Text::make( __('Currency'),  'currency')
-->sortable()
-,
-                                                                Number::make( __('Amount'),  'amount')
-->rules('required')
-->sortable()
-->step(0.01)
-,
-                                                                Select::make( __('Status'),  'status')
-->sortable()
-->options([
+            BelongsTo::make('Service')
+            ->sortable()
+            ,
+            Text::make( __('Currency'),  'currency')
+            ->sortable()
+            ,
+            Number::make( __('Amount'),  'amount')
+            ->rules('required')
+            ->sortable()
+            ->step(0.01)
+            ,
+            Select::make( __('Status'),  'status')
+            ->sortable()
+            ->options([
     		    'success' => 'success',
 	    	    'failed' => 'failed',
 	    	    'pending' => 'pending',
 	    	])
 ,
-                                                                                            ];
+        ];
     }
 
     /**

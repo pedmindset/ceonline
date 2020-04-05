@@ -51,7 +51,7 @@
 <div class="max-w-7xl mx-auto py-6 px-6 lg:px-8">   
     <div class="grid grid-rows-2 md:grid-cols-4 gap-2">
         <div class="col-span-4 row-span-2">
-            <div class=" w-full bg-black flex justify-center items-center">
+            <div class="h-auto w-full bg-black flex justify-center items-center">
             @if($video_iframe == false)
               <video class="video-js vjs-big-play-centered vjs-16-9" data-setup='{"controls": true, "autoplay": true, "preload": "auto"}'>
                 <source src="{{ $service->link ?? '' }}" type="video/mp4">
@@ -538,12 +538,15 @@
                   currency: this.currency,
                   payment_category: this.payment_category
               }).then(function(response){
-                self.amount = '';
-                self.payment_modal = false
-
-
-              }).catch(function(e){
-
+                self.payment_modal = false;
+                self.amount = '',
+                self.payment_category = ''
+          }).catch(function(e){
+            //  self.payment_modal = false;
+            //  self.amount = '',
+            //   self.payment_category = ''              
+              console.log(e);
+          })
                   console.log(e);
               })
             }

@@ -66,26 +66,23 @@ class AnnouncementCategory extends Resource
     public function fields(Request $request)
     {
         return [
-                                                ID::make( __('Id'),  'id')
-->rules('required')
-->sortable()
-,
+            ID::make( __('Id'),  'id')
+            ->rules('required')
+            ->sortable(),
 
-BelongsTo::make('Church')
+            BelongsTo::make('Church')
+            ->searchable()
+            ->rules('required')
+            ->sortable(),
 
-->rules('required')
+            Text::make( __('Title'),  'title')
+            ->rules('required')
+            ->sortable(),
 
-->sortable()
-,
-                                                                Text::make( __('Title'),  'title')
-->rules('required')
-->sortable()
-,
-
-HasMany::make('Announcement')
+            HasMany::make('Announcement')
 
 
-                                                                                            ];
+        ];
     }
 
     /**

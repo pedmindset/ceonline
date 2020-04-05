@@ -52,25 +52,25 @@ class User extends Resource
             Gravatar::make(),
 
             BelongsTo::make('Church')
-                    ->rules('required')
-                    
-                    ->sortable()
-                    ,
+            ->rules('required')
+            ->searchable()
+            ->sortable()
+            ,
 
             Text::make('Name')
-                ->sortable()
-                ->rules('required', 'max:255'),
+            ->sortable()
+            ->rules('required', 'max:255'),
 
             Text::make('Email')
-                ->sortable()
-                ->rules('required', 'email', 'max:254')
-                ->creationRules('unique:users,email')
-                ->updateRules('unique:users,email,{{resourceId}}'),
+            ->sortable()
+            ->rules('required', 'email', 'max:254')
+            ->creationRules('unique:users,email')
+            ->updateRules('unique:users,email,{{resourceId}}'),
 
             Password::make('Password')
-                ->onlyOnForms()
-                ->creationRules('required', 'string', 'min:8')
-                ->updateRules('nullable', 'string', 'min:8'),
+            ->onlyOnForms()
+            ->creationRules('required', 'string', 'min:8')
+            ->updateRules('nullable', 'string', 'min:8'),
 
             HasOne::make('Profile'),
             HasMany::make('Payments'),

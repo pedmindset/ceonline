@@ -67,38 +67,35 @@ class Video extends Resource
     public function fields(Request $request)
     {
         return [
-                                                ID::make( __('Id'),  'id')
-->rules('required')
-->sortable()
-,
-                                                                BelongsTo::make('Church')
-
-
-->sortable()
-,
-                                                                BelongsTo::make('Service')
-
-
-->sortable()
-,
-                                                                Text::make( __('Title'),  'title')
-->sortable()
-,
-Select::make( __('Platform'),  'platform')
-->sortable()
-->options([
-    		    'youtube' => 'youtube',
-	    	    'facebook' => 'facebook',
-	    	    'imm' => 'imm',
-	    	])
-,
-                                                                Textarea::make( __('Description'),  'description')
-->sortable()
-,
-                                                                Text::make( __('Link'),  'link')
-->sortable()
-,
-                                                                                            ];
+            ID::make( __('Id'),  'id')
+            ->rules('required')
+            ->sortable()
+            ,
+            BelongsTo::make('Church')
+            ->searchable()
+            ->sortable()
+            ,
+            BelongsTo::make('Service')
+            ->sortable()
+            ,
+            Text::make( __('Title'),  'title')
+            ->sortable()
+            ,
+            Select::make( __('Platform'),  'platform')
+            ->sortable()
+            ->options([
+                'youtube' => 'youtube',
+                'facebook' => 'facebook',
+                'imm' => 'imm',
+            ])
+            ,
+            Textarea::make( __('Description'),  'description')
+            ->sortable()
+            ,
+            Text::make( __('Link'),  'link')
+            ->sortable()
+            ,
+        ];
     }
 
     /**

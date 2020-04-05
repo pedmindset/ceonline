@@ -65,28 +65,24 @@ class Salvation extends Resource
     public function fields(Request $request)
     {
         return [
-                                                ID::make( __('Id'),  'id')
-->rules('required')
-->sortable()
-,
+            ID::make( __('Id'),  'id')
+            ->rules('required')
+            ->sortable()
+            ,
 
-BelongsTo::make('User')
-
-->searchable()
-->sortable()
-,
-                                                                BelongsTo::make('Church')
-
-->searchable()
-->sortable()
-,
-                                                                BelongsTo::make('Service')
-
-->searchable()
-->sortable()
-,
- 
-                                                                                            ];
+            BelongsTo::make('User')
+            ->searchable()
+            ->sortable()
+            ,
+            BelongsTo::make('Church')
+            ->searchable()
+            ->sortable()
+            ,
+            BelongsTo::make('Service')
+            ->searchable()
+            ->sortable()
+            ,        
+         ];
     }
 
     /**

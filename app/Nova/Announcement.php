@@ -66,46 +66,39 @@ class Announcement extends Resource
     public function fields(Request $request)
     {
         return [
-                                                ID::make( __('Id'),  'id')
-->rules('required')
-->sortable()
-,
-                                                                BelongsTo::make('Category', 'Announcement_Category', 'App\Nova\AnnouncementCategory')
+            ID::make( __('Id'),  'id')
+            ->rules('required')
+            ->sortable()
+            ,
+            BelongsTo::make('Category', 'Announcement_Category', 'App\Nova\AnnouncementCategory')
+            ->rules('required')
+            ->sortable()
+            ,
 
-->rules('required')
+            BelongsTo::make('Church')
+            ->searchable()
+            ->rules('required')
+            ->sortable()
+            ,
+            
+            BelongsTo::make('Service')
+            ->rules('required')
+            ->sortable()
+            ,
 
-->sortable()
-,
-
-BelongsTo::make('Church')
-
-->rules('required')
-
-->sortable()
-,
-  
-
-
-BelongsTo::make('Service')
-
-->rules('required')
-
-->sortable()
-,
-
-Textarea::make( __('Message'),  'message')
-->rules('required')
-->sortable()
-,
-                                                                Select::make( __('Urgent'),  'urgent')
-->rules('required')
-->sortable()
-->options([
+            Textarea::make( __('Message'),  'message')
+            ->rules('required')
+            ->sortable()
+            ,
+            Select::make( __('Urgent'),  'urgent')
+            ->rules('required')
+            ->sortable()
+            ->options([
     		    1 => 'Yes',
 	    	    0 => 'No',
 	    	])
 ,
-                                                                                            ];
+            ];
     }
 
     /**

@@ -66,26 +66,25 @@ class PaymentCategory extends Resource
     public function fields(Request $request)
     {
         return [
-                                                ID::make( __('Id'),  'id')
-->rules('required')
-->sortable()
-,
-                                                                BelongsTo::make('Church')
-
-
-->sortable()
-,
-                                                                Text::make( __('Title'),  'title')
-->sortable()
-,
-                                                                Select::make( __('Partnership'),  'partnership')
-->sortable()
-->options([
+            ID::make( __('Id'),  'id')
+            ->rules('required')
+            ->sortable()
+            ,
+            BelongsTo::make('Church')
+            ->searchable()
+            ->sortable()
+            ,
+            Text::make( __('Title'),  'title')
+            ->sortable()
+            ,
+            Select::make( __('Partnership'),  'partnership')
+            ->sortable()
+            ->options([
     		    1 => 'yes',
 	    	    0 => 'no',
 	    	])
 ,
-                                                                                            ];
+        ];
     }
 
     /**

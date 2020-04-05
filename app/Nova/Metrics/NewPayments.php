@@ -17,7 +17,7 @@ class NewPayments extends Value
     public function calculate(NovaRequest $request)
     {
         return $this->sum($request, Payment::class, 'amount')
-                    ->prefix('¢');
+    ->prefix('¢');
     }
 
     /**

@@ -65,31 +65,27 @@ class Invite extends Resource
     public function fields(Request $request)
     {
         return [
-                                                ID::make( __('Id'),  'id')
-->rules('required')
-->sortable()
-,
-                                                                BelongsTo::make('Church')
-
-->searchable()
-->sortable()
-,
-                                                                BelongsTo::make('Invitor', 'owner', 'App\Nova\User' )
-
-->searchable()
-->sortable()
-,
-                                                                BelongsTo::make('Invitee', 'user', 'App\Nova\User')
-
-->searchable()
-->sortable()
-,
-                                                                BelongsTo::make('Service')
-
-->searchable()
-->sortable()
-,
-                                                                                                                        ];
+            ID::make( __('Id'),  'id')
+            ->rules('required')
+            ->sortable()
+            ,
+            BelongsTo::make('Church')
+            ->searchable()
+            ->sortable()
+            ,
+            BelongsTo::make('Invitor', 'owner', 'App\Nova\User' )
+            ->searchable()
+            ->sortable()
+            ,
+            BelongsTo::make('Invitee', 'user', 'App\Nova\User')
+            ->searchable()
+            ->sortable()
+            ,
+            BelongsTo::make('Service')
+            ->searchable()
+            ->sortable()
+            ,
+        ];
     }
 
     /**

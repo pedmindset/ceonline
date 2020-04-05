@@ -75,39 +75,33 @@ class Attendance extends Resource
     public function fields(Request $request)
     {
         return [
-                                                ID::make( __('Id'),  'id')
-->rules('required')
-->sortable()
-,
-                                                                BelongsTo::make('Church')
+            ID::make( __('Id'),  'id')
+            ->rules('required')
+            ->sortable(), 
 
+            BelongsTo::make('Church')
+            ->searchable()
+            ->sortable(), 
 
-->sortable()
-,
-                                                                BelongsTo::make('User')
+            BelongsTo::make('User')
+            ->searchable()
+            ->sortable(), 
 
-                                                                ->searchable()
+            BelongsTo::make('Service')
+            ->sortable(), 
 
-->sortable()
-,
-                                                                BelongsTo::make('Service')
+            Number::make( __('Count'),  'count')
+            ->sortable()
+            ->step(1),
 
+            DateTime::make('created_at')
+            ->sortable()
+            ->onlyOnIndex(),
 
-->sortable()
-,
-                                                                Number::make( __('Count'),  'count')
-->sortable()
-->step(1)
-,
-
-DateTime::make('created_at')
-->sortable()
-->onlyOnIndex(),
-
-DateTime::make('updated_at')
-->sortable()
-->onlyOnIndex(),
-                                                                                            ];
+            DateTime::make('updated_at')
+            ->sortable()
+            ->onlyOnIndex(),
+        ];
     }
 
     /**
