@@ -42,6 +42,7 @@ class SiteNotification implements ShouldBroadcast
         return [
             'notification' => [
                 'id'              => $this->notification->getKey(),
+                'title'            => $this->notification->title,
                 'message'            => $this->notification->message,
                 'url'            => $this->notification->url,
                 'service_id'            => $this->notification->service_id,
