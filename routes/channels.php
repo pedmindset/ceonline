@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Broadcast;
 Broadcast::channel('comment.{id}', function ($user, $id) {
     return ['id' => $user->id, 'name' => $user->name];
 });
+
+Broadcast::channel('notification.{id}', function ($user, $id) {
+    // if($user->id == auth()->user()->id){
+    //     return ['id' => $user->id, 'name' => $user->name];
+    // }
+
+    return ['id' => $user->id, 'name' => $user->name];
+   
+});

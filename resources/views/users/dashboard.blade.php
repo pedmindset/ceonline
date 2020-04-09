@@ -611,6 +611,20 @@
                 }
             });
 
+            },
+
+            checkReload: function(e){
+              if(e.notification.reload == 'yes')
+                {
+                  if(e.notification.url == '')
+                  {
+                    window.location.reload(true)
+                  }
+                  else
+                  {
+                    window.location.href = e.notification.url
+                  }
+                }
             }
 
         },
@@ -624,6 +638,29 @@
           );
 
             this.attendance_count();
+
+            Echo.join(`notification.${this.service.id}`)
+              .listen('SiteNotification', function(e) {
+                console.log(e);
+                
+                self.$swal.fire({
+                  icon: 'success',
+                  title: e.notification.title,
+                  text: e.notification.message,
+                  toast: true,
+                  position: 'top-end',
+                  showConfirmButton: false,
+                  timer: 3000,
+                  timerProgressBar: true,
+                  onOpen: (toast) => {
+                    toast.addEventListener('mouseenter', self.$swal.stopTimer)
+                    toast.addEventListener('mouseleave', self.$swal.resumeTimer)
+                
+                });
+
+               self.checkReload(e);
+                  
+            });
         }
     
     
