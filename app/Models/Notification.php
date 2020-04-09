@@ -25,8 +25,9 @@ class Notification extends Model
     {
         parent::boot();
 
-        static::creating(function ($model) {
-            broadcast(new SiteNotification($model));
+        static::created(function ($model) {
+            $notification = sefl::find($model->id);
+            broadcast(new SiteNotification($notification));
         });
 
     }
