@@ -15,6 +15,8 @@ class SiteNotification implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $notification;
+
     /**
      * Create a new event instance.
      *
