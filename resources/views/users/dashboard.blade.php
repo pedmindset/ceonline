@@ -656,6 +656,7 @@
                     toast.addEventListener('mouseenter', self.$swal.stopTimer)
                     toast.addEventListener('mouseleave', self.$swal.resumeTimer)
                 
+                  }
                 });
 
                self.checkReload(e);
