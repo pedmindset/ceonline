@@ -539,7 +539,7 @@ data: function(){
               toast: true,
               position: 'top-end',
               showConfirmButton: false,
-              timer: 3000,
+              timer: 6000,
               timerProgressBar: true,
               onOpen: (toast) => {
                 toast.addEventListener('mouseenter', self.$swal.stopTimer)
