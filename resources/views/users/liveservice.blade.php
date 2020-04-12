@@ -505,7 +505,7 @@ data: function(){
         checkReload: function(e){
           if(e.notification.reload == 'yes')
             {
-              if(e.notification.url == '')
+              if(e.notification.url == null)
               {
                 window.location.reload(true)
               }
