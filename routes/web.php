@@ -24,6 +24,10 @@ Route::get('/', function (Request $request) {
     return view('welcome');
 });
 
+Route::get('/rhapsody', function(Request $request){
+    return view('giving');
+});
+
 Route::middleware(['auth'])->group(function(){
 
     Route::get('/videos', function () {
