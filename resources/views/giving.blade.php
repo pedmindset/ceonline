@@ -187,7 +187,6 @@ o                            </select>
                       country: 'GH',
                       amountValidation: false,
                       categoryValidation: false
-      
                   }
               },
       

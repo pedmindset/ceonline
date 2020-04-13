@@ -19,14 +19,11 @@ Auth::routes(['verify' => true]);
 
 Route::get('/', function (Request $request) {
     if($request->user()){
-        return redirect('videos');
+        return redirect('givings');
     }
-    return view('welcome');
-});
-
-Route::get('/rhapsody', function(Request $request){
     return view('giving');
 });
+
 
 Route::middleware(['auth'])->group(function(){
 
