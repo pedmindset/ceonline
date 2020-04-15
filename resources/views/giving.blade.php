@@ -3,17 +3,17 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta property="og:title" content="Christ Embassy Online" /> 
+        <meta property="og:title" content="Sponsor Rhapsody Of Realities" /> 
         <meta property="og:type" content="article" /> 
-        <meta property="og:url" content="http://live.christembassynungua.org" />
-        <meta property="og:description" content="You're welcome to Christ Embassy Online Church, Join us worship the Lord in the beauty of His Holiness" />
-        <meta name="twitter:image" content="http://live.christembassynungua.org/images/christ_embassy_nungua.jpg" />
-        <meta property="og:image" content="http://live.christembassynungua.org/images/christ_embassy_nungua.jpg"  />
+        <meta property="og:url" content="http://rhapsody.christembassynungua.org" />
+        <meta property="og:description" content=" Join us to reach many more people around the world with God's Word in Rhapsody of Realities today!" />
+        <meta name="twitter:image" content="http://live.christembassynungua.org/images/ror.jpeg" />
+        <meta property="og:image" content="http://live.christembassynungua.org/images/ror.jpeg"  />
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         {{-- <link href="{{ asset('css/bootstrapcss.css') }}" rel="stylesheet"> --}}
         <script src="{{ asset('js/app.js') }}" ></script>
         <title>Rhapsody Of Realities Giving</title>
-        @php
+        {{-- @php
             $bg = array('pastor_earnest_2.jpg', 'christ_embassy_nungua.jpg', 'pastor_earnest.jpg', 'ce_nungua_church.jpg' ); // array of filenames
 
             $i = rand(0, count($bg)-1); // generate random number size of the array
@@ -28,7 +28,7 @@
                   background-blend-mode: overlay;
                   background-position: top;
                 };
-          </style>
+          </style> --}}
     </head>
     <body>
         <div id="myapp">
