@@ -50,7 +50,32 @@
         {
             "type": "composer",
             "url": "https://nova.laravel.com"
-        }
+        },
+        {
+            "type": "package",
+            "package": {
+              "name": "pedmindset/eloquent-model-generator", 
+              "version": "1.3.4",
+              "source": {
+                "url": "https://github.com/pedmindset/eloquent-model-generator",
+                "type": "git",
+                "reference": "origin/master"
+              },
+              "extra": {
+                  "laravel": {
+                      "providers": [
+                          "Krlove\\EloquentModelGenerator\\Provider\\GeneratorServiceProvider"
+                      ]
+                  }
+              },
+              "autoload": {
+                  "psr-4": {
+                      "Krlove\\EloquentModelGenerator\\": "src/"
+                  }
+              }
+            }
+          
+      }
     ],
     "config": {
         "optimize-autoloader": true,

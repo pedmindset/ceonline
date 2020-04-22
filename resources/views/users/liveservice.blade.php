@@ -249,8 +249,8 @@ var comments = <?= json_encode($service->comments); ?>
 
 const app = new Vue({
     el: '#myapp',
-data: function(){
-    return{
+    data: function(){
+      return {
             payment_modal: false,
             raveKey: 'FLWPUBK-1beb6ca9cea567480a782f5f99294d64-X',
             email: user.email,
@@ -276,285 +276,283 @@ data: function(){
           }
         },
 
-        computed: {
-            live_comments: function(){
-                return this.comments;
-            },
+          computed: {
+              live_comments: function(){
+                  return this.comments;
+              },
 
-            rave_country: function(){
-              if(this.currency == "GHS"){
-                  return this.country = 'GH'
+              rave_country: function(){
+                if(this.currency == "GHS"){
+                    return this.country = 'GH'
+                }
+
+                if(this.currency == "NGN"){
+                    return this.country = 'NG'
+                }
+
+                if(this.currency == "USD"){
+                    return this.country = 'US'
+                }
+              },
+
+
+          first_name(){
+            try {
+                this.fname = user.name.split(' ')[0]
+              } catch (error) {
+                console.log(error);
+                this.fname = user.name;
               }
+              return this.fname
+          },
 
-              if(this.currency == "NGN"){
-                  return this.country = 'NG'
-              }
-
-              if(this.currency == "USD"){
-                  return this.country = 'US'
-              }
-            },
-
-
-        first_name(){
-          try {
-              this.fname = user.name.split(' ')[0]
+          last_name(){
+            try {
+              this.lname = user.name.split(' ')[1]
             } catch (error) {
-              console.log(error);
-              this.fname = user.name;
+              return 
             }
-            return this.fname
-        },
+            return this.lname;
+          },
 
-        last_name(){
-          try {
-            this.lname = user.name.split(' ')[1]
-          } catch (error) {
-            return 
+          reference(){
+            let text = "";
+            let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+            for( let i=0; i < 10; i++ )
+              text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+              return text + '-' + this.payment_category + '-' + this.expectation;
           }
-          return this.lname;
-        },
-
-        reference(){
-          let text = "";
-          let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-          for( let i=0; i < 10; i++ )
-            text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-            return text + '-' + this.payment_category + '-' + this.expectation;
-        }
-    },
-
-    methods: {
-      closeShareURL: function () {
-          console.log(this.shareURl = false);
       },
 
-     
-      first_timer: function(){
-        var self = this;
-        self.$swal.fire({
-          title: 'Are you a First Timer?',
-          text: "Is this your first time worshiping with us!",
-          icon: 'info',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Yes, My First Time!'
-        }).then((result) => {
-          if (result.value) {
-            axios.post('../first_timer',{
-              'service': self.service.id
+      methods: {
+        closeShareURL: function () {
+            console.log(this.shareURl = false);
+        },
+
+      
+        first_timer: function(){
+          var self = this;
+          self.$swal.fire({
+            title: 'Are you a First Timer?',
+            text: "Is this your first time worshiping with us!",
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, My First Time!'
+          }).then((result) => {
+            if (result.value) {
+              axios.post('../first_timer',{
+                'service': self.service.id
+              }).then(function(r){
+                self.$swal.fire(
+                'Success!',
+                r.data.message,
+                'success'
+              )
+              }).catch(function(e){
+
+              })
+              
+            }
+          })
+          
+        },
+
+        salvation: function(){
+          var self = this;
+          self.$swal.fire({
+            title: 'Accept the Lord Jesus',
+            text: "Do you want to accept the Lord Jesus as your Lord and personal Savior",
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes!'
+          }).then((result) => {
+            if (result.value) {
+              axios.post('../salvation',{
+              'service': this.service.id
             }).then(function(r){
               self.$swal.fire(
-              'Success!',
-              r.data.message,
-              'success'
-            )
-            }).catch(function(e){
+                'Success!',
+                r.data.message,
+                'success'
+              )
+              }).catch(function(e){
 
-            })
-            
-          }
-        })
-        
-      },
-
-      salvation: function(){
-        var self = this;
-        self.$swal.fire({
-          title: 'Accept the Lord Jesus',
-          text: "Do you want to accept the Lord Jesus as your Lord and personal Savior",
-          icon: 'info',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Yes!'
-        }).then((result) => {
-          if (result.value) {
-            axios.post('../salvation',{
-            'service': this.service.id
-          }).then(function(r){
-            self.$swal.fire(
-              'Success!',
-              r.data.message,
-              'success'
-            )
-            }).catch(function(e){
-
-            })
-            
-          }
-        })
-      },
-
-      rave_callback: function(response){
-        this.payment_modal = false;
-        var self = this;
-        if(response.data.data.status == 'successful'){
-          axios.post('../payments', {
-              church: this.service.church_id,
-              service: this.service.id,
-              user: this.user.id,
-              amount: this.amount,
-              currency: this.currency,
-              payment_category: this.payment_category
-          }).then(function(response){
-                self.payment_modal = false;
-                self.amount = '',
-                self.payment_category = ''
-          }).catch(function(e){
-             self.payment_modal = false;
-             self.amount = '',
-              self.payment_category = ''              
-              console.log(e);
-          })
-        }      
-      },
-      rave_close: function(){
-        this.payment_modal = false;
-        this.amount = ''
-
-        console.log("Payment closed")
-      },
-
-      validateForm: function(){
-        if(this.checkCategory() === true){
-          return
-        }
-        if(this.checkAmount() === true){
-          return
-        }
-        this.$refs.rave.payWithRave();
-      },
-
-      checkCategory: function(){
-        if(this.payment_category == ''){
-          return  this.categoryValidation = true;
-        }else{
-          return this.categoryValidation = false
-        }
-      },
-
-      checkAmount: function(){
-        if(this.amount == ''){
-          return this.amountValidation = true;
-        }else{
-          return this.amountValidation = false
-        }
-      },
-
-      dateFormat: function(d){
-        var date = Moment.tz(d, timezone).fromNow();
-        // console.log(date);
-        if(date == "Invalid date"){
-          return d
-        }
-        return date;
-        
-      },
-
-      post_comment: function(){
-          var self = this;
-          this.submit_comment = true;
-          this.spinner = true;
-          axios.post('../comments', {
-              church: this.service.church_id,
-              service: this.service.id,
-              user: this.user.id,
-              message: this.message
-          }).then(function(response){
-              self.comments.unshift(response.data);
-              self.submit_comment = false;
-              self.spinner = false;
-              self.message = '';
-              console.log(response.data);
-          }).catch(function(e){
-              submit_comment = false   
-              self.spinner = false;
-              console.log(e);
-          })
-        },
-
-
-        attendance_count: function(){
-            if(service != null){
-                axios.post('../attendance_count', {
-                    service: this.service.id,
-                    count: 1
-                }).then(function(r){
-                    
-                }).catch(function(e){
-                    
-                })
-            }
-        },
-
-        subscribeComment: function(){
-              var self = this;
-              Echo.join(`comment.${this.service.id}`)
-              .listen('NewComment', function(e) {
-                if(e.comment.user.id != self.user.id){
-                    self.comments.unshift(e.comment);
-                }
-            });
-
-        },
-
-        checkReload: function(e){
-          if(e.notification.reload == 'yes')
-            {
-              if(e.notification.url == null)
-              {
-                window.location.reload(true)
-              }
-              else
-              {
-                window.location.href = e.notification.url
-              }
-            }
-        }
-
-    },
-
-    mounted: function(){
-      this.subscribeComment();
-        var self = this;
-      setInterval(function(){ 
-         self.attendance_count();
-        },500000
-      );
-
-        this.attendance_count();
-
-        Echo.join(`notification.${this.service.id}`)
-          .listen('SiteNotification', function(e) {
-            console.log(e);
-            
-            self.$swal.fire({
-              icon: 'success',
-              title: e.notification.title,
-              text: e.notification.message,
-              toast: true,
-              position: 'top-end',
-              showConfirmButton: false,
-              timer: 10000,
-              timerProgressBar: true,
-              onOpen: (toast) => {
-                toast.addEventListener('mouseenter', self.$swal.stopTimer)
-                toast.addEventListener('mouseleave', self.$swal.resumeTimer)
-            
-              }
-            });
-
-            self.checkReload(e);
+              })
               
-        });
-    }
+            }
+          })
+        },
+
+        rave_callback: function(response){
+          this.payment_modal = false;
+          var self = this;
+          if(response.data.data.status == 'successful'){
+            axios.post('../payments', {
+                church: this.service.church_id,
+                service: this.service.id,
+                user: this.user.id,
+                amount: this.amount,
+                currency: this.currency,
+                payment_category: this.payment_category
+            }).then(function(response){
+                  self.payment_modal = false;
+                  self.amount = '',
+                  self.payment_category = ''
+            }).catch(function(e){
+              self.payment_modal = false;
+              self.amount = '',
+                self.payment_category = ''              
+                console.log(e);
+            })
+          }      
+        },
+        rave_close: function(){
+          this.payment_modal = false;
+          this.amount = ''
+
+          console.log("Payment closed")
+        },
+
+        validateForm: function(){
+          if(this.checkCategory() === true){
+            return
+          }
+          if(this.checkAmount() === true){
+            return
+          }
+          this.$refs.rave.payWithRave();
+        },
+
+        checkCategory: function(){
+          if(this.payment_category == ''){
+            return  this.categoryValidation = true;
+          }else{
+            return this.categoryValidation = false
+          }
+        },
+
+        checkAmount: function(){
+          if(this.amount == ''){
+            return this.amountValidation = true;
+          }else{
+            return this.amountValidation = false
+          }
+        },
+
+        dateFormat: function(d){
+          var date = Moment.tz(d, timezone).fromNow();
+          // console.log(date);
+          if(date == "Invalid date"){
+            return d
+          }
+          return date;
+          
+        },
+
+        post_comment: function(){
+            var self = this;
+            this.submit_comment = true;
+            this.spinner = true;
+            axios.post('../comments', {
+                church: this.service.church_id,
+                service: this.service.id,
+                user: this.user.id,
+                message: this.message
+            }).then(function(response){
+                self.comments.unshift(response.data);
+                self.submit_comment = false;
+                self.spinner = false;
+                self.message = '';
+                console.log(response.data);
+            }).catch(function(e){
+                submit_comment = false   
+                self.spinner = false;
+                console.log(e);
+            })
+          },
 
 
-})
+          attendance_count: function(){
+              if(service != null){
+                  axios.post('../attendance_count', {
+                      service: this.service.id,
+                      count: 1
+                  }).then(function(r){
+                      
+                  }).catch(function(e){
+                      
+                  })
+              }
+          },
+
+          subscribeComment: function(){
+                var self = this;
+                Echo.join(`comment.${this.service.id}`)
+                .listen('NewComment', function(e) {
+                  if(e.comment.user.id != self.user.id){
+                      self.comments.unshift(e.comment);
+                  }
+              });
+
+          },
+
+          checkReload: function(e){
+            if(e.notification.reload == 'yes')
+              {
+                if(e.notification.url == null)
+                {
+                  window.location.reload(true)
+                }
+                else
+                {
+                  window.location.href = e.notification.url
+                }
+              }
+          }
+
+      },
+
+      mounted: function(){
+        this.subscribeComment();
+          var self = this;
+        setInterval(function(){ 
+          self.attendance_count();
+          },500000
+        );
+
+          this.attendance_count();
+
+          Echo.join(`notification.${this.service.id}`)
+            .listen('SiteNotification', function(e) {
+              console.log(e);
+              
+              self.$swal.fire({
+                icon: 'success',
+                title: e.notification.title,
+                text: e.notification.message,
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 10000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                  toast.addEventListener('mouseenter', self.$swal.stopTimer)
+                  toast.addEventListener('mouseleave', self.$swal.resumeTimer)
+              
+                }
+              });
+
+              self.checkReload(e);
+                
+          });
+      }
+  })
 
 </script>
 @endpush
