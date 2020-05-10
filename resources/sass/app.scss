@@ -14,7 +14,7 @@
 
 $imgKey: random(4);
 
-$list: pastor_earnest_2, christ_embassy_nungua, pastor_earnest, ce_nungua_church;
+$list: teens_church1, teens_church2, teens_church3;
 $nth: nth($list, $imgKey);
 
 body {
@@ -23,7 +23,7 @@ body {
 
 .bg-image-slider{
    background-color: rgba(0, 0, 0, 0.267);
-   background-image: url(../images/#{$nth}.jpg);
+   background-image: url(../images/#{$nth}.jpeg);
    background-repeat: no-repeat;
    background-blend-mode: overlay;
    background-position: top;

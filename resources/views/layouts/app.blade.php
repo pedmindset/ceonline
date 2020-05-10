@@ -7,8 +7,8 @@
     <meta property="og:type" content="article" /> 
     <meta property="og:url" content="http://live.christembassynungua.org" />
     <meta property="og:description" content="You're warmly invited to join Christ Embassy Online Church, The word of God is the Strength of our Life in this Season. Join us worship the Lord in the beauty of His Holiness" />
-    <meta name="twitter:image" content="http://live.christembassynungua.org/images/ce_online.jpg" />
-    <meta property="og:image" content="http://live.christembassynungua.org/images/ce_online.jpg"  />
+    <meta name="twitter:image" content="http://live.christembassynungua.org/images/teens_church1.jpeg" />
+    <meta property="og:image" content="http://live.christembassynungua.org/images/teens_church1.jpeg"  />
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
