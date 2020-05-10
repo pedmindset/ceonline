@@ -14,7 +14,7 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
         <title>Home</title>
         @php
-            $bg = array('pastor_earnest_2.jpg', 'christ_embassy_nungua.jpg', 'pastor_earnest.jpg', 'ce_nungua_church.jpg' ); // array of filenames
+            $bg = array('teens_church1.jpeg', 'teens_church2.jpeg', 'teens_church3.jpeg' ); // array of filenames
 
             $i = rand(0, count($bg)-1); // generate random number size of the array
             $selectedBg = "$bg[$i]"; // set variable equal to which random filename was chosen
