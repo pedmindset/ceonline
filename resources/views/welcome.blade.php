@@ -61,7 +61,7 @@
                 <div class="flex items-center justify-between w-full md:w-auto">
                   <a class="text-white" href="../">
                     {{-- <img class="h-8 w-auto sm:h-10" src="/img/logos/workflow-mark-on-white.svg" alt="" /> --}}
-                    TEEN ONLINE
+                    TEENS ONLINE
                   </a>
                   <div class="-mr-2 flex items-center md:hidden">
                     <button x-on:click="open = true" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-100 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-100 transition duration-150 ease-in-out">
