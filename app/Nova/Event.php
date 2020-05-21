@@ -6,6 +6,7 @@ use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\Place;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Textarea;
@@ -84,7 +85,7 @@ class Event extends Resource
             BelongsToMany::make('Users')
             ->sortable()
             ,
-                        
+
             Text::make( __('Title'),  'title')
             ->sortable()
             ,
@@ -93,12 +94,12 @@ class Event extends Resource
             ->sortable()
             ,
 
-            
+
             Textarea::make( __('Description'),  'description')->hideFromIndex()
             ->sortable()
             ,
-           
-            
+
+
             DateTime::make( __('Start Date'),  'start_date')
             ->sortable()
             ,
