@@ -17,7 +17,7 @@ class CreateEventUserPivotTable extends Migration
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
             $table->unsignedbiginteger('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->primary(['event_id', 'user_id']);
+            $table->bigincrements('id');
         });
     }
 
