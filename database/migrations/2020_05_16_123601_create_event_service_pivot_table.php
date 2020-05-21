@@ -12,13 +12,12 @@ class CreateEventServicePivotTable extends Migration
      */
     public function up()
     {
-        Schema::drop('event_service');
         Schema::create('event_service', function (Blueprint $table) {
-            $table->integer('event_id')->unsigned()->index();
+            $table->unsignedbiginteger('event_id')->unsigned()->index();
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
-            $table->integer('service_id')->unsigned()->index();
+            $table->unsignedbiginteger('service_id')->unsigned()->index();
             $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
-            $table->primary(['event_id', 'service_id']);
+            $table->bigincrements("id");
         });
     }
 
