@@ -32,9 +32,9 @@ class Event extends Model
             $model->slug = (string) Str::slug($model->title);
         });
 
-        // static::updating(function ($model) {
-        //     $model->slug = (string) Str::slug($model->title ."-". time());
-        // });
+        static::updating(function ($model) {
+            $model->slug = (string) Str::slug($model->title);
+        });
     }
 
 
