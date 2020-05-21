@@ -91,7 +91,7 @@ class Event extends Resource
             ->rules('required')
             ->creationRules('unique:events,title')
             ->updateRules('unique:events,title,{{resourceId}}'),
-            ,
+    
 
             Place::make( __('Address'),  'Address')
             ->sortable()
