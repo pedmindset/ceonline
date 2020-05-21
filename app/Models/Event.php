@@ -29,7 +29,7 @@ class Event extends Model
         parent::boot();
 
         static::creating(function ($model) {
-            $model->slug = (string) Str::slug($model->title .'-'. time());
+            $model->slug = (string) Str::slug($model->title);
         });
 
         // static::updating(function ($model) {
