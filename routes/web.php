@@ -58,6 +58,8 @@ Route::middleware(['auth'])->group(function(){
 
     Route::put('profile_update', 'UserController@profile_update');
 
+
+
     Route::get('views', function(){
         $service = Service::latest()->first();
 
@@ -65,6 +67,16 @@ Route::middleware(['auth'])->group(function(){
 
         return $service;
     });
+
+
+    Route::get('events/{slug}', function(Request $request){
+
+        $event = \App\Models\Event::where('slug', $slug)->first();
+
+        return $event;
+    });
+
+
 
 });
 
