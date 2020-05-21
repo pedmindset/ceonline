@@ -88,6 +88,9 @@ class Event extends Resource
 
             Text::make( __('Title'),  'title')
             ->sortable()
+            ->rules('required')
+            ->creationRules('unique:events,title')
+            ->updateRules('unique:events,title,{{resourceId}}'),
             ,
 
             Place::make( __('Address'),  'Address')

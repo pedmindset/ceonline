@@ -30,7 +30,6 @@ class Event extends Model
 
         static::creating(function ($model) {
             $model->slug = (string) Str::slug($model->title .'-'. time());
-            $model->uuid = Str::uuid();
         });
 
         // static::updating(function ($model) {
