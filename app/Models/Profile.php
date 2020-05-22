@@ -35,7 +35,7 @@ class Profile extends Model implements HasMedia
         $this->addMediaCollection('profile');
     }
 
-    public function registerMediaConversions(Media $media = null)
+    public function registerMediaConversions($media = null)
     {
 
         $this->addMediaConversion('thumb')
