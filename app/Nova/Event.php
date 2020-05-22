@@ -12,6 +12,8 @@ use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\Trix;
+use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 
 
 class Event extends Resource
@@ -70,6 +72,11 @@ class Event extends Resource
     public function fields(Request $request)
     {
         return [
+            Images::make('Banner', 'banner') // second parameter is the media collection name
+            ->conversionOnIndexView('thumb') // conversion used to display the image
+            ->rules('required')
+            ->singleImageRules('dimensions:min_width=1280'), // validation rules
+
             ID::make( __('Id'),  'id')
             ->rules('required')
             ->sortable()
@@ -102,7 +109,7 @@ class Event extends Resource
             ,
 
 
-            Textarea::make( __('Description'),  'description')->hideFromIndex()
+            Trix::make( __('Description'),  'description')->hideFromIndex()
             ->sortable()
             ,
 

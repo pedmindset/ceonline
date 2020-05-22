@@ -15,6 +15,7 @@
         "cyrildewit/eloquent-viewable": "^5.0",
         "digitalcloud/nova-resource-notes": "^1.4",
         "dniccum/custom-email-sender": "^2.0",
+        "ebess/advanced-nova-media-library": "^3.1",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "geoip2/geoip2": "^2.10",
@@ -22,7 +23,6 @@
         "guzzlehttp/guzzle": "^6.3",
         "kabbouchi/nova-impersonate": "^1.1",
         "laravel/framework": "^7.0",
-        "laravel/horizon": "^4.0",
         "laravel/nova": "*",
         "laravel/telescope": "^3.1",
         "laravel/tinker": "^2.0",
@@ -31,7 +31,7 @@
         "merujan99/laravel-video-embed": "dev-master",
         "predis/predis": "^1.1",
         "pusher/pusher-php-server": "~3.0",
-        "spatie/laravel-medialibrary": "^7.19",
+        "spatie/laravel-medialibrary": "8.0.0",
         "spatie/laravel-permission": "^3.11",
         "titasgailius/search-relations": "^1.0",
         "torann/geoip": "^1.1",
@@ -48,9 +48,15 @@
     },
     "repositories": [
         {
+            "packagist": {
+                "type": "composer",
+                "url": "https://packagist.org"
+              },
+              
             "type": "path",
             "url": "./nova"
         }
+
     ],
     "config": {
         "optimize-autoloader": true,

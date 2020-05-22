@@ -73,7 +73,7 @@ Route::middleware(['auth'])->group(function(){
 
         $event = \App\Models\Event::where('slug', $slug)->first();
 
-        return $event;
+        return view('events.index',compact('event'));
     });
 
 
