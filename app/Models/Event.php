@@ -20,13 +20,13 @@ class Event extends Model implements HasMedia
     protected $table = 'events';
 
     protected $casts = [
-    'start_date' => 'datetime', `
-    'end_date' => 'datetime',
-    'created_at' => 'datetime',
-    'updated_at' => 'datetime',
+        'start_date' => 'datetime',
+        'end_date' => 'datetime',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
     ];
 
-       /**
+     /**
      * Boot function from laravel.
      */
     protected static function boot()
