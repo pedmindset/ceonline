@@ -28,6 +28,8 @@ Route::get('/rhapsody', function(Request $request){
     return view('giving');
 });
 
+Route::get('events/{slug}','EventController@show');
+
 Route::middleware(['auth'])->group(function(){
 
     Route::get('/videos', function () {
@@ -67,15 +69,6 @@ Route::middleware(['auth'])->group(function(){
 
         return $service;
     });
-
-
-    Route::get('events/{slug}', function(Request $request, $slug){
-
-        $event = \App\Models\Event::where('slug', $slug)->first();
-
-        return view('events.index',compact('event'));
-    });
-
 
 
 });

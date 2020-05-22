@@ -102,25 +102,8 @@ o                            </select>
                           <input id="phone_number" class="form-input block w-full pl-16 sm:text-sm sm:leading-5" placeholder="+1 (555) 987-6543" />
                         </div>
                       </div>
-                    <div class="sm:col-span-2">
-                        <label for="phone" class="text-left block text-sm font-medium leading-5 text-gray-700">Amount to give</label>
-                        <div class="mt-1 relative rounded-md shadow-sm">
-                            <div class="absolute inset-y-0 left-0 flex items-center">
-                            <select v-model="currency" aria-label="Currency" class="form-select h-full py-0 pl-3 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm sm:leading-5">
-                                <option value="GHS">GHS</option>
-                                <option value="NGN">NGN</option>
-                                <option value="USD">USD</option>
-                            </select>
-                            </div>
-                            <input v-model="amount"  id="amount" v-model="amount" class="form-input block w-full pl-5 text-right pl-16 sm:text-sm sm:leading-5" placeholder="0.00" />
-                        </div>
-                      </div>
-                      <div class="sm:col-span-2">
-                        <label for="church" class="block text-sm font-medium leading-5 text-gray-700">Church</label>
-                        <div class="mt-1 relative rounded-md shadow-sm">
-                          <input v-model="church" id="church" placeholder="Optional" class="form-input block w-full transition ease-in-out duration-150 sm:text-sm sm:leading-5" />
-                        </div>
-                      </div>
+
+
                     <div class="sm:col-span-2">
                       <div class="flex justify-between">
                         <label for="how_can_we_help" class="block text-sm font-medium leading-5 text-gray-700">Purpose</label>
@@ -133,24 +116,9 @@ o                            </select>
 
                     <div class="text-right sm:col-span-2">
                       <span class="inline-flex rounded-md shadow-sm">
-                        <Rave
-                        ref="rave"
-                        style-class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out"
-                        :email="email"
-                        :amount="amount"
-                        :customer-phone="phone"
-                        :reference="reference"
-                        :rave-key="raveKey"
-                        :callback="rave_callback"
-                        :close="rave_close"
-                        :validate-fields="validateForm"
-                        :customer-firstname="fname"
-                        :customer-lastname="lname"
-                        {{-- payment-options="ussd, card, account" --}}
-                        hosted-payment=0
-                        :currency="currency"
-                        :country="rave_country"
-                    ><i class="lab la-cc-visa mr-1 text-2xl"></i><i class="lab la-cc-mastercard mr-1 text-2xl"></i><i class="las la-mobile-alt mr-1 text-2xl"></i> Give Now</Rave>
+                         <button class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out" >
+                             Register
+                         </button>
                       </span>
                     </div>
                 </div>
@@ -167,7 +135,6 @@ o                            </select>
           data: function(){
               return{
                       payment_modal: false,
-                      raveKey: 'FLWPUBK-a1c943677116bd8fef559d9f47161d16-X',
                       email: '',
                       expectation: '',
                       title: '',
@@ -177,8 +144,6 @@ o                            </select>
                       fname: '',
                       lname: '',
                       data: '',
-                      currency: 'GHS',
-                      country: 'GH',
                       amountValidation: false,
                       categoryValidation: false
 
@@ -186,40 +151,11 @@ o                            </select>
               },
 
               computed: {
-                  rave_country: function(){
-                  if(this.currency == "GHS"){
-                      return this.country = 'GH'
-                  }
-
-                  if(this.currency == "NGN"){
-                      return this.country = 'NG'
-                  }
-
-                  if(this.currency == "USD"){
-                      return this.country = 'US'
-                  }
-                  },
 
 
-                  reference(){
-                  let text = "";
-                  let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-                  for( let i=0; i < 10; i++ )
-                      text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-                  return text;
-
-                  }
               },
 
               methods: {
-
-
-              validateForm: function(){
-
-                  this.$refs.rave.payWithRave();
-              },
 
 
               checkAmount: function(){
@@ -228,21 +164,6 @@ o                            </select>
                   }else{
                   return this.amountValidation = false
                   }
-              },
-
-
-
-              rave_callback: function(response){
-                  this.payment_modal = false;
-                  var self = this;
-                  if(response.data.data.status == 'successful'){
-
-                  }
-              },
-              rave_close: function(){
-                  this.payment_modal = false;
-                  this.amount = ''
-                  console.log("Payment closed")
               },
 
               dateFormat: function(d){
