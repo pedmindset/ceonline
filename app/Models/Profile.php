@@ -8,7 +8,6 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\File;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-
 class Profile extends Model implements HasMedia
 {
     use InteractsWithMedia;
@@ -30,12 +29,12 @@ class Profile extends Model implements HasMedia
         return $this->getFirstMediaUrl('profile', 'big');
     }
 
-    public function registerMediaCollections()
+    public function registerMediaCollections() : void
     {
         $this->addMediaCollection('profile');
     }
 
-    public function registerMediaConversions($media = null)
+    public function registerMediaConversions(Media $media = null): void
     {
 
         $this->addMediaConversion('thumb')
