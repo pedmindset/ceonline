@@ -48,7 +48,7 @@
                   </div>
 
                   <p class="mt-4 text-lg leading-7 text-gray-500 sm:mt-3">
-                        {{! $event->description !}}
+                        {!! $event->description !!}
                   </p>
                   <div class="mt-9 grid grid-cols-1 row-gap-6 sm:grid-cols-2 sm:col-gap-8">
                     <div class="sm:col-span-2">
