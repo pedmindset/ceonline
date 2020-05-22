@@ -47,8 +47,6 @@ class EventController extends Controller
     {
         $event = \App\Models\Event::where('slug', $slug)->first();
 
-        return $event->getFirstMediaUrl();
-
         return view('events.index',compact('event'));
     }
 
