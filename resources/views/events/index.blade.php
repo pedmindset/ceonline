@@ -197,21 +197,22 @@
                             title: this.title,
                             expectation: this.expectation,
                         }).then(function(r){
-                        })
-                        }else{
-                            self.$swal.fire({
-                                icon: 'warning',
-                                title: 'Validate',
-                                toast: true,
-                                position: 'top-end',
-                                showConfirmButton: false,
-                                timer: 3000,
-                                timerProgressBar: true,
-                                onOpen: function(toast) {
-                                    toast.addEventListener('mouseenter', self.$swal.stopTimer)
-                                    toast.addEventListener('mouseleave', self.$swal.resumeTimer)
-                                }
-                            });
+                                self.$swal.fire(
+                                    'Success!',
+                                    'Successfully registered',
+                                    'success'
+                                )
+
+                                window.location.href = window.location.host;
+                            }).catch(function(e){
+                                console.log(e);
+                                self.$swal.fire(
+                                    'Error!',
+                                    'Please try agin',
+                                    'error'
+                                )
+
+                            })
                         }
                     });
 
