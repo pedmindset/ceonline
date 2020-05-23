@@ -88,7 +88,7 @@
                             </div>
                         </div>
                         <div v-if="guest" class="sm:col-span-2">
-                            <label for="email" class="block text-sm font-medium leading-5 text-gray-700">Email</label>
+                            <label for="email" class="block text-sm font-medium leading-5 text-gray-700">Password</label>
                             <div class="mt-1 relative rounded-md shadow-sm">
                                 <input v-model="password" id="password" type="password" class="form-input block w-full transition ease-in-out duration-150 sm:text-sm sm:leading-5" />
                                 <div class="text-sm text-red-500">@{{ validation.firstError('password') }}</div>
