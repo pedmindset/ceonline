@@ -103,17 +103,6 @@
                             </div>
                         </div>
 
-
-                        <div class="sm:col-span-2">
-                            <div class="flex justify-between">
-                                <label for="how_can_we_help" class="block text-sm font-medium leading-5 text-gray-700">Expectation</label>
-                                <span class="text-sm leading-5 text-gray-500">Max. 500 characters</span>
-                            </div>
-                            <div class="mt-1 relative rounded-md shadow-sm">
-                                <textarea v-model="expectation" placeholder="Optional"  id="how_can_we_help" rows="4" class="form-textarea block w-full transition ease-in-out duration-150 sm:text-sm sm:leading-5"></textarea>
-                            </div>
-                        </div>
-
                         <div class="text-right sm:col-span-2">
                             <span class="inline-flex rounded-md shadow-sm">
                                 <button v-on:click="submitRegistration" class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out" >
