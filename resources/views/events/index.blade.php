@@ -94,14 +94,7 @@
                         <div class="sm:col-span-2">
                             <label for="phone_number" class="block text-sm font-medium leading-5 text-gray-700">Phone Number</label>
                             <div class="mt-1 relative rounded-md shadow-sm">
-                            <div class="absolute inset-y-0 left-0 flex items-center">
-                                <select v-model="country" aria-label="Country" class="form-select h-full py-0 pl-3 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm sm:leading-5">
-                                    <option value="GH">GH</option>
-                                    <option value="NG">NG</option>
-                                    <option value="US">US</option>
-                                </select>
-                            </div>
-                            <input id="phone_number" class="form-input block w-full pl-16 sm:text-sm sm:leading-5" placeholder="+1 (555) 987-6543" />
+                                <input  id="phone_number" v-model="phone" type="tel" class="form-input block w-full transition ease-in-out duration-150 sm:text-sm sm:leading-5" />
                             </div>
                         </div>
 
