@@ -70,11 +70,13 @@
                                     <option>Sir</option>
                                 </select>
                             </div>
+                            <div class="text-sm text-red-500">{{ validation.firstError('title') }}</div>
                         </div>
                         <div class="sm:col-span-2">
                             <label for="first_name" class="block text-sm font-medium leading-5 text-gray-700">Name</label>
                             <div class="mt-1 relative rounded-md shadow-sm">
-                            <input  v-model="name" id="first_name" class="form-input block w-full transition ease-in-out duration-150 sm:text-sm sm:leading-5" />
+                                <input  v-model="name" id="first_name" class="form-input block w-full transition ease-in-out duration-150 sm:text-sm sm:leading-5" />
+                                <div class="text-sm text-red-500">{{ validation.firstError('name') }}</div>
                             </div>
                         </div>
 
@@ -82,12 +84,14 @@
                             <label for="email" class="block text-sm font-medium leading-5 text-gray-700">Email</label>
                             <div class="mt-1 relative rounded-md shadow-sm">
                                 <input v-model="email" id="email" type="email" class="form-input block w-full transition ease-in-out duration-150 sm:text-sm sm:leading-5" />
+                                <div class="text-sm text-red-500">{{ validation.firstError('email') }}</div>
                             </div>
                         </div>
                         <div v-if="guest" class="sm:col-span-2">
                             <label for="email" class="block text-sm font-medium leading-5 text-gray-700">Email</label>
                             <div class="mt-1 relative rounded-md shadow-sm">
                                 <input v-model="password" id="password" type="password" class="form-input block w-full transition ease-in-out duration-150 sm:text-sm sm:leading-5" />
+                                <div class="text-sm text-red-500">{{ validation.firstError('password') }}</div>
                             </div>
                         </div>
 
@@ -95,6 +99,7 @@
                             <label for="phone_number" class="block text-sm font-medium leading-5 text-gray-700">Phone Number</label>
                             <div class="mt-1 relative rounded-md shadow-sm">
                                 <input  id="phone_number" v-model="phone" type="tel" class="form-input block w-full transition ease-in-out duration-150 sm:text-sm sm:leading-5" />
+                                <div class="text-sm text-red-500">{{ validation.firstError('phone') }}</div>
                             </div>
                         </div>
 
@@ -182,17 +187,30 @@
               methods: {
                 submitRegistration: function(){
                     var self = this;
-                    this.$validate();
-
-                    axios.post('../events/register/' + this.event.id, {
+                    if(this.$validate()){
+                        axios.post('../events/register/' + this.event.id, {
                         name: this.name,
                         phone: this.phone,
                         email: this.email,
                         title: this.title,
                         expectation: this.expectation,
-                    }).then(function(r){
-                    })
-
+                        }).then(function(r){
+                        })
+                    }else{
+                        self.$swal.fire({
+                            icon: 'warning',
+                            title: 'Validate',
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            onOpen: function(toast) {
+                                toast.addEventListener('mouseenter', self.$swal.stopTimer)
+                                toast.addEventListener('mouseleave', self.$swal.resumeTimer)
+                            }
+                        });
+                    }
                 },
 
 
