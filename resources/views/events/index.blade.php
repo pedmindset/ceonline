@@ -187,30 +187,34 @@
               methods: {
                 submitRegistration: function(){
                     var self = this;
-                    if(this.$validate()){
-                        axios.post('../events/register/' + this.event.id, {
-                        name: this.name,
-                        phone: this.phone,
-                        email: this.email,
-                        title: this.title,
-                        expectation: this.expectation,
+                    this.$validate()
+                    .then(function (success) {
+                        if (success) {
+                            axios.post('../events/register/' + this.event.id, {
+                            name: this.name,
+                            phone: this.phone,
+                            email: this.email,
+                            title: this.title,
+                            expectation: this.expectation,
                         }).then(function(r){
                         })
-                    }else{
-                        self.$swal.fire({
-                            icon: 'warning',
-                            title: 'Validate',
-                            toast: true,
-                            position: 'top-end',
-                            showConfirmButton: false,
-                            timer: 3000,
-                            timerProgressBar: true,
-                            onOpen: function(toast) {
-                                toast.addEventListener('mouseenter', self.$swal.stopTimer)
-                                toast.addEventListener('mouseleave', self.$swal.resumeTimer)
-                            }
-                        });
-                    }
+                        }else{
+                            self.$swal.fire({
+                                icon: 'warning',
+                                title: 'Validate',
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 3000,
+                                timerProgressBar: true,
+                                onOpen: function(toast) {
+                                    toast.addEventListener('mouseenter', self.$swal.stopTimer)
+                                    toast.addEventListener('mouseleave', self.$swal.resumeTimer)
+                                }
+                            });
+                        }
+                    });
+
                 },
 
 
