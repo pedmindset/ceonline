@@ -184,7 +184,7 @@
                     var self = this;
                     this.$validate();
 
-                    axios.post('../register/' + this.event.id, {
+                    axios.post('../events/register/' + this.event.id, {
                         name: this.name,
                         phone: this.phone,
                         email: this.email,
