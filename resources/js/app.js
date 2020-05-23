@@ -14,6 +14,8 @@ Vue.use(VueSweetalert2);
 
 import SimpleVueValidation from 'simple-vue-validator';
 
+window.Validator = SimpleVueValidation.Validator;
+
 Vue.use(SimpleVueValidation);
 
 /**
