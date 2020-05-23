@@ -29,6 +29,8 @@ Route::get('/rhapsody', function(Request $request){
 });
 
 Route::get('events/{slug}','EventController@show');
+Route::post('events/register/{id}','EventController@store');
+// Route::get('events','EventController@index');
 
 Route::middleware(['auth'])->group(function(){
 

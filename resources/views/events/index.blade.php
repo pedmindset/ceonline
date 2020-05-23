@@ -51,78 +51,81 @@
                         {!! $event->description !!}
                   </p>
                   <div class="mt-9 grid grid-cols-1 row-gap-6 sm:grid-cols-2 sm:col-gap-8">
-                    <div class="sm:col-span-2">
-                        <label for="country" class="block text-sm font-medium leading-5 text-gray-700">
-                          Title
-                        </label>
-                        <div class="mt-1 rounded-md shadow-sm">
-                          <select v-model="title" id="title" class="form-select block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                            <option value="">Select Title</option>
-                            <option>Bro</option>
-                            <option>Sis</option>
-                            <option>Mr</option>
-                            <option>Mrs</option>
-                            <option>Miss</option>
-                            <option>Pastor</option>
-                            <option>Deacon</option>
-                            <option>Deaconess</option>
-                            <option>Dr</option>
-                            <option>Sir</option>
-                          </select>
+                        <div class="sm:col-span-2">
+                            <label for="country" class="block text-sm font-medium leading-5 text-gray-700">
+                            Title
+                            </label>
+                            <div class="mt-1 rounded-md shadow-sm">
+                                <select v-model="title" id="title" class="form-select block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                    <option value="">Select Title</option>
+                                    <option>Bro</option>
+                                    <option>Sis</option>
+                                    <option>Mr</option>
+                                    <option>Mrs</option>
+                                    <option>Miss</option>
+                                    <option>Pastor</option>
+                                    <option>Deacon</option>
+                                    <option>Deaconess</option>
+                                    <option>Dr</option>
+                                    <option>Sir</option>
+                                </select>
+                            </div>
                         </div>
-                      </div>
-                      <div>
-                        <label for="first_name" class="block text-sm font-medium leading-5 text-gray-700">First name</label>
-                        <div class="mt-1 relative rounded-md shadow-sm">
-                          <input  v-model="fname" id="first_name" class="form-input block w-full transition ease-in-out duration-150 sm:text-sm sm:leading-5" />
+                        <div class="sm:col-span-2">
+                            <label for="first_name" class="block text-sm font-medium leading-5 text-gray-700">Name</label>
+                            <div class="mt-1 relative rounded-md shadow-sm">
+                            <input  v-model="name" id="first_name" class="form-input block w-full transition ease-in-out duration-150 sm:text-sm sm:leading-5" />
+                            </div>
                         </div>
-                      </div>
-                      <div>
-                        <label for="last_name" class="block text-sm font-medium leading-5 text-gray-700">Last name</label>
-                        <div class="mt-1 relative rounded-md shadow-sm">
-                          <input v-model="lname" id="last_name" class="form-input block w-full transition ease-in-out duration-150 sm:text-sm sm:leading-5" />
+
+                        <div class="sm:col-span-2">
+                            <label for="email" class="block text-sm font-medium leading-5 text-gray-700">Email</label>
+                            <div class="mt-1 relative rounded-md shadow-sm">
+                                <input v-model="email" id="email" type="email" class="form-input block w-full transition ease-in-out duration-150 sm:text-sm sm:leading-5" />
+                            </div>
                         </div>
-                      </div>
-                    <div class="sm:col-span-2">
-                      <label for="email" class="block text-sm font-medium leading-5 text-gray-700">Email</label>
-                      <div class="mt-1 relative rounded-md shadow-sm">
-                        <input v-model="email" id="email" type="email" class="form-input block w-full transition ease-in-out duration-150 sm:text-sm sm:leading-5" />
-                      </div>
-                    </div>
-                    <div class="sm:col-span-2">
-                        <label for="phone_number" class="block text-sm font-medium leading-5 text-gray-700">Phone Number</label>
-                        <div class="mt-1 relative rounded-md shadow-sm">
-                          <div class="absolute inset-y-0 left-0 flex items-center">
-                            <select v-model="country" aria-label="Country" class="form-select h-full py-0 pl-3 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm sm:leading-5">
-                                <option value="GH">GH</option>
-                                <option value="NG">NG</option>
-                                <option value="US">US</option>
-o                            </select>
-                          </div>
-                          <input id="phone_number" class="form-input block w-full pl-16 sm:text-sm sm:leading-5" placeholder="+1 (555) 987-6543" />
+                        <div v-if="guest" class="sm:col-span-2">
+                            <label for="email" class="block text-sm font-medium leading-5 text-gray-700">Email</label>
+                            <div class="mt-1 relative rounded-md shadow-sm">
+                                <input v-model="password" id="password" type="password" class="form-input block w-full transition ease-in-out duration-150 sm:text-sm sm:leading-5" />
+                            </div>
                         </div>
-                      </div>
+
+                        <div class="sm:col-span-2">
+                            <label for="phone_number" class="block text-sm font-medium leading-5 text-gray-700">Phone Number</label>
+                            <div class="mt-1 relative rounded-md shadow-sm">
+                            <div class="absolute inset-y-0 left-0 flex items-center">
+                                <select v-model="country" aria-label="Country" class="form-select h-full py-0 pl-3 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm sm:leading-5">
+                                    <option value="GH">GH</option>
+                                    <option value="NG">NG</option>
+                                    <option value="US">US</option>
+                                </select>
+                            </div>
+                            <input id="phone_number" class="form-input block w-full pl-16 sm:text-sm sm:leading-5" placeholder="+1 (555) 987-6543" />
+                            </div>
+                        </div>
 
 
-                    <div class="sm:col-span-2">
-                      <div class="flex justify-between">
-                        <label for="how_can_we_help" class="block text-sm font-medium leading-5 text-gray-700">Purpose</label>
-                        <span class="text-sm leading-5 text-gray-500">Max. 500 characters</span>
-                      </div>
-                      <div class="mt-1 relative rounded-md shadow-sm">
-                        <textarea v-model="expectation" placeholder="Optional"  id="how_can_we_help" rows="4" class="form-textarea block w-full transition ease-in-out duration-150 sm:text-sm sm:leading-5"></textarea>
-                      </div>
-                    </div>
+                        <div class="sm:col-span-2">
+                            <div class="flex justify-between">
+                                <label for="how_can_we_help" class="block text-sm font-medium leading-5 text-gray-700">Expectation</label>
+                                <span class="text-sm leading-5 text-gray-500">Max. 500 characters</span>
+                            </div>
+                            <div class="mt-1 relative rounded-md shadow-sm">
+                                <textarea v-model="expectation" placeholder="Optional"  id="how_can_we_help" rows="4" class="form-textarea block w-full transition ease-in-out duration-150 sm:text-sm sm:leading-5"></textarea>
+                            </div>
+                        </div>
 
-                    <div class="text-right sm:col-span-2">
-                      <span class="inline-flex rounded-md shadow-sm">
-                         <button class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out" >
-                             Register
-                         </button>
-                      </span>
+                        <div class="text-right sm:col-span-2">
+                            <span class="inline-flex rounded-md shadow-sm">
+                                <button class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out" >
+                                    Register
+                                </button>
+                            </span>
+                        </div>
                     </div>
-                </div>
-                </div>
+                  </div>
+
               </div>
             </div>
         </div>
@@ -130,22 +133,24 @@ o                            </select>
     </body>
     <script>
 
+        var user = @json($user);
+        var event = @json($event);
+
+
         const app = new Vue({
           el: '#myapp',
           data: function(){
               return{
-                      payment_modal: false,
                       email: '',
                       expectation: '',
                       title: '',
-                      church: '',
-                      amount: '',
                       phone: '',
-                      fname: '',
-                      lname: '',
+                      password: '',
+                      name: '',
                       data: '',
-                      amountValidation: false,
-                      categoryValidation: false
+                      event: {},
+                      user: {},
+                      guest: false,
 
                   }
               },
@@ -155,33 +160,77 @@ o                            </select>
 
               },
 
+             validators: {
+                email: function(value) {
+                    return Validator.value(value).required().email();
+                },
+
+                title: function(value) {
+                    return Validator.value(value).required();
+                },
+
+                name: function(value) {
+                    return Validator.value(value).required();
+                },
+
+                phone: function(value) {
+                    return Validator.value(value).required();
+                },
+
+                password: function(value) {
+                    if(this.guest){
+                        return Validator.value(value).required();
+                    }
+
+                },
+
+             },
+
               methods: {
+                submitRegistration: function(){
+                    var self = this;
+                    this.$validate();
+
+                    axios.post('../register/' + this.event.id, {
+                        name: this.name,
+                        phone: this.phone,
+                        email: this.email,
+                        title: this.title,
+                        expectation: this.expectation,
+                    }).then(function(r){
+                    })
+
+                },
 
 
-              checkAmount: function(){
-                  if(this.amount == ''){
-                  return this.amountValidation = true;
-                  }else{
-                  return this.amountValidation = false
-                  }
-              },
+                dateFormat: function(d){
+                    var date = Moment.tz(d, timezone).fromNow();
+                    // console.log(date);
+                    if(date == "Invalid date"){
+                    return d
+                    }
+                    return date;
 
-              dateFormat: function(d){
-                  var date = Moment.tz(d, timezone).fromNow();
-                  // console.log(date);
-                  if(date == "Invalid date"){
-                  return d
-                  }
-                  return date;
-
-              },
+                },
 
 
 
               },
 
               mounted: function(){
+                if(user != null){
+                    this.user = user;
+                    this.name =  user.name;
+                    this.email = user.email;
+                    this.phone = user.profile != null ? user.profile.phone : '';
+                    this.title = user.profile != null ? user.profile.title : '';
+                }else{
+                    this.guest = true;
+                }
 
+                if(event != null){
+                    this.event = event;
+                }
               }
       })
 

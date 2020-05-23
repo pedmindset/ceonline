@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
+use App\Models\Profile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -32,9 +35,58 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+            $validateData = $request->validate([
+                'name' => 'nullable',
+                'email' => 'nullable',
+                'phone' => 'nullable',
+                'title' => 'nullable',
+                'password' => 'nullable',
+                'expectation' => 'nullable',
+            ]);
+
+            $event = Event::find($id);
+
+            if(Auth::check()){
+                $user = Auth::user();
+                $profile = $user->profile;
+                $profile->phone = $request->phone;
+                $profile->email = $request->email;
+                $profile->title = $request->title;
+                $profile->save();
+
+                $user->events()->attach($event->id);
+
+                return response()->json([
+                    'message' => 'successful',
+                    'code' => '200'
+                ]);
+            }
+
+            $user = User::create([
+                'church_id' => $event->church_id,
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password)
+            ]);
+
+            $profile = new Profile;
+            $profile->user_id = $user->id;
+            $profile->phone = $request->phone;
+            $profile->email = $request->email;
+            $profile->title = $request->title;
+            $profile->church_id = $event->church_id;
+            $profile->save();
+
+            $user->events()->attach($event->id);
+
+            Auth::loginUsingId($user->id);
+
+            return response()->json([
+                'message' => 'successful',
+                'code' => '200'
+            ]);
     }
 
     /**
@@ -47,7 +99,9 @@ class EventController extends Controller
     {
         $event = \App\Models\Event::where('slug', $slug)->first();
 
-        return view('events.index',compact('event'));
+        $user  = auth()->user()->load('profile');
+
+        return view('events.index',compact('event', 'user'));
     }
 
     /**
