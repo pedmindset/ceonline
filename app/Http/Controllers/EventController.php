@@ -99,10 +99,10 @@ class EventController extends Controller
     {
         $event = \App\Models\Event::where('slug', $slug)->first();
 
+        $user = null;
+        
         if(Auth::check()){
             $user  = auth()->user()->load('profile');
-        }else{
-            $user = null;
         }
 
 
