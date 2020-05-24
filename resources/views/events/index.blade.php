@@ -226,7 +226,7 @@
                                    'icon': 'success'
                                })
 
-                                window.location.href = {{ url('/')}};
+                                window.location.href = "/";
                             }).catch(function(e){
                                 console.log(e);
 
