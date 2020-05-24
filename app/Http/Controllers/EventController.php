@@ -6,6 +6,7 @@ use App\Models\Event;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\EventRegistration;
 
 class EventController extends Controller
 {
@@ -58,6 +59,8 @@ class EventController extends Controller
 
                 $user->events()->attach($event->id);
 
+                notify(new EventRegistration($user));
+
                 return response()->json([
                     'message' => 'successful',
                     'code' => '200'
@@ -82,6 +85,8 @@ class EventController extends Controller
             $user->events()->attach($event->id);
 
             Auth::loginUsingId($user->id);
+
+            notify(new EventRegistration($user));
 
             return response()->json([
                 'message' => 'successful',
