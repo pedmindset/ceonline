@@ -111,7 +111,7 @@
                             </span>
                         </div>
                     </div>
-                    <div v-else class="mt-9 grid grid-cols-1 row-gap-6 sm:grid-cols-2 sm:col-gap-8">
+                    <div v-else class="my-9">
                         <div class="rounded-md bg-green-50 p-4 mt-10 sm:col-span-2">
                             <div class="flex">
                               <div class="flex-shrink-0">
