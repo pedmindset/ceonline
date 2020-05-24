@@ -79,7 +79,7 @@
                         </svg>
                         <span>
                           Date
-                          <time datetime="2020-01-07">{{ $event->toDayDateTimeString() }}</time>
+                          <time datetime="2020-01-07">{{ $event->start_date->toDayDateTimeString() }}</time>
                         </span>
                       </div>
                     </div>
