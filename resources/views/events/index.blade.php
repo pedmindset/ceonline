@@ -29,6 +29,34 @@
                   background-position: top;
                 };
           </style>
+              <style>
+                @keyframes spinner {
+                  to {transform: rotate(360deg);}
+                }
+
+                .spinner {
+                position: relative;
+                color: transparent !important;
+                pointer-events: none;
+              }
+
+                .spinner:before {
+                  content: '';
+                  box-sizing: border-box;
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  width: 20px;
+                  height: 20px;
+                  margin-top: -10px;
+                  margin-left: -10px;
+                  border-radius: 50%;
+                  border: 2px solid #ccc;
+                  border-top-color: #000;
+                  animation: spinner .6s linear infinite;
+                }
+
+                </style>
     </head>
     <body>
         <div id="myapp">
@@ -106,7 +134,7 @@
                         <div class="text-right sm:col-span-2">
                             <span class="inline-flex rounded-md shadow-sm">
                                 <button v-on:click="submitRegistration" class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out" >
-                                    Register
+                                    <span v-show="spinner" class="spinner mr-5"></span> Register
                                 </button>
                             </span>
                         </div>
@@ -173,6 +201,7 @@
                       guest: false,
                       registered: false,
                       canSubmit: true,
+                      spinner: false,
 
                   }
               },
@@ -214,6 +243,7 @@
                     this.$validate()
                     .then(function (success) {
                         if(self.canSubmit == true){
+                            self.spinner = true;
                             self.canSubmit = false;
                             if (success) {
                                 axios.post('../events/register/' + this.event.id, {
@@ -231,6 +261,7 @@
                                 window.location.href = "/";
                                 }).catch(function(e){
                                     self.canSubmit == true;
+                                    self.spinner = false;
                                     console.log(e);
                                     self.$swal.fire({
                                         icon: 'error',
