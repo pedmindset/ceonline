@@ -59,7 +59,7 @@ class EventController extends Controller
 
                 $user->events()->attach($event->id);
 
-                notify(new EventRegistration($user));
+                $user->notify(new EventRegistration($user));
 
                 return response()->json([
                     'message' => 'successful',
@@ -86,7 +86,7 @@ class EventController extends Controller
 
             Auth::loginUsingId($user->id);
 
-            notify(new EventRegistration($user));
+            $user->notify(new EventRegistration($user));
 
             return response()->json([
                 'message' => 'successful',
