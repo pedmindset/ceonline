@@ -53,7 +53,7 @@ class EventRegistration extends Notification
                     ->greeting('Dear ' . Str::ucfirst($profile->title) . ' ' .Str::ucfirst($profile->name))
                     ->line('You registered for ' . Str::ucfirst($event->title) . ' ' . 'Date: ' . $event->start_date->toDayDateTimeString() )
                     ->action('Event Site', url('/'))
-                    ->line('Thank you for registration for this special Conference!');
+                    ->line('Thank you for registering for this special Conference!');
     }
 
     /**
