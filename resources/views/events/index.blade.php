@@ -58,16 +58,16 @@
                             <div class="mt-1 rounded-md shadow-sm">
                                 <select v-model="title" id="title" class="form-select block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                                     <option value="">Select Title</option>
-                                    <option  value="bro">Bro</option>
-                                    <option  value="sis">Sis</option>
-                                    <option  value="mrs">Mr</option>
-                                    <option  value="mr">Mrs</option>
-                                    <option  value="dr">Miss</option>
-                                    <option  value="sir">Pastor</option>
-                                    <option  value=dcn"">Deacon</option>
-                                    <option  value="dcns">Deaconess</option>
-                                    <option  value="">Dr</option>
-                                    <option  value="pst">Sir</option>
+                                    <option value="bro">Bro</option>
+                                    <option value="sis">Sis</option>
+                                    <option value="mrs">Mr</option>
+                                    <option value="mr">Mrs</option>
+                                    <option value="dr">Miss</option>
+                                    <option value="sir">Pastor</option>
+                                    <option value=dcn"">Deacon</option>
+                                    <option value="dcns">Deaconess</option>
+                                    <option value="dr">Dr</option>
+                                    <option value="pst">Sir</option>
                                 </select>
                             </div>
                             <div class="text-sm text-red-500">@{{ validation.firstError('title') }}</div>
@@ -214,10 +214,10 @@
                     .then(function (success) {
                         if (success) {
                             axios.post('../events/register/' + this.event.id, {
-                            name: this.name,
-                            phone: this.phone,
-                            email: this.email,
-                            title: this.title,
+                            name: self.name,
+                            phone: self.phone,
+                            email: self.email,
+                            title: self.title,
                             expectation: this.expectation,
                         }).then(function(r){
                                self.$swal.fire({
