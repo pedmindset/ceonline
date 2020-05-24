@@ -13,9 +13,7 @@
 
                         <div class="form-group row">
                             <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Title') }}</label>
-                            @php
-                                $titles = [
-                                    ['bro' => 'Brother'],
+                            @php ['bro' => 'Brother'],
                                     ['sis' => 'Sister'],
                                     ['mr' => 'Mr'],
                                     ['mrs' => 'Mrs'],
@@ -24,7 +22,9 @@
                                     ['dcn' => 'Dcn'],
                                     ['dcns' => 'Dcns'],
                                     ['pst' => 'Pastor']
-                                ];    
+                                $titles = [
+
+                                ];
                             @endphp
                             <div class="col-md-6">
                                 <select

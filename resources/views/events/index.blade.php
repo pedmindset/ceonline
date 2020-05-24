@@ -58,16 +58,16 @@
                             <div class="mt-1 rounded-md shadow-sm">
                                 <select v-model="title" id="title" class="form-select block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                                     <option value="">Select Title</option>
-                                    <option>Bro</option>
-                                    <option>Sis</option>
-                                    <option>Mr</option>
-                                    <option>Mrs</option>
-                                    <option>Miss</option>
-                                    <option>Pastor</option>
-                                    <option>Deacon</option>
-                                    <option>Deaconess</option>
-                                    <option>Dr</option>
-                                    <option>Sir</option>
+                                    <option  value="bro">Bro</option>
+                                    <option  value="sis">Sis</option>
+                                    <option  value="mrs">Mr</option>
+                                    <option  value="mr">Mrs</option>
+                                    <option  value="dr">Miss</option>
+                                    <option  value="sir">Pastor</option>
+                                    <option  value=dcn"">Deacon</option>
+                                    <option  value="dcns">Deaconess</option>
+                                    <option  value="">Dr</option>
+                                    <option  value="pst">Sir</option>
                                 </select>
                             </div>
                             <div class="text-sm text-red-500">@{{ validation.firstError('title') }}</div>
