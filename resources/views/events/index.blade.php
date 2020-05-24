@@ -172,6 +172,7 @@
                       user: {},
                       guest: false,
                       registered: false,
+                      canSubmit: true,
 
                   }
               },
@@ -212,43 +213,44 @@
                     var self = this;
                     this.$validate()
                     .then(function (success) {
-                        if (success) {
-                            axios.post('../events/register/' + this.event.id, {
-                            name: self.name,
-                            phone: self.phone,
-                            email: self.email,
-                            title: self.title,
-                            expectation: this.expectation,
-                        }).then(function(r){
-                               self.$swal.fire({
-                                   'title': 'Success!',
-                                    'text': 'Successfully registered',
-                                   'icon': 'success'
-                               })
-
-                                window.location.href = "/";
-                            }).catch(function(e){
-                                console.log(e);
-
-
+                        if(self.canSubmit == true){
+                            self.canSubmit = false;
+                            if (success) {
+                                axios.post('../events/register/' + this.event.id, {
+                                name: self.name,
+                                phone: self.phone,
+                                email: self.email,
+                                title: self.title,
+                                expectation: this.expectation,
+                            }).then(function(r){
                                 self.$swal.fire({
-                                     icon: 'error',
-                                     title: 'Error!',
-                  text: 'Please try agin',
-                  toast: true,
-                  position: 'top-end',
-                  showConfirmButton: false,
-                  timer: 10000,
-                  timerProgressBar: true,
-                  onOpen: (toast) => {
-                    toast.addEventListener('mouseenter', self.$swal.stopTimer)
-                    toast.addEventListener('mouseleave', self.$swal.resumeTimer)
+                                    'title': 'Success!',
+                                    'text': 'Successfully registered',
+                                    'icon': 'success'
+                                })
+                                window.location.href = "/";
+                                }).catch(function(e){
+                                    self.canSubmit == true;
+                                    console.log(e);
+                                    self.$swal.fire({
+                                        icon: 'error',
+                                        title: 'Error!',
+                                        text: 'Please try agin',
+                                        toast: true,
+                                        position: 'top-end',
+                                        showConfirmButton: false,
+                                        timer: 10000,
+                                        timerProgressBar: true,
+                                        onOpen: (toast) => {
+                                            toast.addEventListener('mouseenter', self.$swal.stopTimer)
+                                            toast.addEventListener('mouseleave', self.$swal.resumeTimer)
 
-                  }
-                });
+                                        }
+                                    });
 
-                            })
-                        }
+                                })
+                            }
+                         }
                     });
 
                 },
