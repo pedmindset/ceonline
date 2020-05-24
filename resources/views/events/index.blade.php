@@ -63,11 +63,11 @@
                                     <option value="mrs">Mr</option>
                                     <option value="mr">Mrs</option>
                                     <option value="dr">Miss</option>
-                                    <option value="sir">Pastor</option>
+                                    <option value="pst">Pastor</option>
                                     <option value=dcn"">Deacon</option>
                                     <option value="dcns">Deaconess</option>
                                     <option value="dr">Dr</option>
-                                    <option value="pst">Sir</option>
+                                    <option value="sir">Sir</option>
                                 </select>
                             </div>
                             <div class="text-sm text-red-500">@{{ validation.firstError('title') }}</div>
