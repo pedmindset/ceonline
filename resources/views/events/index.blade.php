@@ -69,16 +69,16 @@
             <div class="relative pt-12 pb-16 px-4 sm:pt-16 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:grid lg:grid-cols-2">
               <div class="lg:pr-8">
                 <div class="max-w-md mx-auto sm:max-w-lg lg:mx-0">
-                  <div class="flex flex-col">
-                    <h2 class="text-3xl leading-9 px-2 pt-4 font-extrabold tracking-tight sm:text-4xl sm:leading-10">
+                  <div class="flex flex-col justify-start">
+                    <h2 class="text-3xl leading-9 pt-4 font-extrabold tracking-tight sm:text-4xl sm:leading-10">
                       {{ $event->title }}
                     </h2>
-                    <div class="mt-2 flex items-center text-sm leading-5 text-gray-500 sm:mt-0">
+                    <div class="mt-3 flex items-center text-sm leading-5 text-gray-500 sm:mt-0">
                         <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                           <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
                         </svg>
                         <span>
-                          Date
+                          Date:
                           <time datetime="2020-01-07">{{ $event->start_date->toDayDateTimeString() }}</time>
                         </span>
                       </div>
