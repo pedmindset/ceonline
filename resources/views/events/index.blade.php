@@ -127,7 +127,7 @@
                   </div>
                   <div class="ml-3">
                     <h3 class="text-sm leading-5 font-medium text-green-800">
-                      Alredy Registered
+                      Already Registered
                     </h3>
                     <div class="mt-2 text-sm leading-5 text-green-700">
                       <p>
@@ -219,19 +219,31 @@
                             expectation: this.expectation,
                         }).then(function(r){
                                self.$swal.fire({
-                                    'Success!',
-                                    'Successfully registered',
-                                    'success'
+                                   'title': 'Success!',
+                                    'text': 'Successfully registered',
+                                   'icon': 'success'
                                })
 
                                 window.location.href = window.location.host;
                             }).catch(function(e){
                                 console.log(e);
-                               self.$swal.fire({
-                                    'Error!',
-                                    'Please try agin',
-                                    'error'
-                                } )
+
+
+                                self.$swal.fire({
+                                     icon: 'error',
+                                     title: 'Error!',
+                  text: 'Please try agin',
+                  toast: true,
+                  position: 'top-end',
+                  showConfirmButton: false,
+                  timer: 10000,
+                  timerProgressBar: true,
+                  onOpen: (toast) => {
+                    toast.addEventListener('mouseenter', self.$swal.stopTimer)
+                    toast.addEventListener('mouseleave', self.$swal.resumeTimer)
+
+                  }
+                });
 
                             })
                         }
