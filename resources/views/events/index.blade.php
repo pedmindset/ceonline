@@ -112,7 +112,7 @@
                         </div>
                     </div>
                     <div v-else class="mt-9 grid grid-cols-1 row-gap-6 sm:grid-cols-2 sm:col-gap-8">
-                        <div class="rounded-md bg-green-50 p-4 mt-10">
+                        <div class="rounded-md bg-green-50 p-4 mt-10 sm:col-span-2">
                             <div class="flex">
                               <div class="flex-shrink-0">
                                 <svg class="h-5 w-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
