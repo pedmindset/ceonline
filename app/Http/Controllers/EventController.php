@@ -100,13 +100,22 @@ class EventController extends Controller
         $event = \App\Models\Event::where('slug', $slug)->first();
 
         $user = null;
-        
+
+        $registered = false;
+
         if(Auth::check()){
             $user  = auth()->user()->load('profile');
+
+            $registered = $user->events()->first();
+
+        }
+
+        if($registered){
+            $registered = true;
         }
 
 
-        return view('events.index',compact('event', 'user'));
+        return view('events.index',compact('event', 'user', 'registered'));
     }
 
     /**
