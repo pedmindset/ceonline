@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta property="og:title" content="Christ Embassy Online" /> 
-        <meta property="og:type" content="article" /> 
+        <meta property="og:title" content="Christ Embassy Online" />
+        <meta property="og:type" content="article" />
         <meta property="og:url" content="http://live.christembassynungua.org" />
         <meta property="og:description" content="You're welcome to Christ Embassy Online Church, Join us worship the Lord in the beauty of His Holiness" />
         <meta name="twitter:image" content="http://live.christembassynungua.org/images/christ_embassy_nungua.jpg" />
@@ -76,7 +76,7 @@
                 <a href="../" class="font-medium text-gray-100 hover:text-indigo-500 focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out">Home</a>
                 <a href="../home" class="ml-10 font-medium text-gray-100 hover:text-indigo-500 focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out">Live Service</a>
                 <a href="../videos" class="ml-10 font-medium text-gray-100 hover:text-indigo-500 focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out">Video Center</a>
-                <a href="#" class="ml-10 font-medium text-gray-100 hover:text-indigo-500 focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out">Salvation</a>
+                <a href="../" class="ml-10 font-medium text-gray-100 hover:text-indigo-500 focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out">Salvation</a>
                 {{-- <a href="#" class="ml-10 font-medium text-gray-100 hover:text-indigo-500 focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out">Contact</a> --}}
               </div>
               <div class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
@@ -84,7 +84,7 @@
                 <a href="../home" class="inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-indigo-600 bg-white hover:text-indigo-500 focus:outline-none focus:shadow-outline-blue active:bg-gray-50 active:text-indigo-700 transition duration-150 ease-in-out">
                   <i class="las la-user-alt text-2xl mr-2"></i> Account
                 </a>
-            
+
                 @endauth
                 @guest
                 <span class="inline-flex rounded-md shadow mx-1">
@@ -98,7 +98,7 @@
                   </a>
                 </span>
                 @endguest
-              
+
               </div>
             </nav>
           </div>
@@ -123,7 +123,7 @@
                   <a href="../" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-500 hover:bg-gray-50 focus:outline-none focus:text-gray-500 focus:bg-gray-50 transition duration-150 ease-in-out">Home</a>
                   <a href="../home" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-500 hover:bg-gray-50 focus:outline-none focus:text-gray-500 focus:bg-gray-50 transition duration-150 ease-in-out">Live Service</a>
                   <a href="../videos" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-500 hover:bg-gray-50 focus:outline-none focus:text-gray-500 focus:bg-gray-50 transition duration-150 ease-in-out">Video Center</a>
-                  <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-500 hover:bg-gray-50 focus:outline-none focus:text-gray-500 focus:bg-gray-50 transition duration-150 ease-in-out">Salvation</a>
+                  <a href="../" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-500 hover:bg-gray-50 focus:outline-none focus:text-gray-500 focus:bg-gray-50 transition duration-150 ease-in-out">Salvation</a>
                   {{-- <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-500 hover:bg-gray-50 focus:outline-none focus:text-gray-500 focus:bg-gray-50 transition duration-150 ease-in-out">Contact</a> --}}
                 </div>
                 <div>
@@ -148,7 +148,7 @@
           <div class="mt-32 mx-auto max-w-screen-xl px-4 sm:mt-48 sm:px-6 md:mt-72 lg:mt-72 xl:mt-72 z-10 ">
             <div class="text-center">
               <h2 class="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
-                <span class="text-white">You're welcome to Christ Embassy</span>               
+                <span class="text-white">You're welcome to Christ Embassy</span>
               </h2>
               <div class="leading-10 font-extrabold text-indigo-700 sm:text-5xl sm:leading-none md:text-6xl py-2 md:py-3 px-8 bg-white mt-3 rounded max-w-4xl mx-auto z-20">
                 Giving your life a meaning
@@ -183,7 +183,7 @@
                   </svg>
                 </span>
                 <p class="ml-3 font-medium text-white truncate">
-                  <span class="md:hidden"> 
+                  <span class="md:hidden">
                      Invite your Friends with a personalized Link
                   </span>
                   <span class="hidden md:inline">
