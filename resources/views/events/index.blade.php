@@ -265,12 +265,26 @@
                                 paasword: self.password,
                                 expectation: this.expectation,
                             }).then(function(r){
-                                self.$swal.fire({
-                                    'title': 'Success!',
-                                    'text': 'Successfully registered',
-                                    'icon': 'success'
-                                })
-                                window.location.href = "/";
+                                if(r.data.code == 200){
+                                    self.$swal.fire({
+                                        'title': 'Success!',
+                                        'text': 'Successfully registered',
+                                        'icon': 'success'
+                                    });
+                                 window.location.href = "/";
+                                }
+
+
+                                if(r.data.code == 400){
+                                    self.$swal.fire({
+                                        'title': 'Login!',
+                                        'text': 'Login to Register',
+                                        'icon': 'error'
+                                    });
+
+                                    window.location.href = "/login";
+                                }
+
                                 }).catch(function(e){
                                     self.canSubmit == true;
                                     self.spinner = false;

@@ -64,17 +64,26 @@ class EventController extends Controller
                 $user->notify(new EventRegistration($user));
 
                 return response()->json([
-                    'message' => 'successful',
+                    'message' => 'Successfully Registered',
                     'code' => '200'
                 ]);
             }
 
-            $user = User::create([
-                'church_id' => $event->church_id,
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password)
-            ]);
+            try {
+                $user = User::create([
+                    'church_id' => $event->church_id,
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'password' => Hash::make($request->password)
+                ]);
+            } catch (\Throwable $th) {
+                return response()->json([
+                    'message' => 'Login to Register',
+                    'code' => '400'
+                ]);
+            }
+
+
 
             $profile = new Profile;
             $profile->user_id = $user->id;
@@ -91,7 +100,7 @@ class EventController extends Controller
             $user->notify(new EventRegistration($user));
 
             return response()->json([
-                'message' => 'successful',
+                'message' => 'Successfully Registered',
                 'code' => '200'
             ]);
     }
