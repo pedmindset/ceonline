@@ -4,8 +4,7 @@
  * allows your team to easily build robust real-time web applications.
  */
 
-
-var Echo = require('laravel-echo');
+import Echo from 'laravel-echo';
 
 window.Pusher = require('pusher-js');
 

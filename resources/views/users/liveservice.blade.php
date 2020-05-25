@@ -14,8 +14,6 @@
 @push('custom-styles')
     <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
     <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
-    <script src="{{ asset('js/websocket.js') }}" ></script>
-
 @endpush
 @push('page-content')
 {{-- <div id="myapp"> --}}
@@ -236,6 +234,7 @@
 @endpush
 @push('custom-scripts')
 <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
+<script src="{{ asset('js/websocket.js') }}" ></script>
 
 <script>
 var timezone = "{{ $timezone }}";

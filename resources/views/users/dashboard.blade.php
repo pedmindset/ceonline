@@ -15,8 +15,6 @@
 @push('custom-styles')
     <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
     <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
-    <script src="{{ asset('js/websocket.js') }}" ></script>
-
     <style>
       @keyframes spinner {
         to {transform: rotate(360deg);}
@@ -345,6 +343,7 @@
 
 @push('custom-scripts')
 <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
+<script src="{{ asset('js/websocket.js') }}" ></script>
 
 <script>
 
