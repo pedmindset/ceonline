@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Notifications\EventRegistration;
@@ -102,7 +103,7 @@ class EventController extends Controller
      */
     public function show($slug)
     {
-        $event = \App\Models\Event::where('slug', $slug)->first();
+        $event = Event::where('slug', $slug)->first();
 
         $user = null;
 
