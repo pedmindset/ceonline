@@ -29,7 +29,8 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
                    $entry->isFailedRequest() ||
                    $entry->isFailedJob() ||
                    $entry->isScheduledTask() ||
-                   $entry->hasMonitoredTag();
+                   $entry->hasMonitoredTag() ||
+                   true;
         });
 
         Telescope::tag(function (IncomingEntry $entry) {
@@ -39,15 +40,15 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
                 {
                     return [
                         'status:'.$entry->content['response_status'],
-                        "path:".$entry->content['uri']  
+                        "path:".$entry->content['uri']
                     ];
                 }
 
-                
+
             }
-    
+
             return [];
-        });   
+        });
     }
 
     /**
