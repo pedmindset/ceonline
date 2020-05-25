@@ -262,6 +262,7 @@
                                 phone: self.phone,
                                 email: self.email,
                                 title: self.title,
+                                paasword: self.password,
                                 expectation: this.expectation,
                             }).then(function(r){
                                 self.$swal.fire({
