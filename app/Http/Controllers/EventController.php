@@ -8,6 +8,7 @@ use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use App\Notifications\EventRegistration;
 
 class EventController extends Controller
@@ -77,6 +78,9 @@ class EventController extends Controller
                     'password' => Hash::make($request->password)
                 ]);
             } catch (\Exception $e) {
+
+                Session::put('from',$request->path());
+
                 return response()->json([
                     'message' => 'Login to Register',
                     'code' => '400'
