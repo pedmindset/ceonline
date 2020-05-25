@@ -76,7 +76,7 @@ class EventController extends Controller
                     'email' => $request->email,
                     'password' => Hash::make($request->password)
                 ]);
-            } catch (\Throwable $th) {
+            } catch (\Exception $e) {
                 return response()->json([
                     'message' => 'Login to Register',
                     'code' => '400'
