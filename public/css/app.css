@@ -43726,12 +43726,12 @@ video {
 }
 
 body {
-  background-image: "/images/pastor_earnest.jpg";
+  background-image: "/images/ce_nungua_church.jpg";
 }
 
 .bg-image-slider {
   background-color: rgba(0, 0, 0, 0.267);
-  background-image: url(../images/pastor_earnest.jpg);
+  background-image: url(../images/ce_nungua_church.jpg);
   background-repeat: no-repeat;
   background-blend-mode: overlay;
   background-position: top;
