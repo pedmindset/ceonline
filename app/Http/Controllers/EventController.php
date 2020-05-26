@@ -79,7 +79,7 @@ class EventController extends Controller
                 ]);
             } catch (\Exception $e) {
 
-                Session::put('from',$request->path());
+                Session::put('from', 'events/' . $event->slug);
 
                 return response()->json([
                     'message' => 'Login to Register',
