@@ -70,14 +70,40 @@ class EventController extends Controller
                 ]);
             }
 
+            $password = $this->generateRandomString(5);
+
             try {
                 $user = User::create([
                     'church_id' => $event->church_id,
                     'name' => $request->name,
                     'email' => $request->email,
-                    'password' => Hash::make($request->password)
+                    'password' => Hash::make($password)
                 ]);
             } catch (\Exception $e) {
+
+                $user = User::where('email', $request->email)->first();
+
+                if($user){
+                    $profile = new Profile;
+                    $profile->user_id = $user->id;
+                    $profile->phone = $request->phone;
+                    $profile->name = $request->name;
+                    $profile->email = $request->email;
+                    $profile->title = $request->title;
+                    $profile->church_id = $event->church_id;
+                    $profile->save();
+
+                    $user->events()->attach($event->id);
+
+                    Auth::loginUsingId($user->id);
+
+                    $user->notify(new EventRegistration($user,  $password));
+
+                    return response()->json([
+                        'message' => 'Successfully Registered',
+                        'code' => '200'
+                    ]);
+                }
 
                 Session::put('from', 'events/' . $event->slug);
 
@@ -87,11 +113,10 @@ class EventController extends Controller
                 ]);
             }
 
-
-
             $profile = new Profile;
             $profile->user_id = $user->id;
             $profile->phone = $request->phone;
+            $profile->name = $request->name;
             $profile->email = $request->email;
             $profile->title = $request->title;
             $profile->church_id = $event->church_id;
@@ -101,12 +126,13 @@ class EventController extends Controller
 
             Auth::loginUsingId($user->id);
 
-            $user->notify(new EventRegistration($user));
+            $user->notify(new EventRegistration($user,  $password));
 
             return response()->json([
                 'message' => 'Successfully Registered',
                 'code' => '200'
             ]);
+
     }
 
     /**
@@ -170,5 +196,15 @@ class EventController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function generateRandomString($length = 10) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
     }
 }

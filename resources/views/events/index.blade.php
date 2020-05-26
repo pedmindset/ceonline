@@ -125,13 +125,13 @@
                                 <div class="text-sm text-red-500">@{{ validation.firstError('email') }}</div>
                             </div>
                         </div>
-                        <div v-if="guest" class="sm:col-span-2">
+                        {{-- <div v-if="guest" class="sm:col-span-2">
                             <label for="email" class="block text-sm font-medium leading-5 text-gray-700">Password</label>
                             <div class="mt-1 relative rounded-md shadow-sm">
                                 <input v-model="password" id="password" type="password" class="form-input block w-full transition ease-in-out duration-150 sm:text-sm sm:leading-5" />
                                 <div class="text-sm text-red-500">@{{ validation.firstError('password') }}</div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="sm:col-span-2">
                             <label for="phone_number" class="block text-sm font-medium leading-5 text-gray-700">Phone Number</label>
@@ -204,7 +204,6 @@
                       expectation: '',
                       title: '',
                       phone: '',
-                      password: '',
                       name: '',
                       data: '',
                       event: {},
@@ -235,9 +234,9 @@
                     return Validator.value(value).required();
                 },
 
-                phone: function(value) {
-                    return Validator.value(value).required();
-                },
+                // phone: function(value) {
+                //     return Validator.value(value).required();
+                // },
 
                 password: function(value) {
                     if(this.guest){
@@ -262,7 +261,6 @@
                                 phone: self.phone,
                                 email: self.email,
                                 title: self.title,
-                                paasword: self.password,
                                 expectation: this.expectation,
                             }).then(function(r){
                                 if(r.data.code == 200){

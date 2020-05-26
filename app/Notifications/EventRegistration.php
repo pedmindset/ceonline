@@ -15,14 +15,18 @@ class EventRegistration extends Notification
 
     protected $user;
 
+    protected $password;
+
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(User $user)
+    public function __construct(User $user, $password = false)
     {
         $this->user = $user;
+        $this->password = $password;
     }
 
     /**
@@ -48,12 +52,25 @@ class EventRegistration extends Notification
         $profile = $this->user->profile;
         $event = $user->events()->latest()->first();
 
-        return (new MailMessage)
-                    ->subject('Registration for ' . Str::ucfirst($event->title))
-                    ->greeting('Dear ' . Str::ucfirst($profile->title) . ' ' .Str::ucfirst($profile->name))
-                    ->line('You registered for ' . Str::ucfirst($event->title) . ' ' . 'Date: ' . $event->start_date->toDayDateTimeString() )
-                    ->action('Event Site', url('/'))
-                    ->line('Thank you for registering for this special Conference!');
+        if($this->password == false)
+        {
+            return (new MailMessage)
+                ->subject('Registration for ' . Str::ucfirst($event->title))
+                ->greeting('Dear ' . Str::ucfirst($profile->title) . ' ' .Str::ucfirst($profile->name))
+                ->line('You registered for ' . Str::ucfirst($event->title) . ' ' . 'Date: ' . $event->start_date->toDayDateTimeString() )
+                ->action('Event Site', url('/'))
+                ->line('Thank you for registering for this special Conference!');
+        }else{
+            return (new MailMessage)
+                ->subject('Registration for ' . Str::ucfirst($event->title))
+                ->greeting('Dear ' . Str::ucfirst($profile->title) . ' ' .Str::ucfirst($profile->name))
+                ->line('You registered for ' . Str::ucfirst($event->title) . ' ' . 'Date: ' . $event->start_date->toDayDateTimeString() )
+                ->line("Login Details")
+                ->line("Email: $user->email | Password: $this->password")
+                ->action('Event Site', url('/'))
+                ->line('Thank you for registering for this special Conference!');
+        }
+
     }
 
     /**
