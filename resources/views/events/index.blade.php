@@ -238,12 +238,12 @@
                 //     return Validator.value(value).required();
                 // },
 
-                password: function(value) {
-                    if(this.guest){
-                        return Validator.value(value).required();
-                    }
+                // password: function(value) {
+                //     if(this.guest){
+                //         return Validator.value(value).required();
+                //     }
 
-                },
+                // },
 
              },
 
