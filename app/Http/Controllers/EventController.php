@@ -60,7 +60,9 @@ class EventController extends Controller
                 $profile->title = $request->title;
                 $profile->save();
 
-                $user->events()->attach($event->id);
+                if(!($user->events()->where('event_id', $event->id)->first())){
+                    $user->events()->attach($event->id);
+                }
 
                 $user->notify(new EventRegistration($user));
 
@@ -93,8 +95,9 @@ class EventController extends Controller
                     $profile->church_id = $event->church_id;
                     $profile->save();
 
-                    $user->events()->attach($event->id);
-
+                    if(!($user->events()->where('event_id', $event->id)->first())){
+                        $user->events()->attach($event->id);
+                    }
                     Auth::loginUsingId($user->id);
 
                     $user->notify(new EventRegistration($user,  $password));
@@ -122,7 +125,9 @@ class EventController extends Controller
             $profile->church_id = $event->church_id;
             $profile->save();
 
-            $user->events()->attach($event->id);
+            if(!($user->events()->where('event_id', $event->id)->first())){
+                $user->events()->attach($event->id);
+            }
 
             Auth::loginUsingId($user->id);
 
