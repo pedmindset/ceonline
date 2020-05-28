@@ -5,7 +5,7 @@
 @push('page-title')
 <div class="flex justify-between">
     <p class="hidden sm:block">Your Giving</p>
-    <button v-on:click="payment_modal = true" class="my-2 mx-1 inline-flex items-center shadow-md px-8 py-2 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"> 
+    <button v-on:click="payment_modal = true" class="my-2 mx-1 inline-flex items-center shadow-md px-8 py-2 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
         <i class="lab la-cc-visa mr-1 text-2xl"></i><i class="lab la-cc-mastercard mr-1 text-2xl"></i><i class="las la-mobile-alt mr-1 text-2xl"></i> Click to Give Securely Online with Bank Card or MoMo
       </button>
 
@@ -44,7 +44,7 @@
                       <p v-show="categoryValidation" class="text-left text-sm text-red-500">Please select a category</p>
                     </div>
                   </div>
-              
+
                   <label for="phone" class="my-2 text-left  my-1   block text-sm font-medium leading-5 text-gray-700">Phone Number</label>
                   <div class="mt-1 relative rounded-md shadow-sm">
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -73,7 +73,7 @@
                   </div>
                   <p v-show="amountValidation" class="text-left text-sm text-red-500">Please enter an amount</p>
 
-                  <label for="expectation" class="my-2 text-left  my-1  block text-sm font-medium leading-5 text-gray-700">Expectation/ Desired Harvest</label>
+                  <label for="expectation" class="my-2 text-left  my-1  block text-sm font-medium leading-5 text-gray-700">Expectations/  Desired harvest/ Testimony</label>
                   <div class="mt-1 relative shadow-sm">
                     <textarea id="expectation" v-model="expectation"  rows="3" placeholder="" class="form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
                   </div>
@@ -108,12 +108,12 @@
                   :currency="currency"
                   :country="rave_country"
               ><i class="lab la-cc-visa mr-1 text-2xl"></i><i class="lab la-cc-mastercard mr-1 text-2xl"></i><i class="las la-mobile-alt mr-1 text-2xl"></i> Give Now</Rave>
-          
+
           </div>
         </div>
       </div>
 </div>
-  
+
 @endpush
 
 @push('custom-styles')
@@ -123,7 +123,7 @@
 @push('page-content')
 <div class="max-w-8xl mx-auto py-6 sm:px-6 lg:px-8">
     <div class="flex flex-wrap justify-around my-8">
-        
+
         <div class="h-auto min-w-18 my-3 py-5 bg-white rounded-lg shadow-xl flex flex-col text-gray-500 items-center mx-2">
             <span class="rounded-full bg-indigo-400">
                 <i class=" text-white las la-check-circle text-3xl p-3"></i>
@@ -192,7 +192,7 @@
                        @else
                        {{ $payment->currency }} {{ $payment->amount ?? 'NA'}}
                        @endif
-                       
+
                     </td>
                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
                         {{ $payment->service->title ?? 'NA'}}
@@ -200,7 +200,7 @@
                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
                         {{ $payment->created_at->toDateString() }}
                     </td>
-                    
+
                     </tr>
                 @empty
                 <p class="my-2 p-4 text-sm text-gray-500">No Giving Recorded Yet.</p>
@@ -213,16 +213,16 @@
 </div>
   @endpush
 
-  @push('custom-scripts')  
+  @push('custom-scripts')
   <script>
-  
+
       var service = <?= json_encode($service); ?>
-  
+
       var payment_categories = <?= json_encode($payment_categories); ?>
-  
+
       var user = <?= json_encode($user); ?>
-      
-  
+
+
       const app = new Vue({
           el: '#myapp',
           data: function(){
@@ -248,26 +248,26 @@
                   shareURl: false,
                   amountValidation: false,
                   categoryValidation: false
-  
+
               }
           },
-  
+
           computed: {
-  
+
               rave_country: function(){
                 if(this.currency == "GHS"){
                     return this.country = 'GH'
                 }
-  
+
                 if(this.currency == "NGN"){
                     return this.country = 'NG'
                 }
-  
+
                 if(this.currency == "USD"){
                     return this.country = 'US'
                 }
               },
-  
+
               first_name(){
                 try {
                     this.fname = user.name.split(' ')[0]
@@ -277,27 +277,27 @@
                   }
                   return this.fname
               },
-  
+
               last_name(){
                 try {
                   this.lname = user.name.split(' ')[1]
                 } catch (error) {
-                  return 
+                  return
                 }
                 return this.lname;
               },
-  
+
               reference(){
                 let text = "";
                 let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  
+
                 for( let i=0; i < 10; i++ )
                   text += possible.charAt(Math.floor(Math.random() * possible.length));
-  
+
                   return text + '-' + this.payment_category + '-' + this.expectation;
               }
           },
-      
+
           methods: {
 
             first_timer: function(){
@@ -323,10 +323,10 @@
                 }).catch(function(e){
 
                 })
-               
+
               }
             })
-           
+
           },
 
           salvation: function(){
@@ -352,14 +352,14 @@
                 }).catch(function(e){
 
                 })
-               
+
               }
             })
           },
 
           closeShareURL: function () {
               console.log(this.shareURl = false);
-              
+
           },
           rave_callback: function(response){
             this.payment_modal = false;
@@ -415,11 +415,11 @@
               return this.amountValidation = false
             }
           },
-          
+
         }
 
-      
+
       })
-      
+
       </script>
   @endpush

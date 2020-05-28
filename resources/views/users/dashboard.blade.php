@@ -137,7 +137,7 @@
                                   </div>
                                   <p v-show="amountValidation" class="text-left text-sm text-red-500">Please enter an amount</p>
 
-                                <label for="expectation" class="my-2 text-left  my-1  block text-sm font-medium leading-5 text-gray-700">Expectation/ Desired Harvest</label>
+                                <label for="expectation" class="my-2 text-left  my-1  block text-sm font-medium leading-5 text-gray-700">Expectations/  Desired harvest/ Testimony</label>
                                 <div class="mt-1 relative shadow-sm">
                                   <textarea id="expectation" v-model="expectation"  rows="3" placeholder="" class="form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
                                 </div>
