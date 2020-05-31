@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
+use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\Models\Media;
-
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\File;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Profile extends Model implements HasMedia
 {
-    use HasMediaTrait;
+    use InteractsWithMedia;
     protected $guarded = [''];
 
     /**
@@ -29,12 +29,12 @@ class Profile extends Model implements HasMedia
         return $this->getFirstMediaUrl('profile', 'big');
     }
 
-    public function registerMediaCollections()
+    public function registerMediaCollections() : void
     {
         $this->addMediaCollection('profile');
     }
 
-    public function registerMediaConversions(Media $media = null)
+    public function registerMediaConversions(Media $media = null): void
     {
 
         $this->addMediaConversion('thumb')

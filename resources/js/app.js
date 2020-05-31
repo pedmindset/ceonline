@@ -12,6 +12,12 @@ import VueSweetalert2 from 'vue-sweetalert2';
 
 Vue.use(VueSweetalert2);
 
+import SimpleVueValidation from 'simple-vue-validator';
+
+window.Validator = SimpleVueValidation.Validator;
+
+Vue.use(SimpleVueValidation);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -46,5 +52,5 @@ Vue.component('Rave', require('./components/Rave.vue').default);
 
 //     mounted(){
 
-//     } 
+//     }
 // });

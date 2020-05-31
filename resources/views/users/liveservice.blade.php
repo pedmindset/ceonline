@@ -36,10 +36,10 @@
                          <p class="pb-4 pt-1 text-sm  md:text-base text-gray-500">{{ $service->start_date->toFormattedDateString() }}</p>
                     </span>
                     <div class="mt-2">
-                      {{-- <button class="my-2 mx-1 inline-flex items-center shadow-md px-8 py-2 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"> 
+                      {{-- <button class="my-2 mx-1 inline-flex items-center shadow-md px-8 py-2 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
                         <i class="las la-phone-alt text-2xl"></i>  MTN Mobile Money  054 944 9772
                       </button> --}}
-                      <button v-on:click="payment_modal = true" class="my-2 mx-1 inline-flex items-center shadow-md px-8 py-2 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"> 
+                      <button v-on:click="payment_modal = true" class="my-2 mx-1 inline-flex items-center shadow-md px-8 py-2 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
                         <i class="lab la-cc-visa mr-1 text-2xl"></i><i class="lab la-cc-mastercard mr-1 text-2xl"></i><i class="las la-mobile-alt mr-1 text-2xl"></i> Click to Give Securely Online with Bank Card or MoMo
                       </button>
 
@@ -78,7 +78,7 @@
                                         <p v-show="categoryValidation" class="text-left text-sm text-red-500">Please select a category</p>
                                       </div>
                                     </div>
-                                
+
                                     <label for="phone" class="my-2 text-left  my-1   block text-sm font-medium leading-5 text-gray-700">Phone Number</label>
                                     <div class="mt-1 relative rounded-md shadow-sm">
                                       <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -93,7 +93,7 @@
                                         </span>
                                       </div>
                                     </div>
-  
+
                                     <label for="phone" class="my-2 text-left  my-1  block text-sm font-medium leading-5 text-gray-700">Amount to give</label>
                                     <div class="mt-1 relative rounded-md shadow-sm">
                                         <div class="absolute inset-y-0 left-0 flex items-center">
@@ -107,7 +107,7 @@
                                     </div>
                                     <p v-show="amountValidation" class="text-left text-sm text-red-500">Please enter an amount</p>
 
-                                    <label for="expectation" class="my-2 text-left  my-1  block text-sm font-medium leading-5 text-gray-700">Expectation/ Desired Harvest</label>
+                                    <label for="expectation" class="my-2 text-left  my-1  block text-sm font-medium leading-5 text-gray-700">Expectations/  Desired harvest/ Testimony</label>
                                     <div class="mt-1 relative shadow-sm">
                                       <textarea id="expectation" v-model="expectation"  rows="3" placeholder="" class="form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
                                     </div>
@@ -142,16 +142,16 @@
                                     :currency="currency"
                                     :country="rave_country"
                                 ><i class="lab la-cc-visa mr-1 text-2xl"></i><i class="lab la-cc-mastercard mr-1 text-2xl"></i><i class="las la-mobile-alt mr-1 text-2xl"></i> Give Now</Rave>
-                            
+
                             </div>
                           </div>
                       </div>
-                     
-                          
+
+
 
                     </div>
                 </div>
-                
+
                 <div class="sm:col-span-6 mt-4 px-6 md:px-1">
                     <label for="about" class="block text-sm font-medium leading-5 text-gray-700">
                       Comment
@@ -162,7 +162,7 @@
                         <button :disabled="submit_comment"  v-on:click="post_comment()" type="button" class=" inline-flex items-center shadow-md px-8 py-2 my-4 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
                           <span v-show="spinner" class="spinner mr-5"></span> Submit
                         </button>
-                      </span>                  
+                      </span>
                     </div>
                     <p class="mt-2 text-sm text-gray-500">post your thoughts here.</p>
                 </div>
@@ -207,7 +207,7 @@
                         <p v-if="live_comments == ''" class="p-4">No Comment. Be the first to comment</p>
 
                       </ul>
-                    </div> 
+                    </div>
               </div>
             </div>
         </div>
@@ -226,7 +226,7 @@
             @empty
             <p class="p-4">No Videos. Thank you</p>
             @endforelse
-           
+
         </div>
     </div>
 </div>
@@ -310,7 +310,7 @@ data: function(){
           try {
             this.lname = user.name.split(' ')[1]
           } catch (error) {
-            return 
+            return
           }
           return this.lname;
         },
@@ -331,7 +331,7 @@ data: function(){
           console.log(this.shareURl = false);
       },
 
-     
+
       first_timer: function(){
         var self = this;
         self.$swal.fire({
@@ -355,10 +355,10 @@ data: function(){
             }).catch(function(e){
 
             })
-            
+
           }
         })
-        
+
       },
 
       salvation: function(){
@@ -384,7 +384,7 @@ data: function(){
             }).catch(function(e){
 
             })
-            
+
           }
         })
       },
@@ -407,10 +407,10 @@ data: function(){
           }).catch(function(e){
              self.payment_modal = false;
              self.amount = '',
-              self.payment_category = ''              
+              self.payment_category = ''
               console.log(e);
           })
-        }      
+        }
       },
       rave_close: function(){
         this.payment_modal = false;
@@ -452,7 +452,7 @@ data: function(){
           return d
         }
         return date;
-        
+
       },
 
       post_comment: function(){
@@ -471,7 +471,7 @@ data: function(){
               self.message = '';
               console.log(response.data);
           }).catch(function(e){
-              submit_comment = false   
+              submit_comment = false
               self.spinner = false;
               console.log(e);
           })
@@ -484,9 +484,9 @@ data: function(){
                     service: this.service.id,
                     count: 1
                 }).then(function(r){
-                    
+
                 }).catch(function(e){
-                    
+
                 })
             }
         },
@@ -521,7 +521,7 @@ data: function(){
     mounted: function(){
       this.subscribeComment();
         var self = this;
-      setInterval(function(){ 
+      setInterval(function(){
          self.attendance_count();
         },500000
       );
@@ -531,7 +531,7 @@ data: function(){
         Echo.join(`notification.${this.service.id}`)
           .listen('SiteNotification', function(e) {
             console.log(e);
-            
+
             self.$swal.fire({
               icon: 'success',
               title: e.notification.title,
@@ -544,12 +544,12 @@ data: function(){
               onOpen: (toast) => {
                 toast.addEventListener('mouseenter', self.$swal.stopTimer)
                 toast.addEventListener('mouseleave', self.$swal.resumeTimer)
-            
+
               }
             });
 
             self.checkReload(e);
-              
+
         });
     }
 

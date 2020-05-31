@@ -28,6 +28,10 @@ Route::get('/rhapsody', function(Request $request){
     return view('giving');
 });
 
+Route::get('events/{slug}','EventController@show');
+Route::post('events/register/{id}','EventController@store');
+// Route::get('events','EventController@index');
+
 Route::middleware(['auth'])->group(function(){
 
     Route::get('/videos', function () {
@@ -58,6 +62,8 @@ Route::middleware(['auth'])->group(function(){
 
     Route::put('profile_update', 'UserController@profile_update');
 
+
+
     Route::get('views', function(){
         $service = Service::latest()->first();
 
@@ -65,6 +71,7 @@ Route::middleware(['auth'])->group(function(){
 
         return $service;
     });
+
 
 });
 

@@ -87,5 +87,10 @@ class User extends Authenticatable implements MustVerifyEmail
     return $this->hasOne('App\Models\FirstTimer');
     }
 
+    public function events()
+    {
+        return $this->belongsToMany('App\Models\Event');
+    }
+
 
 }

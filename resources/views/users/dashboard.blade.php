@@ -25,7 +25,7 @@
       color: transparent !important;
       pointer-events: none;
     }
-       
+
       .spinner:before {
         content: '';
         box-sizing: border-box;
@@ -41,14 +41,14 @@
         border-top-color: #000;
         animation: spinner .6s linear infinite;
       }
-      
+
       </style>
 
 @endpush
 
 @push('page-content')
 {{-- <div id="myapp"> --}}
-<div class="max-w-7xl mx-auto py-6 px-6 lg:px-8">   
+<div class="max-w-7xl mx-auto py-6 px-6 lg:px-8">
     <div class="grid grid-rows-2 md:grid-cols-4 gap-2">
         <div class="col-span-4 row-span-2">
             <div class="h-auto w-full bg-black flex justify-center items-center">
@@ -67,10 +67,10 @@
                          <p class="pb-4 pt-1 text-sm  md:text-base text-gray-500">{{ $service->start_date->toFormattedDateString() }}</p>
                     </span>
                     <div class="mt-2">
-                      {{-- <button class="my-2 mx-1 inline-flex items-center shadow-md px-8 py-2 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"> 
+                      {{-- <button class="my-2 mx-1 inline-flex items-center shadow-md px-8 py-2 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
                         <i class="las la-phone-alt text-2xl"></i>  MTN Mobile Money  054 944 9772
                       </button> --}}
-                      <button v-on:click="payment_modal = true" class="my-2 mx-1  inline-flex items-center shadow-md px-8 py-2 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"> 
+                      <button v-on:click="payment_modal = true" class="my-2 mx-1  inline-flex items-center shadow-md px-8 py-2 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
                         <i class="lab la-cc-visa mr-1 text-2xl"></i><i class="lab la-cc-mastercard mr-1 text-2xl"></i><i class="las la-mobile-alt mr-1 text-2xl"></i> Click to Give Securely Online with Bank Card or MoMo
                       </button>
 
@@ -108,7 +108,7 @@
                                       <p v-show="categoryValidation" class="text-left text-sm text-red-500">Please select a category</p>
                                     </div>
                                   </div>
-                              
+
                                   <label for="phone" class="my-2 text-left  my-1   block text-sm font-medium leading-5 text-gray-700">Phone Number</label>
                                   <div class="mt-1 relative rounded-md shadow-sm">
                                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -137,7 +137,7 @@
                                   </div>
                                   <p v-show="amountValidation" class="text-left text-sm text-red-500">Please enter an amount</p>
 
-                                <label for="expectation" class="my-2 text-left  my-1  block text-sm font-medium leading-5 text-gray-700">Expectation/ Desired Harvest</label>
+                                <label for="expectation" class="my-2 text-left  my-1  block text-sm font-medium leading-5 text-gray-700">Expectations/  Desired harvest/ Testimony</label>
                                 <div class="mt-1 relative shadow-sm">
                                   <textarea id="expectation" v-model="expectation"  rows="3" placeholder="" class="form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
                                 </div>
@@ -170,16 +170,16 @@
                                   :currency="currency"
                                   :country="rave_country"
                               ><i class="lab la-cc-visa mr-1 text-2xl"></i><i class="lab la-cc-mastercard mr-1 text-2xl"></i><i class="las la-mobile-alt mr-1 text-2xl"></i> Give Now</Rave>
-                          
+
                           </div>
                         </div>
                       </div>
-                     
-                          
+
+
 
                     </div>
                 </div>
-                
+
                 <div class="sm:col-span-6 mt-4">
                     <label for="about" class="block text-sm font-medium leading-5 text-gray-700">
                       Comment
@@ -190,7 +190,7 @@
                         <button :disabled="submit_comment"  v-on:click="post_comment()" type="button" class=" inline-flex items-center shadow-md px-8 py-2 my-4 border border-transparent text-sm leading-5 font-medium rounded-full  text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
                           <span v-show="spinner" class="spinner mr-5"></span> Submit
                         </button>
-                      </span>                  
+                      </span>
                     </div>
                     <p class="mt-2 text-sm text-gray-500">post your thoughts here.</p>
                 </div>
@@ -235,7 +235,7 @@
                         <p v-if="live_comments == ''" class="p-4">No Comment. Be the first to comment</p>
 
                       </ul>
-                    </div> 
+                    </div>
               </div>
             </div>
         </div>
@@ -284,7 +284,7 @@
                 @endforelse
             </ul>
         </div>
-            
+
         </div>
         <div class="mt-3 w-full lg:w-6/12">
             <p class="p-2">Services</p>
@@ -335,7 +335,7 @@
                 </ul>
             </div>
         </div>
-    </div>   
+    </div>
 </div>
 {{-- </div> --}}
 
@@ -354,12 +354,12 @@
     var payment_categories = <?= json_encode($payment_categories); ?>
 
     var user = <?= json_encode($user); ?>
-    
+
     var comments = <?= json_encode($service->comments); ?>
 
     const app = new Vue({
         el: '#myapp',
-    data: function(){
+        data: function(){
         return{
                 payment_modal: false,
                 raveKey: 'FLWPUBK-1beb6ca9cea567480a782f5f99294d64-X',
@@ -420,7 +420,7 @@
               try {
                 this.lname = user.name.split(' ')[1]
               } catch (error) {
-                return 
+                return
               }
               return this.lname;
             },
@@ -433,14 +433,14 @@
                 text += possible.charAt(Math.floor(Math.random() * possible.length));
 
               return text + '-' + this.payment_category + '-' + this.expectation;
-              
+
             }
         },
-    
+
         methods: {
           closeShareURL: function () {
                 console.log(this.shareURl = false);
-                
+
             },
 
           validateForm: function(){
@@ -492,10 +492,10 @@
                 }).catch(function(e){
 
                 })
-               
+
               }
             })
-           
+
           },
 
           salvation: function(){
@@ -521,7 +521,7 @@
                 }).catch(function(e){
 
                 })
-               
+
               }
             })
           },
@@ -544,7 +544,7 @@
               }).catch(function(e){
                 //  self.payment_modal = false;
                 //  self.amount = '',
-                //   self.payment_category = ''              
+                //   self.payment_category = ''
                   console.log(e);
               });
             }
@@ -554,7 +554,7 @@
             this.amount = ''
             console.log("Payment closed")
           },
-  
+
           dateFormat: function(d){
             var date = Moment.tz(d, timezone).fromNow();
             // console.log(date);
@@ -562,9 +562,9 @@
               return d
             }
             return date;
-            
+
           },
-    
+
           post_comment: function(){
              var self = this;
              this.submit_comment = true;
@@ -581,7 +581,7 @@
                   self.message = '';
                   console.log(response.data);
               }).catch(function(e){
-                  submit_comment = false   
+                  submit_comment = false
                   self.spinner = false;
                   console.log(e);
               })
@@ -594,9 +594,9 @@
                         service: this.service.id,
                         count: 1
                     }).then(function(r){
-                        
+
                     }).catch(function(e){
-                        
+
                     })
                 }
             },
@@ -628,11 +628,11 @@
             }
 
         },
-    
+
         mounted: function(){
           this.subscribeComment();
           var self = this;
-          setInterval(function(){ 
+          setInterval(function(){
               self.attendance_count();
             },500000
           );
@@ -642,7 +642,7 @@
             Echo.join(`notification.${this.service.id}`)
               .listen('SiteNotification', function(e) {
                 console.log(e);
-                
+
                 self.$swal.fire({
                   icon: 'success',
                   title: e.notification.title,
@@ -655,18 +655,18 @@
                   onOpen: (toast) => {
                     toast.addEventListener('mouseenter', self.$swal.stopTimer)
                     toast.addEventListener('mouseleave', self.$swal.resumeTimer)
-                
+
                   }
                 });
 
                self.checkReload(e);
-                  
+
             });
         }
-    
-    
+
+
     })
-    
+
     </script>
 @endpush
 

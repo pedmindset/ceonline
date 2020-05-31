@@ -24,7 +24,7 @@
                                     ['dcn' => 'Dcn'],
                                     ['dcns' => 'Dcns'],
                                     ['pst' => 'Pastor']
-                                ];    
+                                ];
                             @endphp
                             <div class="col-md-6">
                                 <select
