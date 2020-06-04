@@ -100,7 +100,7 @@
                                     <option value="sis">Sis</option>
                                     <option value="mr">Mr</option>
                                     <option value="mrs">Mrs</option>
-                                    <option value="dr">Miss</option>
+                                    <option value="miss">Miss</option>
                                     <option value="pst">Pastor</option>
                                     <option value=dcn"">Deacon</option>
                                     <option value="dcns">Deaconess</option>
