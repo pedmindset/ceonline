@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('command:update_user_church')->everyMinute();
 
-        $schedule->command('telescope:prune --hours=72')->daily();
+        $schedule->command('telescope:prune --hours=1')->daily();
     }
 
     /**
