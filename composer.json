@@ -11,6 +11,7 @@
         "php": "^7.2.5",
         "aws/aws-sdk-php": "^3.133",
         "beyondcode/laravel-websockets": "^1.4",
+        "cakephp/chronos": "2.0.5",
         "cloudstudio/resource-generator": "^1.5",
         "cyrildewit/eloquent-viewable": "^5.0",
         "digitalcloud/nova-resource-notes": "^1.4",
@@ -34,11 +35,11 @@
         "pusher/pusher-php-server": "~3.0",
         "spatie/laravel-medialibrary": "8.0.0",
         "spatie/laravel-permission": "^3.11",
+        "spatie/nova-backup-tool": "^4.0",
         "titasgailius/search-relations": "^1.0",
         "torann/geoip": "^1.1",
         "vyuldashev/nova-permission": "^2.1",
-        "yoeunes/toastr": "^1.2",
-        "cakephp/chronos": "2.0.5"
+        "yoeunes/toastr": "^1.2"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

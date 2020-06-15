@@ -88,6 +88,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             \Vyuldashev\NovaPermission\NovaPermissionTool::make(),
             new CustomEmailSender(),
             new \Cloudstudio\ResourceGenerator\ResourceGenerator(),
+            new \Spatie\BackupTool\BackupTool(),
         ];
     }
 
